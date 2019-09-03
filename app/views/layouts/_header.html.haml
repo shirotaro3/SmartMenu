@@ -1,0 +1,18 @@
+%header.columns.is-mobile
+    .column.is-4.is-gapless
+        ここにロゴ
+    .column.is-4.is-gapless
+        aa
+    .column.is-4.is-gapless.text-right
+        -if shop_signed_in?
+            ログイン中
+            =link_to destroy_shop_session_path, class:"button is-small is-rounded login-btn", id:"login-btn" do
+                %i.fa.fa-user
+                %span ログアウト
+        -else
+            =link_to new_shop_registration_path, class:"button is-small is-rounded login-btn", id:"login-btn" do
+                %i.fa.fa-user
+                %span 新規登録       
+            =link_to new_shop_session_path, class:"button is-small is-rounded login-btn", id:"login-btn" do
+                %i.fa.fa-user
+                %span ログイン

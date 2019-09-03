@@ -1,0 +1,2 @@
+class SpecialFeaturesController < ApplicationController
+end

@@ -1,0 +1,2 @@
+module SpecialFeaturesHelper
+end

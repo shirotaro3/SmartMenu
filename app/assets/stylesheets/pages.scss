@@ -1,0 +1,51 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//*** MainVisual（スライド） ***
+ 
+.main-visual{
+    background-color:black;
+    opacity:.9;
+    color:white;
+    height: 28em;
+    margin-top:-12px;
+    border-top:1px solid rgba(80,0,0,.5);
+    border-bottom:1px solid rgba(80,0,0,.5);
+}
+#theTarget{
+    .image1{
+        background-image:url('menu1.jpg');
+    }
+    .image2{
+        background-image:url('qr.jpg');
+    }
+    .image3{
+        background-image:url('menu2.jpg');
+    }
+    .image1,.image2,.image3 {
+        padding:50px 3% 0 3%;
+        .heading-text,.text{
+            margin-top:20px;
+            text-shadow: 1px 1px 3px black;
+            a{
+                color:white;
+                &:hover{
+                    color:pink;
+                }
+            }
+        }
+        .heading-text{
+            font-size:3em;
+            font-weight:bold;
+        }
+        .text {
+            font-size:1.7em;
+            font-weight:bold;
+            a{
+                text-decoration:underline;
+            }
+        }
+    }
+}

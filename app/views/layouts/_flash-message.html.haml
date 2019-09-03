@@ -1,0 +1,7 @@
+#flash-message
+    -if flash[:notice]
+        .alert
+            =flash[:notice]
+    -if flash[:alert]
+        .alert
+            =flash[:alert]

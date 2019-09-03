@@ -1,0 +1,115 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_tree ../../../vendor/assets/stylesheets/.
+ *= require_self
+ */
+ @import "bulma";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+ // 共通
+ html{
+	min-height: 98.6vh;
+	position: relative;
+ }
+ body{
+	margin-bottom: 3em;
+ }
+
+ h1 {
+     font-size: 2.5em;
+ }
+
+ .text-right{
+     text-align:right;
+ }
+ .text-center{
+     text-align:center;
+ }
+ .text-left{
+     text-align:left;
+ }
+ 
+ .touch{
+     transition:.3s;
+     &:hover{
+         background-color:rgba(255,255,255,.3);
+     }
+ }
+ .is-round{
+    border-radius:15px;     
+ }
+
+ // *** フラッシュメッセージ ***
+ #flash-message{
+     display:none;
+     padding:3px;
+     .notice{
+         background-color:green;
+         color:white;
+     }
+     .alert{
+         background-color:red;
+         color:white;
+     }
+ }
+
+ // *** header ***
+ 
+ header {
+     background-color: rgba(100,0,0,.6);
+     color: white;
+     height:4em;
+     padding: 0 3%;
+     a{
+         color:white;
+         &:hover{
+             color:lightpink;
+             text-decoration:underline;
+         }
+     }
+     .login-btn{
+         background-color:rgba(0,0,0,0);
+         border:2px solid white;
+         color: white;
+         padding-top:15px;
+         padding-bottom:15px;
+         margin-top:5px;
+         &:hover{
+             border:2px solid white;
+             color: white;
+             text-decoration:none;
+             background-color:rgba(255,255,255,.2);
+         }
+     }
+ }
+
+ // ***footer***
+
+ footer{
+     background-color: rgba(100,0,0,.6);
+     color: white;
+     height:3em;
+     position: absolute;
+     bottom: 0;
+     left: 12px;
+     width:100%;
+     a{
+         color:lightgrey;
+         &:hover{
+             color:white;
+         }
+     }
+ }
+

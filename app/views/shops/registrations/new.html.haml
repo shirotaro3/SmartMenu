@@ -1,0 +1,55 @@
+%h2 Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    %label Shop名
+    %br
+    = f.text_field :shop_name
+  .field
+    %label 郵便番号
+    %br
+    = f.text_field :postal_code
+  .field
+    %label 都道府県
+    %br
+    = f.text_field :state
+  .field
+    %label 市町村
+    %br
+    = f.text_field :city
+  .field
+    %label 番地
+    %br
+    = f.text_field :street
+  .field
+    %label 電話番号
+    %br
+    = f.text_field :phone_number
+  .field
+    %label 代表者名
+    %br
+    = f.text_field :last_name
+    = f.text_field :first_name
+  .field
+    %label 代表者名（カナ）
+    %br
+    = f.text_field :last_kana
+    = f.text_field :first_kana
+  .field
+    %label Eメール
+    %br
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    %label パスワード
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    %label パスワード確認
+    %br
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .actions
+    = f.submit "Sign up"
+= render "shops/shared/links"
