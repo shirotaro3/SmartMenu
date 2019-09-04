@@ -9,9 +9,8 @@
     background-color:black;
     opacity:.9;
     color:white;
-    height: 28em;
+    height: 60vh;
     margin-top:-12px;
-    border-top:1px solid rgba(80,0,0,.5);
     border-bottom:1px solid rgba(80,0,0,.5);
 }
 #theTarget{
@@ -29,6 +28,7 @@
         .heading-text,.text{
             margin-top:20px;
             text-shadow: 1px 1px 3px black;
+            font-family: 'Hiragino Kaku Gothic Std';
             a{
                 color:white;
                 &:hover{
@@ -38,11 +38,9 @@
         }
         .heading-text{
             font-size:3em;
-            font-weight:bold;
         }
         .text {
             font-size:1.7em;
-            font-weight:bold;
             a{
                 text-decoration:underline;
             }

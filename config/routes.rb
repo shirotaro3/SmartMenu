@@ -6,22 +6,23 @@ Rails.application.routes.draw do
     passwords:     'shops/passwords',
     registrations: 'shops/registrations'
   }
-  namespace :users do
+  scope :user do
     resources :menus
     resources :reviews, only:[:create,:destroy]
     resources :requests, only:[:create,:new]
   end
-  namespace :shops do
+  namespace :shop do
+    resources :mypages
     resources :menus
     resources :shop_images, only:[:create, :destroy]
     resources :special_features, only:[:new, :create, :destroy, :edit]
-    resources :reviews, only:[:index, :destroy]
-    resources :request, only:[:index, :show, :destroy]
+    resources :view_reviews, only:[:index, :destroy]
+    resources :view_requests, only:[:index, :show, :destroy]
   end
-  namespace :admins do
-    resources :shops
-    resources :reviews
-    resources :requests
+  namespace :admin do
+    resources :manage_shops
+    resources :manage_reviews
+    resources :manage_requests
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

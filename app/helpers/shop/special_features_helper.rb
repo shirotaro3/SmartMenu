@@ -1,0 +1,2 @@
+module Shop::SpecialFeaturesHelper
+end

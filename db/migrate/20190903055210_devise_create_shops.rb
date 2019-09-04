@@ -22,26 +22,22 @@ class DeviseCreateShops < ActiveRecord::Migration[5.2]
       # t.string   :last_sign_in_ips
 
       ## Confirmable
-      t.string   :confirmation_token
-      t.datetime :confirmed_at
-      t.datetime :confirmation_sent_at
-      t.string   :unconfirmed_email # Only if using reconfirmable
+      #t.string   :confirmation_token
+      #t.datetime :confirmed_at
+      #t.datetime :confirmation_sent_at
+      #t.string   :unconfirmed_email # Only if using reconfirmable
 
       ## Lockable
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
       t.string :shop_name, null: false, default: ''
-      t.integer :postal_code, null: false, default: 0
+      t.integer :postal_code, null: false, default: ''
       t.integer :state, null: false, default: ''
       t.string :city, null: false, default: ''
       t.string :street, null: false, default: ''
-      t.integer :phone_number, null: false, default: 0
-      t.string :first_name, null: false, default: ''
-      t.string :last_name, null: false, default: ''
-      t.string :first_kana, null: false, default: ''
-      t.string :last_kana, null: false, default: ''
-      t.string :shop_color, null: false, default: ''
+      t.integer :phone_number, null: false, default: ''
+      t.string :shop_color
 
       t.timestamps null: false
     end

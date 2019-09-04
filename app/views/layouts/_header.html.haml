@@ -1,18 +1,20 @@
 %header.columns.is-mobile
-    .column.is-4.is-gapless
-        ここにロゴ
-    .column.is-4.is-gapless
-        aa
-    .column.is-4.is-gapless.text-right
-        -if shop_signed_in?
-            ログイン中
-            =link_to destroy_shop_session_path, class:"button is-small is-rounded login-btn", id:"login-btn" do
-                %i.fa.fa-user
+    .column.is-5.is-gapless
+        = link_to 'ここにロゴ',root_path
+    .column.is-2.is-gapless.text-center
+        %span.button.is-small.header-btn#menu-btn1
+            %i.fa.fa-bars
+    .column.is-5.is-gapless.text-right
+        - if shop_signed_in?
+            = link_to destroy_shop_session_path,method: :delete, class:"button is-small is-rounded header-btn" do
+                %i.fas.fa-sign-out-alt
                 %span ログアウト
-        -else
-            =link_to new_shop_registration_path, class:"button is-small is-rounded login-btn", id:"login-btn" do
-                %i.fa.fa-user
-                %span 新規登録       
-            =link_to new_shop_session_path, class:"button is-small is-rounded login-btn", id:"login-btn" do
-                %i.fa.fa-user
+            = link_to shop_mypage_path(current_shop), class:'button is-rounded header-btn' do
+                %i.fas.fa-cog
+        - else
+            = link_to new_shop_registration_path, class:"button is-small is-rounded header-btn" do
+                %i.fas.fa-user-alt
+                %span 新規登録
+            = link_to new_shop_session_path, class:"button is-small is-rounded header-btn" do
+                %i.fas.fa-sign-in-alt
                 %span ログイン

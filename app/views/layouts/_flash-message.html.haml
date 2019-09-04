@@ -1,7 +1,9 @@
 #flash-message
     -if flash[:notice]
-        .alert
+        .notice
+            %i.fa.fa-comment
             =flash[:notice]
     -if flash[:alert]
         .alert
+            %i.fa.fa-exclamation-triangle
             =flash[:alert]

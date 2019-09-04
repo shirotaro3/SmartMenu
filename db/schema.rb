@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2019_09_03_055210) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.integer "user_id", default: 0, null: false
-    t.integer "shop_id", default: 0, null: false
+    t.integer "user_id", null: false
+    t.integer "shop_id", null: false
     t.text "message", default: "", null: false
     t.string "title", default: "", null: false
     t.datetime "created_at", null: false
@@ -64,21 +64,13 @@ ActiveRecord::Schema.define(version: 2019_09_03_055210) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.string "shop_name", default: "", null: false
-    t.integer "postal_code", default: 0, null: false
-    t.string "state", default: "", null: false
+    t.integer "postal_code", null: false
+    t.integer "state", null: false
     t.string "city", default: "", null: false
     t.string "street", default: "", null: false
-    t.integer "phone_number", default: 0, null: false
-    t.string "first_name", default: "", null: false
-    t.string "last_name", default: "", null: false
-    t.string "first_kana", default: "", null: false
-    t.string "last_kana", default: "", null: false
-    t.string "shop_color", default: "", null: false
+    t.integer "phone_number", null: false
+    t.string "shop_color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_shops_on_email", unique: true
