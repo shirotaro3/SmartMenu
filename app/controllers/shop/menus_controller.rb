@@ -21,6 +21,9 @@ class Shop::MenusController < ApplicationController
         menu.destroy
         redirect_to shop_menus_path, :notice=>'メニューを削除しました。'
     end
+    def show
+        @menu = Menu.find(params[:id])
+    end
     def qrcode
         menu = Menu.find(params[:id])
         @url = shop_menu_qrcode_url(menu)

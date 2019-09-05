@@ -2,6 +2,5 @@ class MenuItem < ApplicationRecord
     has_many :grins
     has_many :happies
     has_many :dizzies
-    belongs_to :category
-    belongs_to :menu
+    belongs_to :item_group
 end

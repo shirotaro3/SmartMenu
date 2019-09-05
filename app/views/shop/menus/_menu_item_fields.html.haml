@@ -1,0 +1,32 @@
+.nested-fields.columns
+    .column
+        .field.is-horizontal
+            .field-label.is-small
+                %label 項目名
+            .field-body
+                .field
+                    .control
+                        = f.text_field :item_name,class:'input is-small'
+        .field.is-horizontal
+            .field-label.is-small
+                %label 画像
+            .field-body
+                .field
+                    .control
+                        = f.text_field :item_image_id,class:'input is-small'
+        .field.is-horizontal
+            .field-label.is-small
+                %label 紹介文
+            .field-body
+                .field
+                    .control
+                        = f.text_field :item_text,class:'input is-small'
+        .field.is-horizontal
+            .field-label.is-small
+                %label 価格(税抜き)
+            .field-body
+                .field
+                    .control
+                        = f.text_field :price,class:'input is-small'
+    .column.is-2
+        =link_to_remove_association '削除', f,class:'button is-danger'

@@ -4,8 +4,14 @@
             =render 'shop/sidebar'
         .column.is-1.is-hidden-mobile
         .column.is-10-mobile.is-offset-1-mobile
-            %h2.text-large
-                %i.fas.fa-edit
-                メニュー編集
-                %p.text-small メニューの商品を追加。編集できます。
-                
+            %table.table
+                %thead
+                    %tr
+                        %td
+                            %h2.text-large
+                                %i.fas.fa-edit
+                                メニュー編集
+                            %p.text-small メニューの商品を追加・編集できます。
+                %tbody
+                    %tr
+                        %td

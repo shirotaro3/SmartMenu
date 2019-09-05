@@ -34,4 +34,7 @@
                 %tbody
                     %tr
                         %td
-                            = pie_chart @data
+                            -if @data["happy"] == 0 && @data["dizzy"] == 0 && @data["grin"] == 0
+                                エモーションはまだついていません。
+                            -else
+                                = pie_chart @data

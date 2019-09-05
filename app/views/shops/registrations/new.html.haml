@@ -6,8 +6,8 @@
         = render "devise/shared/error_messages", resource: resource
         .field
           %label お店の名前
-          %br
-          = f.text_field :shop_name,autofocus: true,class:'input', placeholder:'最大10文字まで'
+          .control
+            = f.text_field :shop_name,autofocus: true,class:'input', placeholder:'最大10文字まで'
         .field
           %label 郵便番号
           %br

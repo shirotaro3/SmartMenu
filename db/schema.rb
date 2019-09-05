@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_04_131953) do
+ActiveRecord::Schema.define(version: 2019_09_05_103933) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.integer "shop_id", default: 0, null: false
+    t.integer "shop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,8 +40,14 @@ ActiveRecord::Schema.define(version: 2019_09_04_131953) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "item_groups", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "menu_items", force: :cascade do |t|
-    t.integer "menu_id", default: 0, null: false
+    t.integer "item_group_id", default: 0, null: false
     t.string "item_image_id", default: "", null: false
     t.string "item_name", default: "", null: false
     t.text "item_text", default: "", null: false

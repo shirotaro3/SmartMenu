@@ -12,11 +12,12 @@ Rails.application.routes.draw do
     resources :requests, only:[:create,:new]
   end
   namespace :shop do
-    resources :categories
+    resources :categories do
+      resources :item_groups
+    end
     resources :mypages
     resources :menus
     get 'menu/:id/qrcode' => 'menus#qrcode',as: 'menu_qrcode'
-    resources :shop_images, only:[:create, :destroy]
     resources :special_features, only:[:new, :create, :destroy, :edit]
     resources :emotions, only:[:index, :destroy]
     resources :requests, only:[:index, :show, :destroy]
