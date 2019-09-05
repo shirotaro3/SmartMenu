@@ -6,22 +6,23 @@ Rails.application.routes.draw do
     passwords:     'shops/passwords',
     registrations: 'shops/registrations'
   }
-  scope :user do
+  namespace :user do
     resources :menus
-    resources :reviews, only:[:create,:destroy]
+    resources :emotions, only:[:create,:destroy]
     resources :requests, only:[:create,:new]
   end
   namespace :shop do
+    resources :categories
     resources :mypages
     resources :menus
+    get 'menu/:id/qrcode' => 'menus#qrcode',as: 'menu_qrcode'
     resources :shop_images, only:[:create, :destroy]
     resources :special_features, only:[:new, :create, :destroy, :edit]
-    resources :view_reviews, only:[:index, :destroy]
-    resources :view_requests, only:[:index, :show, :destroy]
+    resources :emotions, only:[:index, :destroy]
+    resources :requests, only:[:index, :show, :destroy]
   end
   namespace :admin do
     resources :manage_shops
-    resources :manage_reviews
     resources :manage_requests
   end
 

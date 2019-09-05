@@ -77,10 +77,12 @@ gem 'rails-i18n'
 gem 'bulma-rails'
 # font-awesomeアイコン表示
 gem 'font-awesome-sass'
-# haml導入
+# hamlit導入
 gem 'haml-rails'
 # jsライブラリ
 gem 'jquery-rails'
 # QRコード生成
 gem 'rqrcode'
 gem 'chunky_png'
+# グラフの描画
+gem 'chartkick'

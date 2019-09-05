@@ -1,0 +1,15 @@
+.container
+    .columns
+        .column.is-3.is-hidden-mobile
+            =render 'shop/sidebar'
+        .column.is-1.is-hidden-mobile
+        .column.is-10-mobile.is-offset-1-mobile
+            -# 新着リクエスト
+            %table.table
+                %thead
+                    %tr
+                        %td
+                            %h2.text-large
+                                %i.far.fa-comment-alt
+                                リクエスト
+                            %p.text-small あなたのお店に届いているリクエストです。

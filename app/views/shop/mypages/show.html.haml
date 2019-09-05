@@ -1,4 +1,37 @@
-.columns.is-fluid
-    .column.is-4.is-gapless
-        =render 'sidebar'
-    .column.is-8.is-gapless
+.container
+    .columns
+        .column.is-3.is-hidden-mobile
+            =render 'shop/sidebar'
+        .column.is-1.is-hidden-mobile
+        .column.is-10-mobile.is-offset-1-mobile
+            -# 新着リクエスト
+            %table.table
+                %thead
+                    %tr
+                        %td
+                            %h2.text-large
+                                %i.far.fa-comment-alt
+                                新着リクエスト
+                %tbody
+                    - if @requests.any?
+                        - @requests.each do |request|
+                            %tr
+                                %td
+                                    =request.title
+                    -else
+                        %tr
+                            %td
+                                新着リクエストはありません。
+
+            -# 新着エモーション
+            %table.table
+                %thead
+                    %tr
+                        %td
+                            %h2.text-large
+                                %i.far.fa-grin-alt
+                                エモーション
+                %tbody
+                    %tr
+                        %td
+                            = pie_chart @data

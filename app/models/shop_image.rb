@@ -1,2 +1,0 @@
-class ShopImage < ApplicationRecord
-end

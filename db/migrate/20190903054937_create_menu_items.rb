@@ -5,7 +5,7 @@ class CreateMenuItems < ActiveRecord::Migration[5.2]
       t.string :item_image_id, null: false, default: ''
       t.string :item_name, null: false, default: ''
       t.text :item_text, null: false, default: ''
-      t.string :column_color, null: false, default: '#ffffff'
+      t.integer :price, null: false, default: 0
       t.integer :position, null: false, default: 0
       t.timestamps
     end

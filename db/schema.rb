@@ -10,14 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_055210) do
+ActiveRecord::Schema.define(version: 2019_09_04_131953) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.integer "shop_id", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dizzies", force: :cascade do |t|
+    t.integer "menu_item_id", null: false
+    t.integer "shop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "grins", force: :cascade do |t|
+    t.integer "menu_item_id", null: false
+    t.integer "shop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "happies", force: :cascade do |t|
+    t.integer "menu_item_id", null: false
+    t.integer "shop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "menu_items", force: :cascade do |t|
     t.integer "menu_id", default: 0, null: false
     t.string "item_image_id", default: "", null: false
     t.string "item_name", default: "", null: false
     t.text "item_text", default: "", null: false
-    t.string "column_color", default: "#ffffff", null: false
+    t.integer "price", default: 0, null: false
     t.integer "position", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,10 +53,8 @@ ActiveRecord::Schema.define(version: 2019_09_03_055210) do
 
   create_table "menus", force: :cascade do |t|
     t.string "menu_name", default: "", null: false
-    t.time "start_time"
-    t.time "end_time"
-    t.date "start_date"
-    t.date "end_date"
+    t.string "menu_color", default: "#fff"
+    t.integer "shop_id", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,24 +62,9 @@ ActiveRecord::Schema.define(version: 2019_09_03_055210) do
   create_table "requests", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "shop_id", null: false
+    t.string "email", default: "", null: false
     t.text "message", default: "", null: false
     t.string "title", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.text "comment", default: "", null: false
-    t.string "star_count", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "shop_images", force: :cascade do |t|
-    t.integer "shop_id", default: 0, null: false
-    t.string "shop_image_id", default: "", null: false
-    t.string "image_name", default: "", null: false
-    t.integer "position", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

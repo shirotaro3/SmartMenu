@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Admin::ReviewsControllerTest < ActionDispatch::IntegrationTest
+class GrinTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

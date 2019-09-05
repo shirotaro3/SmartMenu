@@ -1,0 +1,20 @@
+.container
+    .columns
+        .column.is-3.is-hidden-mobile
+            =render 'shop/sidebar'
+        .column.is-1.is-hidden-mobile
+        .column.is-10-mobile.is-offset-1-mobile
+            %h2.text-large
+                %i.fas.fa-clipboard-list
+                新規メニュー
+            = form_with model: Menu.new, url: { :controller=>'shop/menus', :action=>'create'} do |f|
+                .field.has-addons
+                    .control
+                        = f.text_field :name, class:'input'
+                    .control
+                        = f.submit '登録', class:'button is-link'
+
+
+            = link_to shop_categories_path,class:'button is-primary' do
+                %i.fas.fa-plus-circle
+                カテゴリーの登録

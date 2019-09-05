@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Shop::ReviewsControllerTest < ActionDispatch::IntegrationTest
+class DizzyTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
