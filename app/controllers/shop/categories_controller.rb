@@ -1,4 +1,5 @@
 class Shop::CategoriesController < ApplicationController
+    before_action :authenticate_shop!
     def index
         @categories = current_shop.categories
     end
@@ -15,8 +16,12 @@ class Shop::CategoriesController < ApplicationController
     end
     def destroy
         category = Category.find(params[:id])
-        category.destroy
-        redirect_to shop_categories_path, :notice=>'カテゴリと関連アイテムを削除しました。'
+        if category.shop_id == current_shop.id
+            category.destroy
+            redirect_to shop_categories_path, :notice=>'カテゴリと関連アイテムを削除しました。'
+        else
+            redirect_to top_shop_path,:alert=>'アクセス権限がありません。'
+        end
     end
     def edit
         @category = Category.find(params[:id])

@@ -1,6 +1,6 @@
 .sidebar
     %ul
-        = link_to shop_mypage_path(current_shop) do
+        = link_to shop_mypage_top_path do
             %li{:class => params[:controller] == 'shop/mypages' && "is-selected-tab"}
                 マイページTOP
         = link_to shop_menus_path do
@@ -16,5 +16,5 @@
             %li{:class => params[:controller] == 'shop/requests' && "is-selected-tab"}
                 リクエスト
         = link_to shop_menus_path do
-            %li{:class => params[:controller] == 'shop/paepae' && "is-selected-tab"}
+            %li{:class => params[:controller] == 'shop/mypages' && "is-selected-tab"}
                 登録情報

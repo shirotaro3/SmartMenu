@@ -3,7 +3,7 @@
         .column.is-4.is-offset-4.menu-list
             %ul
                 -if shop_signed_in?
-                    = link_to shop_mypage_path(current_shop) do
+                    = link_to shop_mypage_top_path do
                         %li
                             %i.fas.fa-cog
                             マイページ

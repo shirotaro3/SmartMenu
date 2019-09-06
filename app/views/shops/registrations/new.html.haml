@@ -17,7 +17,8 @@
           %label 都道府県
           %br
           .control
-            = f.select :state,Shop.states.keys.to_a,{prompt:'選択してください'},class:'input is-small'
+            .select
+              = f.select :state,Shop.states.keys.to_a,{prompt:'選択してください'}
         .field
           %label 市区町村
           %br

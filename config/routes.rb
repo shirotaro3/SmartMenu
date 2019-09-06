@@ -6,25 +6,29 @@ Rails.application.routes.draw do
     passwords:     'shops/passwords',
     registrations: 'shops/registrations'
   }
-  namespace :user do
-    resources :menus
+  scope module: :user do
+    resources :menus, only:[:show]
+    resources :menu_items, only:[:index,:show]
     resources :emotions, only:[:create,:destroy]
     resources :requests, only:[:create,:new]
   end
   namespace :shop do
-    resources :categories do
-      resources :item_groups
-    end
-    resources :mypages
-    resources :menus
-    get 'menu/:id/qrcode' => 'menus#qrcode',as: 'menu_qrcode'
-    resources :special_features, only:[:new, :create, :destroy, :edit]
+    get 'mypage/top' => 'mypages#top', as:'mypage_top'
+    resources :mypages,only:[:show,:edit,:update]
+    resources :categories,except:[:show,:new]
     resources :emotions, only:[:index, :destroy]
     resources :requests, only:[:index, :show, :destroy]
+    resources :menus, except: :new, shallow: true do
+      get :qrcode, on: :member
+      resources :special_features, only:[:create, :destroy, :edit]
+    end
+    resources :item_groups,only:[:create,:destroy], shallow: true do
+      resources :menu_items, except: :new
+    end
   end
   namespace :admin do
-    resources :manage_shops
-    resources :manage_requests
+    resources :shops,except: :new
+    resources :requests,except: :new
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

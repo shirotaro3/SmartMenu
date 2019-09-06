@@ -1,4 +1,4 @@
-class Shop::MypagesController < ApplicationController
+class Shop::ShopsController < ApplicationController
     before_action :authenticate_shop!
     def top
         @requests = current_shop.requests

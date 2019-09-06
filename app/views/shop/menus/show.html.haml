@@ -15,13 +15,13 @@
                     %tr
                         %td
                             .columns.is-mobile
-                                .column.is-6
-                                    メニュー名
+                                .column.is-6.strong
+                                    メニュー名：
                                 .column.is-6
                                     =@menu.menu_name
                             .columns.is-mobile
-                                .column.is-6
-                                    メニューカラー
+                                .column.is-6.strong
+                                    メニューカラー：
                                 .column.is-6
                                     =@menu.menu_name
                     
@@ -31,18 +31,39 @@
                     %tr
                         %td{colspan:'2'}
                             %h2.text-large
-                                %i.fas.fa-edit
+                                %i.fas.fa-object-group
                                 アイテムグループ
+                            %p.text-small メニュー内のグループです。
                 %tbody
                     %tr
-                        - @menu.item_groups.each do |item_group|
-                            %td
-                                =item_group.category.name
-                            %td
-                                = link_to shop_item_group_path(item_group),class:'button is-info is-small is-rounded strong' do
-                                    %i.fas.fa-edit
-                                    詳細
-                                = link_to shop_item_group_path(item_group),method: :delete,class:'button is-danger is-small is-rounded strong' do
-                                    %i.fas.fa-trash
-                                    削除
-            
+                        -if @menu.item_groups.any?
+                            - @menu.item_groups.each do |item_group|
+                                %td
+                                    =item_group.category.name
+                                %td
+                                    = link_to shop_item_group_menu_items_path(item_group),class:'button is-info is-small is-rounded strong' do
+                                        %i.fas.fa-edit
+                                        詳細
+                                    = link_to shop_item_group_menu_items_path(item_group),method: :delete,class:'button is-danger is-small is-rounded strong' do
+                                        %i.fas.fa-trash
+                                        削除
+                        -else
+                            %td.has-text-link.strong{colspan:'2'}
+                                アイテムグループを作成してみましょう。
+            %table.table
+                %tbody
+                    %tr
+                        %td
+                            -if current_shop.categories.any?
+                                = form_with model: ItemGroup.new, url: {controller: 'shop/item_groups',action: 'create'},method: :post, local: true do |f|
+                                    .field.has-addons
+                                        .control
+                                            .select.is-link
+                                                = f.collection_select :category_id,current_shop.categories,:id,:name, {prompt:'選択して下さい'}
+                                        .control
+                                            = f.submit '作成', class:'button is-link'
+                            -else
+                                %p 作成には先にカテゴリの登録が必要です。
+                                = link_to shop_categories_path, class:'button is-success' do
+                                    %i.fas.fa-plus-circle
+                                    カテゴリを登録

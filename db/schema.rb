@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_103933) do
 
   create_table "item_groups", force: :cascade do |t|
     t.integer "category_id", null: false
+    t.integer "menu_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

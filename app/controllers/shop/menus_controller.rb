@@ -6,7 +6,7 @@ class Shop::MenusController < ApplicationController
         @menu = Menu.new(menu_params)
         @menu.shop_id = current_shop.id
         if @menu.save
-            redirect_to edit_shop_menu_path(@menu),:notice => 'メニューを作成しました。'
+            redirect_to shop_menu_path(@menu),:notice => 'メニューを作成しました。'
         else
             flash.now[:alert] = '入力内容をご確認下さい。'
             @menus = current_shop.menus
@@ -18,15 +18,19 @@ class Shop::MenusController < ApplicationController
     end
     def destroy
         menu = Menu.find(params[:id])
-        menu.destroy
-        redirect_to shop_menus_path, :notice=>'メニューを削除しました。'
+        if menu.shop_id = current_shop.id
+            menu.destroy
+            redirect_to shop_menus_path, :notice=>'メニューを削除しました。'
+        else
+            redirect_to shop_mypage_top_path,:alert=>'アクセス権限がありません。'
+        end
     end
     def show
         @menu = Menu.find(params[:id])
     end
     def qrcode
         menu = Menu.find(params[:id])
-        @url = shop_menu_qrcode_url(menu)
+        @url = qrcode_shop_menu_url(menu)
     end
     private
     def menu_params

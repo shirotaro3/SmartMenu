@@ -1,0 +1,40 @@
+.container
+    .columns
+        .column.is-3.is-hidden-mobile
+            =render 'shop/sidebar'
+        .column.is-1.is-hidden-mobile
+        .column.is-10-mobile.is-offset-1-mobile
+            -# 新着リクエスト
+            %table.table
+                %thead
+                    %tr
+                        %td
+                            %h2.text-large
+                                %i.far.fa-comment-alt
+                                新着リクエスト
+                %tbody
+                    - if @requests.any?
+                        - @requests.each do |request|
+                            %tr
+                                %td
+                                    =request.title
+                    -else
+                        %tr
+                            %td
+                                新着リクエストはありません。
+
+            -# 新着エモーション
+            %table.table
+                %thead
+                    %tr
+                        %td
+                            %h2.text-large
+                                %i.far.fa-grin-alt
+                                エモーション
+                %tbody
+                    %tr
+                        %td
+                            -if @data["happy"] == 0 && @data["dizzy"] == 0 && @data["grin"] == 0
+                                エモーションはまだついていません。
+                            -else
+                                = pie_chart @data

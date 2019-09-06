@@ -20,12 +20,12 @@
                                     =menu.menu_name
                                 %td
                                     .text-right
-                                        = link_to shop_menu_qrcode_path(menu),class:'button is-warning is-small is-rounded' do
+                                        = link_to qrcode_shop_menu_path(menu),class:'button is-warning is-small is-rounded' do
                                             %i.fas.fa-qrcode
                                             QR
                                         = link_to shop_menu_path(menu),class:'button is-info is-small is-rounded strong' do
                                             %i.fas.fa-edit
-                                            詳細
+                                            編集
                                         = link_to shop_menu_path(menu),method: :delete,class:'button is-danger is-small is-rounded strong' do
                                             %i.fas.fa-trash
                                             削除
@@ -42,12 +42,19 @@
                             %h2.text-large
                                 %i.far.fa-paper-plane
                                 メニュー新規作成
+                            %p.text-small メニュー名は利用者には公開されません。
                 %tbody
                     %tr
                         %td
-                            = form_with model: Menu.new, url: { :controller=>'shop/menus', :action=>'create'} do |f|
-                                .field.has-addons
-                                    .control
-                                        = f.text_field :menu_name, class:'input',placeholder:'メニュー名を入力'
-                                    .control
-                                        = f.submit '登録', class:'button is-link'
+                            -if current_shop.categories.any?
+                                = form_with model: Menu.new, url: { :controller=>'shop/menus', :action=>'create'},local: true do |f|
+                                    .field.has-addons
+                                        .control
+                                            = f.text_field :menu_name, class:'input is-link',placeholder:'メニュー名を入力'
+                                        .control
+                                            = f.submit '作成', class:'button is-link'
+                            -else
+                                %p 作成には先にカテゴリの登録が必要です。
+                                = link_to shop_categories_path, class:'button is-success' do
+                                    %i.fas.fa-plus-circle
+                                    カテゴリを登録
