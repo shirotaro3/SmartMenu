@@ -56,6 +56,6 @@ class Shop::MenusController < ApplicationController
 
     private
     def menu_params
-        params.require(:menu).permit(:menu_name, menu_items: [:id, :item_name,:item_text,:price,:item_image_id,:menu_id,:_destroy])
+        params.require(:menu).permit(:menu_name, :menu_color)
     end
 end

@@ -2,8 +2,7 @@
     .columns
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
-        .column.is-1.is-hidden-mobile
-        .column.is-10-mobile.is-offset-1-mobile
+        .column.is-8.is-10-mobile.is-offset-1-mobile.main-content
             %table.table.is-hoverable
                 %thead
                     %tr
@@ -11,3 +10,17 @@
                             %h2.text-large
                                 %i.fas.fa-edit
                                 カテゴリ編集
+                %tbody
+                    %tr
+                        %td
+                            = form_with model: @category, url:{:controller=>'shop/categories',:action=>'update'},local: true do |f|
+                                .columns
+                                    .column.is-6
+                                        .field
+                                            = f.label :menu_name,'カテゴリー名'
+                                            %br
+                                            .control
+                                                = f.text_field :name,class:'input'
+                                        .field
+                                            .control.text-center
+                                                = f.submit '変更を保存',class:'button'

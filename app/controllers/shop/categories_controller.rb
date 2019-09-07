@@ -28,12 +28,16 @@ class Shop::CategoriesController < ApplicationController
     end
     def update
         @category = Category.find(params[:id])
-        if @category.update(category_params)
-            redirect_to shop_categories_path, :notice =>'カテゴリの名称を変更しました。'
+        if category.shop_id == current_shop.id
+            if @category.update(category_params)
+                redirect_to shop_categories_path, :notice =>'カテゴリ名を変更しました。'
+            else
+                flash.now[:alert] = '入力内容をご確認下さい。'
+                @categories = current_shop.categories
+                render :edit
+            end
         else
-            flash.now[:alert] = '入力内容をご確認下さい。'
-            @categories = current_shop.categories
-            render :edit
+            redirect_to top_shop_mypages_path,:alert=>'アクセス権限がありません。'
         end
     end
     private

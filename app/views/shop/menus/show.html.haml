@@ -2,13 +2,12 @@
     .columns
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
-        .column.is-1.is-hidden-mobile
-        .column.is-10-mobile.is-offset-1-mobile
+        .column.is-8.is-10-mobile.is-offset-1-mobile.main-content
             %table.table
                 %thead
                     %tr
                         %td{colspan:'2'}
-                            .columns
+                            .columns.is-mobile
                                 .column
                                     %h2.text-large
                                         %i.fas.fa-search
@@ -28,7 +27,7 @@
                                 .column.is-6
                                     メニューカラー：
                                 .column.is-6
-                                    =@menu.menu_name
+                                    =@menu.menu_color
                     
             -# 中間テーブルリスト
             %table.table.is-hoverable
@@ -46,7 +45,7 @@
                                 %td
                                     =attachment_image_tag item_group, :group_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg", size: '80x80'
                                 %td
-                                    %p.margin-top-28
+                                    %p.margin-top-28.strong
                                         =item_group.category.name
                                 %td
                                     %p.margin-top-28

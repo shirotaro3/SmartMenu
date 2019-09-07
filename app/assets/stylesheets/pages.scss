@@ -9,7 +9,7 @@
     background-color:black;
     opacity:.9;
     color:white;
-    height: 60vh;
+    height: 48em;
     margin-top:-12px;
     border-bottom:1px solid rgba(80,0,0,.5);
 }
@@ -26,7 +26,6 @@
     .image1,.image2,.image3 {
         padding:50px 3% 0 3%;
         .heading-text,.text{
-            margin-top:20px;
             text-shadow: 1px 1px 3px black;
             font-family: 'Hiragino Kaku Gothic Std';
             a{
@@ -37,9 +36,11 @@
             }
         }
         .heading-text{
-            font-size:3em;
+            margin-top:80px;
+            font-size:3.5em;
         }
         .text {
+            margin-top:60px;
             font-size:1.7em;
             a{
                 text-decoration:underline;

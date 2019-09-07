@@ -3,21 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .sidebar{
-    background-color: white;
+    background-color: #F6F6F6;
     li {
         padding:8px;
-        transition:.2s;
+        transition:.4s;
         color:black;
         &:hover{
-            background-color:rgba(200,0,0,.05);
+            background-color:rgba(235, 132, 6, 0.1);
         }
     }
 }
 
 li.is-selected-tab{
-    background-color:#9F6A69;
+    background-color:#AD8457;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
     color:white;
     &:hover{
-        background-color:#9F6A69;
+        background-color:#AD8457;
     }
 }

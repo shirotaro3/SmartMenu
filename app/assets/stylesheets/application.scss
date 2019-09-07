@@ -21,14 +21,15 @@
  // 共通
  html{
 	min-height: 98.6vh;
-	position: relative;
+    position: relative;
+    background-color:#F6F6F6;
  }
  body{
-	margin-bottom: 3em;
+    margin-bottom: 3em;
  }
 
  .container{
-     margin-top:30px;
+     margin-top:60px;
  }
 
  .text-large {
@@ -63,10 +64,17 @@
  }
 
  .table{
-     width:90%;
+     width:100%;
  }
  .margin-top-28{
      margin-top:28px;
+ }
+
+ .main-content{
+     background-color:white;
+     border-radius:10px;
+     padding-top:20px;
+     padding-bottom:20px;
  }
 
  // *** フラッシュメッセージ ***
@@ -81,9 +89,10 @@
         border-radius:20px;
         padding:10px;
         font-weight:bold;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
      }
      .notice{
-        background-color: #9F6A69;
+        background-color: #AD8457;
          color:white;
      }
      .alert{
@@ -96,10 +105,11 @@
  // *** header ***
  
  header {
-     background-color: #9F6A69;
+     background-color: #AD8457;
      color: white;
      height:4em;
      padding: 0 3%;
+     box-shadow: 2px 2px 4px rgba(0,0,0,0.6);
      a{
          color:white;
          &:hover{
@@ -114,8 +124,9 @@
          padding-top:15px;
          padding-bottom:15px;
          margin-top:7px;
-         transition:.2s;
+         transition:.3s;
          z-index:8;
+         box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
          &:hover{
              border:2px solid white;
              color: white;
@@ -125,6 +136,8 @@
      }
      .is-pushed{
         background-color:rgba(255,255,255,.2);
+        box-shadow: 0px 0px 0px rgba(0,0,0,0.3);
+        margin-top:8px;
      }
      #menu-btn1{
          padding:15px 30px;
@@ -145,9 +158,10 @@
         width:100%;
         z-index:8;
         .menu-list{
-            background-color:#9F6A69;
+            background-color:#AD8457;
             color:white;
             padding:0;
+            box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
             a{
                 color:white;
                 &:hover{
@@ -167,8 +181,7 @@
  footer{
      border-top:1px solid lightgrey;
      height:3em;
-     background-color:#9F6A69;
-     color:white;
+     color:grey;
      font-size:0.8em;
      position: absolute;
      bottom: 0;
@@ -184,6 +197,7 @@
  .logo{
      background-image:url('logo.png');
      background-size:cover;
+     background-position: center;
      height:60px;
      width:60px;
  }
