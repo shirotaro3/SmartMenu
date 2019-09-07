@@ -3,7 +3,7 @@ class CreateItemGroups < ActiveRecord::Migration[5.2]
     create_table :item_groups do |t|
       t.integer :category_id, null: false
       t.integer :menu_id, null: false
-      t.string :shop_image_id
+      t.string :group_image_id
 
       t.timestamps
     end

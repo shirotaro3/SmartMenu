@@ -9,7 +9,7 @@
             = link_to destroy_shop_session_path,method: :delete, class:"button is-small is-rounded header-btn" do
                 %i.fas.fa-sign-out-alt
                 %span ログアウト
-            = link_to shop_mypage_top_path, class:'button is-rounded header-btn' do
+            = link_to top_shop_mypages_path, class:'button is-rounded header-btn' do
                 %i.fas.fa-cog
         - else
             = link_to new_shop_registration_path, class:"button is-small is-rounded header-btn" do

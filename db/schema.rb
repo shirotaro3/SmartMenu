@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_103933) do
   create_table "item_groups", force: :cascade do |t|
     t.integer "category_id", null: false
     t.integer "menu_id", null: false
+    t.string "group_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -97,7 +98,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_103933) do
 
   create_table "special_features", force: :cascade do |t|
     t.integer "menu_id", default: 0, null: false
-    t.string "feature_image", default: "", null: false
+    t.string "feature_image_id", default: "", null: false
     t.string "title", default: "", null: false
     t.text "body", default: "", null: false
     t.string "column_color", default: "#ffffff", null: false

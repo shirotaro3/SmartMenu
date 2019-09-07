@@ -67,6 +67,4 @@ document.addEventListener("turbolinks:load", function() {
         hidePrevious : false
     });
 
-
-
 });

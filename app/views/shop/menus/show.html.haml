@@ -8,58 +8,76 @@
                 %thead
                     %tr
                         %td{colspan:'2'}
-                            %h2.text-large
-                                %i.fas.fa-edit
-                                メニュー情報
+                            .columns
+                                .column
+                                    %h2.text-large
+                                        %i.fas.fa-search
+                                        メニュー情報
+                                .column
+                                    = link_to edit_shop_menu_path(@menu),class:'button is-rounded' do
+                                        編集
                 %tbody
                     %tr
                         %td
                             .columns.is-mobile
-                                .column.is-6.strong
-                                    メニュー名：
                                 .column.is-6
+                                    メニュー名：
+                                .column.is-6.strong
                                     =@menu.menu_name
                             .columns.is-mobile
-                                .column.is-6.strong
+                                .column.is-6
                                     メニューカラー：
                                 .column.is-6
                                     =@menu.menu_name
                     
             -# 中間テーブルリスト
-            %table.table
+            %table.table.is-hoverable
                 %thead
                     %tr
-                        %td{colspan:'2'}
-                            %h2.text-large
+                        %td{colspan:'3'}
+                            %h3.text-large
                                 %i.fas.fa-object-group
                                 アイテムグループ
                             %p.text-small メニュー内のグループです。
                 %tbody
-                    %tr
-                        -if @menu.item_groups.any?
-                            - @menu.item_groups.each do |item_group|
+                    -if @menu.item_groups.any?
+                        - @menu.item_groups.each do |item_group|
+                            %tr
                                 %td
-                                    =item_group.category.name
+                                    =attachment_image_tag item_group, :group_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg", size: '80x80'
                                 %td
-                                    = link_to shop_item_group_menu_items_path(item_group),class:'button is-info is-small is-rounded strong' do
-                                        %i.fas.fa-edit
-                                        詳細
-                                    = link_to shop_item_group_menu_items_path(item_group),method: :delete,class:'button is-danger is-small is-rounded strong' do
-                                        %i.fas.fa-trash
-                                        削除
-                        -else
-                            %td.has-text-link.strong{colspan:'2'}
-                                アイテムグループを作成してみましょう。
+                                    %p.margin-top-28
+                                        =item_group.category.name
+                                %td
+                                    %p.margin-top-28
+                                        = link_to shop_item_group_menu_items_path(item_group),class:'button is-info is-small is-rounded strong' do
+                                            %i.fas.fa-search
+                                            詳細
+                                        = link_to shop_item_group_path(item_group),method: :delete,class:'button is-danger is-small is-rounded strong' do
+                                            %i.fas.fa-trash
+                                            削除
+                    -else
+                        %td.has-text-link.strong{colspan:'2'}
+                            アイテムグループを作成してみましょう。
             %table.table
+                %thead
+                    %tr
+                        %td{colspan:'3'}
+                            %h3.text-large
+                                アイテムグループ新規作成
                 %tbody
                     %tr
                         %td
                             -if current_shop.categories.any?
-                                = form_with model: ItemGroup.new, url: {controller: 'shop/item_groups',action: 'create'},method: :post, local: true do |f|
+                                = form_with model: ItemGroup.new, url: shop_menu_item_groups_path(@menu), local: true do |f|
+                                    .field
+                                        = f.label :group_image,'グループイメージ',class:'strong'
+                                        .control
+                                            = f.attachment_field :group_image
                                     .field.has-addons
                                         .control
                                             .select.is-link
-                                                = f.collection_select :category_id,current_shop.categories,:id,:name, {prompt:'選択して下さい'}
+                                                = f.collection_select :category_id,current_shop.categories,:id,:name, {prompt:'グループ名を選択'}
                                         .control
                                             = f.submit '作成', class:'button is-link'
                             -else

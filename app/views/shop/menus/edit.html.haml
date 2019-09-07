@@ -10,8 +10,23 @@
                         %td
                             %h2.text-large
                                 %i.fas.fa-edit
-                                メニュー編集
-                            %p.text-small メニューの商品を追加・編集できます。
+                                メニュー情報編集
                 %tbody
                     %tr
                         %td
+                            = form_with model: @menu, url:{:controller=>'shop/menus',:action=>'update'},local: true do |f|
+                                .columns
+                                    .column.is-6
+                                        .field
+                                            = f.label :menu_name,'メニュー名'
+                                            %br
+                                            .control
+                                                = f.text_field :menu_name,class:'input'
+                                        .field
+                                            = f.label :menu_color,'メニューカラー'
+                                            %br
+                                            .control
+                                                = f. text_field :menu_color,class:'input'
+                                        .field
+                                            .control.text-center
+                                                = f.submit '変更を保存',class:'button'

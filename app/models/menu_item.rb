@@ -3,4 +3,5 @@ class MenuItem < ApplicationRecord
     has_many :happies
     has_many :dizzies
     belongs_to :item_group
+    attachment :item_image
 end
