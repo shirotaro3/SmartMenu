@@ -86,3 +86,6 @@ gem 'rqrcode'
 gem 'chunky_png'
 # グラフの描画
 gem 'chartkick'
+# 画像のアップロード・リサイズ
+gem 'refile', require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
