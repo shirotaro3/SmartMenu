@@ -12,7 +12,7 @@
                                     %h2.text-large
                                         %i.fas.fa-search
                                         メニュー情報
-                                .column
+                                .column.text-right
                                     = link_to edit_shop_menu_path(@menu),class:'button is-rounded' do
                                         編集
                 %tbody
@@ -33,7 +33,7 @@
             %table.table.is-hoverable
                 %thead
                     %tr
-                        %td{colspan:'4'}
+                        %td
                             %h3.text-large
                                 %i.fas.fa-object-group
                                 アイテムグループ
@@ -41,31 +41,32 @@
                     -if @menu.item_groups.any?
                         %tr
                             %td
-                                表示順
-                            %td
-                            %td
-                                アイテム名
-                            %td
+                                .columns.is-mobile
+                                    .column.is-2
+                                        表示順
+                                    .column.is-3
+                                    .column.is-3
+                                        アイテム名
+                                    .column.is-4
                 %tbody
                     -if @menu.item_groups.any?
                         - @menu.item_groups.each do |item_group|
                             %tr
                                 %td
-                                    %p.margin-top-28
-                                        =item_group.position
-                                %td
-                                    =attachment_image_tag item_group, :group_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg", size: '80x80'
-                                %td
-                                    %p.margin-top-28.strong
-                                        =item_group.category.name
-                                %td
-                                    %p.margin-top-28
-                                        = link_to shop_item_group_menu_items_path(item_group),class:'button is-info is-small is-rounded strong' do
-                                            %i.fas.fa-search
-                                            詳細
-                                        = link_to shop_item_group_path(item_group),method: :delete,class:'button is-danger is-small is-rounded strong' do
-                                            %i.fas.fa-trash
-                                            削除
+                                    .columns.is-vcentered.is-mobile
+                                        .column.is-2
+                                            =item_group.position
+                                        .column.is-3
+                                            =attachment_image_tag item_group, :group_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg", size: '80x80'
+                                        .column.is-3.strong
+                                            =item_group.category.name
+                                        .column.is-4.text-right
+                                            = link_to shop_item_group_menu_items_path(item_group),class:'button is-info is-small is-rounded strong' do
+                                                %i.fas.fa-search
+                                                詳細
+                                            = link_to shop_item_group_path(item_group),method: :delete,class:'button is-danger is-small is-rounded strong' do
+                                                %i.fas.fa-trash
+                                                削除
                     -else
                         %td.has-text-danger.strong{colspan:'2'}
                             アイテムグループはありません。

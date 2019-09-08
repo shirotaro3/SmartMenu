@@ -4,17 +4,17 @@
             %li{:class => params[:controller] == 'shop/mypages' && "is-selected-tab"}
                 マイページTOP
         = link_to shop_menus_path do
-            %li{:class => params[:controller] == 'shop/menus' && "is-selected-tab"}
+            %li{ class:('is-selected-tab' if params[:controller] == 'shop/menus' || params[:controller] == 'shop/menu_items') }
                 メニュー管理
         = link_to shop_categories_path do
-            %li{:class => params[:controller] == 'shop/categories' && "is-selected-tab"}
-                カテゴリ管理
+            %li{ class:('is-selected-tab' if params[:controller] == 'shop/categories') }
+                カテゴリ
         = link_to shop_emotions_path do
-            %li{:class => params[:controller] == 'shop/emotions' && "is-selected-tab"}
+            %li{ class:('is-selected-tab' if params[:controller] == 'shop/emotions') }
                 エモーション
         = link_to shop_requests_path do
-            %li{:class => params[:controller] == 'shop/requests' && "is-selected-tab"}
+            %li{ class:('is-selected-tab' if params[:controller] == 'shop/requests') }
                 リクエスト
         = link_to shop_menus_path do
-            %li{:class => params[:controller] == 'shop/mypaddges' && "is-selected-tab"}
+            %li{ class:('is-selected-tab' if params[:controller] == 'shop/caddtegories') }
                 登録情報
