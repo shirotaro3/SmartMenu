@@ -1,16 +1,14 @@
 .container
   .columns
-    .column.is-6.is-offset-3.is-10-mobile.is-offset-1-mobile
+    .column.is-6.is-offset-3.is-10-mobile.is-offset-1-mobile.main-content
       %h1 ログイン
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
-          %label Eメール
-          %br/
+          = f.label :email,'Eメール',class:'label'
           .control
             = f.email_field :email, autofocus: true, autocomplete: "email",class:'input'
         .field
-          %label パスワード
-          %br/
+          = f.label :password,'パスワード',class:'label'
           .control
             = f.password_field :password, autocomplete: "current-password",class:'input'
         - if devise_mapping.rememberable?

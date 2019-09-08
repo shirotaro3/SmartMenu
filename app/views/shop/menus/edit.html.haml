@@ -17,13 +17,11 @@
                                 .columns
                                     .column.is-6
                                         .field
-                                            = f.label :menu_name,'メニュー名'
-                                            %br
+                                            = f.label :menu_name,'メニュー名',class:'label'
                                             .control
                                                 = f.text_field :menu_name,class:'input'
                                         .field
-                                            = f.label :menu_color,'メニューカラー'
-                                            %br
+                                            = f.label :menu_color,'メニューカラー',class:'label'
                                             .control
                                                 = f. text_field :menu_color,class:'input'
                                         .field

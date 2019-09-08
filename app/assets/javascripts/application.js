@@ -26,19 +26,41 @@ document.addEventListener("turbolinks:load", function() {
 		$(this).delay(3000).fadeOut("slow");
     });
     
-    // メニュー表示
+    // メニューボタン1(センター)
     $('#menu-btn1').on('click',function(){
+        // メニュー展開中にもう一方のメニューを開こうとした時
+        if($('#mypage-menu-modal').is(':visible')){
+            $('#menu-btn2').removeClass('is-pushed');
+            $('#mypage-menu-modal').fadeOut('fast');
+        }else{
+            $('#menu-overlay').fadeToggle(170);
+        }
         $(this).toggleClass('is-pushed');
-        $('#menu-overlay').fadeToggle(170);
+        $('#menu-modal').fadeToggle(170);
+    });
+
+    // メニューボタン2(マイページ)
+    $('#menu-btn2').on('click',function(){
+        // メニュー展開中にもう一方のメニューを開こうとした時
+        if($('#menu-modal').is(':visible')){
+            $('#menu-btn1').removeClass('is-pushed');
+            $('#menu-modal').fadeOut('fast');
+        }else{
+            $('#menu-overlay').fadeToggle(170);
+        }
+        $(this).toggleClass('is-pushed');
+        $('#mypage-menu-modal').fadeToggle(170);
     });
 
     // メニュー外クリックでメニュー非表示
     $('#menu-overlay').on('click',function(){
-        $('#menu-btn1').removeClass('is-pushed');
-        $(this).fadeOut('fast');
+        $('#menu-btn1,#menu-btn2').removeClass('is-pushed');
+        $(this).fadeOut('fast',function(){
+            $('#menu-modal,#mypage-menu-modal').hide();
+        });
     });
 
-    // メニュー内クリックでは閉じないように（伝播）
+    // メニュー内クリックでは閉じないように
     $('.menu-list').on('click',function(event){
         event.stopPropagation();
     });

@@ -3,7 +3,7 @@
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
         .column.is-8.main-content
-            %table.table.is-hoverable
+            %table.table
                 %thead
                     %tr
                         %td
@@ -17,8 +17,7 @@
                                 .columns
                                     .column.is-6
                                         .field
-                                            = f.label :menu_name,'カテゴリー名'
-                                            %br
+                                            = f.label :menu_name,'カテゴリー名',class:'label'
                                             .control
                                                 = f.text_field :name,class:'input'
                                         .field

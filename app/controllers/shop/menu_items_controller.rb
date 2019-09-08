@@ -26,6 +26,13 @@ class Shop::MenuItemsController < ApplicationController
             redirect_to top_shop_mypages_path,:alert=>'アクセス権限がありません。'
         end
     end
+
+    def show
+        @item_group = ItemGroup.find(params[:id])
+        if @item_group.menu.shop_id == current_shop
+            redirect_to top_shop_mypage_path,:notice=>'アクセス権限がありません。'
+        end
+    end
  
 
     private

@@ -17,8 +17,11 @@ class Shop::CategoriesController < ApplicationController
     def destroy
         category = Category.find(params[:id])
         if category.shop_id == current_shop.id
-            category.destroy
-            redirect_to shop_categories_path, :notice=>'カテゴリと関連アイテムを削除しました。'
+            if category.destroy
+                redirect_to shop_categories_path, :notice=>'カテゴリと関連アイテムを削除しました。'
+            else
+                redirect_to shop_categories_path, :alert=>'アイテムグループに設定されているカテゴリは削除できません。'
+            end
         else
             redirect_to top_shop_path,:alert=>'アクセス権限がありません。'
         end

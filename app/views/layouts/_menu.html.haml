@@ -1,11 +1,11 @@
 #menu-overlay
-    .columns.menu-modal
+    .columns#menu-modal
         .column.is-4.is-offset-4.menu-list
             %ul
                 -if shop_signed_in?
                     = link_to top_shop_mypages_path do
                         %li
-                            %i.fas.fa-cog
+                            %i.fas.fa-user
                             マイページ
                 -else
                     = link_to new_shop_registration_path do
@@ -29,3 +29,27 @@
                         %li
                             %i.fas.fa-sign-out-alt
                             ログアウト
+    - if shop_signed_in?
+        .columns#mypage-menu-modal
+            .column.is-4.is-offset-8.menu-list
+                %ul
+                    = link_to shop_menus_path do
+                        %li
+                            %i.fas.fa-clipboard-list
+                            メニュー管理
+                    = link_to shop_menus_path do
+                        %li
+                            %i.fas.fa-paper
+                            カテゴリ管理
+                    = link_to shop_menus_path do
+                        %li
+                            %i.fas.fa-grin
+                            エモーション
+                    = link_to shop_menus_path do
+                        %li
+                            %i.fas.fa-comment
+                            リクエスト
+                    = link_to shop_menus_path do
+                        %li
+                            %i.fas.fa-clipboard-list
+                            登録情報
