@@ -1,0 +1,48 @@
+.container
+    .columns
+        .column.is-3.is-hidden-mobile
+            =render 'shop/sidebar'
+        .column.is-8.main-content
+            %table.table
+                %thead
+                    %tr
+                        %td
+                            %h2.text-large
+                                %i.fas.fa-store
+                                登録情報
+                %tbody
+                    %tr
+                        %td
+                            .columns.is-mobile
+                                .column.is-4.strong
+                                    お店の名前
+                                .column.is-8
+                                    = @shop.shop_name
+                            .columns.is-mobile
+                                .column.is-4.strong
+                                    お店の情報
+                                .column.is-8
+                            .columns.is-mobile
+                                .column.is-4
+                                    郵便番号
+                                .column.is-8
+                                    = @shop.postal_code
+                            .columns.is-mobile
+                                .column.is-4
+                                    住所
+                                .column.is-8
+                                    = @shop.state
+                                    = @shop.city
+                                    = @shop.address
+                            .columns.is-mobile
+                                .column.is-4
+                                    電話番号
+                                .column.is-8
+                                    = @shop.phone_number
+                            .columns.is-mobile
+                                .column.is-4
+                                    Eメール
+                                .column.is-8
+                                    = @shop.email
+                                    
+                            

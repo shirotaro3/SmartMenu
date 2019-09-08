@@ -15,15 +15,14 @@
                         %td
                             = form_with model: @menu, url:{:controller=>'shop/menus',:action=>'update'},local: true do |f|
                                 .columns
-                                    .column.is-6
+                                    .column.is-8-desktop.is-offset-2-desktop
                                         .field
                                             = f.label :menu_name,'メニュー名',class:'label'
                                             .control
                                                 = f.text_field :menu_name,class:'input'
                                         .field
-                                            = f.label :menu_color,'メニューカラー',class:'label'
-                                            .control
-                                                = f. text_field :menu_color,class:'input'
+                                            %span.label メニューカラー
+                                            = render 'layouts/select-colors', f: f
                                         .field
                                             .control.text-center
                                                 = f.submit '変更を保存',class:'button'

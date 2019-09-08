@@ -11,6 +11,18 @@ class Shop < ApplicationRecord
   has_many :categories
   has_many :requests
 
+  # バリデーション
+
+  validates :shop_name, presence: true, length: { in: 1..15 }
+  validates :postal_code, presence: true, length: { is: 7 }
+  validates :state, presence: true
+  validates :city, length: { in: 2..8}
+  validates :street, length: { in: 6..40}
+  VALID_PHONE_REGEX = /\A0[0-9]{9,10}\z/
+  validates :phone_number, presence: true, uniqueness: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+
   enum state: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,

@@ -60,22 +60,24 @@
                     %tbody
                         %tr
                             %td
-                                =form_with model: MenuItem.new ,url: shop_item_group_menu_items_path(@item_group),local: true do |f|
-                                    .field
-                                        = f.label :item_image,'アイテム画像（任意）',class:'label'
-                                        .control
-                                            = f.attachment_field :item_image
-                                    .field
-                                        = f.label :item_name, 'アイテム名（必須）',class:'label'
-                                        .control
-                                            = f.text_field :item_name,class:'input',placeholder:'例：生ビール'
-                                    .field
-                                        = f.label :price, '税抜価格（必須）',class:'label'
-                                        .control
-                                            = f.text_field :price,class:'input'
-                                    .field
-                                        = f.label :item_text, 'アイテムテキスト（任意）',class:'label'
-                                        .control
-                                            = f.text_area :item_text,class:'textarea',placeholder:'アイテムの説明を入力して下さい。メニューに表示されます。'
-                                    .field.text-center
-                                        = f.submit 'アイテムを追加',class:'button'
+                                .columns
+                                    .column.is-10-desktop.is-offset-1-desktop
+                                        =form_with model: MenuItem.new ,url: shop_item_group_menu_items_path(@item_group),local: true do |f|
+                                            .field
+                                                = f.label :item_image,'アイテム画像（任意）',class:'label'
+                                                .control.box
+                                                    = f.attachment_field :item_image
+                                            .field
+                                                = f.label :item_name, 'アイテム名（必須）',class:'label'
+                                                .control
+                                                    = f.text_field :item_name,class:'input',placeholder:'例：生ビール'
+                                            .field
+                                                = f.label :price, '税抜価格（必須）',class:'label'
+                                                .control
+                                                    = f.text_field :price,class:'input'
+                                            .field
+                                                = f.label :item_text, 'アイテムテキスト（任意）',class:'label'
+                                                .control
+                                                    = f.text_area :item_text,class:'textarea',placeholder:'アイテムの説明を入力して下さい。メニューに表示されます。'
+                                            .field.text-center
+                                                = f.submit 'アイテムを追加',class:'button'

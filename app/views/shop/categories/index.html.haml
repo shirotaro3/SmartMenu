@@ -6,11 +6,10 @@
             %table.table.is-hoverable
                 %thead
                     %tr
-                        %td{colspan:'3'}
+                        %td{colspan:'2'}
                             %h2.text-large
                                 %i.far.fa-sticky-note
                                 カテゴリ一覧
-                            %p.text-small カテゴリはメニュー作成時に使用します。
                 %tbody
                     -if @categories.any?
                         - @categories.each do |category|
@@ -27,7 +26,7 @@
                                             削除
                     -else
                         %tr
-                            %td{colspan:'3'}
+                            %td{colspan:'2'}
                                 カテゴリーがありません。
             %table.table
                 %thead
@@ -35,7 +34,8 @@
                         %td{colspan:'2'}
                             %h2.text-large
                                 %i.far.fa-paper-plane
-                                カテゴリー新規登録
+                                カテゴリ新規登録
+                            %p.text-small メニュー作成時に使用するカテゴリを作成します。
                 %tbody
                     %tr
                         %td

@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_103933) do
 
   create_table "menus", force: :cascade do |t|
     t.string "menu_name", default: "", null: false
-    t.string "menu_color", default: "#fff"
+    t.string "color", default: "white"
     t.integer "shop_id", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -85,12 +85,11 @@ ActiveRecord::Schema.define(version: 2019_09_05_103933) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "shop_name", default: "", null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", default: "", null: false
     t.integer "state", null: false
     t.string "city", default: "", null: false
     t.string "street", default: "", null: false
-    t.integer "phone_number", null: false
-    t.string "shop_color"
+    t.string "phone_number", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_shops_on_email", unique: true

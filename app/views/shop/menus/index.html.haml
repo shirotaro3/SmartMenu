@@ -6,15 +6,22 @@
             %table.table.is-hoverable
                 %thead
                     %tr
-                        %td{colspan:'2'}
+                        %td{colspan:'3'}
                             %h2.text-large
                                 %i.fas.fa-clipboard-list
                                 メニュー一覧
-                            %p.text-small ボタンからQRコードを表示できます。
                 %tbody
                     - if @menus.any?
+                        %tr
+                            %td.text-small
+                                カラー
+                            %td.text-small
+                                メニュー名
+                            %td
                         -@menus.each do |menu|
                             %tr
+                                %td
+                                    .ball{style:"background-color:#{menu.color}"}
                                 %td.strong
                                     =menu.menu_name
                                 %td
@@ -30,10 +37,8 @@
                                             削除
                     - else
                         %tr
-                            %td
+                            %td{colspan:'3'}
                                 メニューはありません。
-                        %tr
-                            %td
             %table.table
                 %thead
                     %tr
@@ -41,17 +46,24 @@
                             %h2.text-large
                                 %i.far.fa-paper-plane
                                 メニュー新規作成
-                            %p.text-small メニュー名は利用者には公開されません。
                 %tbody
                     %tr
                         %td
                             -if current_shop.categories.any?
-                                = form_with model: Menu.new, url: { :controller=>'shop/menus', :action=>'create'},local: true do |f|
-                                    .field.has-addons
-                                        .control
-                                            = f.text_field :menu_name, class:'input is-link',placeholder:'メニュー名を入力'
-                                        .control
-                                            = f.submit '作成', class:'button is-link'
+                                .columns
+                                    .column.is-10-desktop.is-offset-1-desktop.is-12-tablet
+                                        = form_with model: Menu.new, url: { :controller=>'shop/menus', :action=>'create'},local: true do |f|
+                                            .field
+                                                = f.label :menu_name,'メニュー名',class:'label'
+                                                .control
+                                                    = f.text_field :menu_name, class:'input is-link',placeholder:'メニュー名・8文字以内'
+                                            .field
+                                                %span.label メニューカラー
+                                                %p.text-small メニューのテーマカラーを選択して下さい。
+                                                = render 'layouts/select-colors', f: f
+                                            .field
+                                                .control.text-center
+                                                    = f.submit 'メニュー作成', class:'button is-link'
                             -else
                                 %p 作成には先にカテゴリの登録が必要です。
                                 = link_to shop_categories_path, class:'button is-success' do

@@ -32,12 +32,11 @@ class DeviseCreateShops < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
       t.string :shop_name, null: false, default: ''
-      t.integer :postal_code, null: false, default: ''
+      t.string :postal_code, null: false, default: ''
       t.integer :state, null: false, default: ''
       t.string :city, null: false, default: ''
       t.string :street, null: false, default: ''
-      t.integer :phone_number, null: false, default: ''
-      t.string :shop_color
+      t.string :phone_number, null: false, default: ''
 
       t.timestamps null: false
     end

@@ -27,7 +27,8 @@
                                 .column.is-6
                                     メニューカラー：
                                 .column.is-6
-                                    =@menu.menu_color
+                                    .ball{style:"background-color:#{@menu.color};"}
+                                    = @menu.color
                     
             -# 中間テーブルリスト
             %table.table.is-hoverable
@@ -42,10 +43,10 @@
                         %tr
                             %td
                                 .columns.is-mobile
-                                    .column.is-2
+                                    .column.is-2.text-small
                                         表示順
                                     .column.is-3
-                                    .column.is-3
+                                    .column.is-3.text-small
                                         アイテム名
                                     .column.is-4
                 %tbody
@@ -69,7 +70,7 @@
                                                 削除
                     -else
                         %td.has-text-danger.strong{colspan:'2'}
-                            アイテムグループはありません。
+                            アイテムグループがありません。
             %table.table
                 %thead
                     %tr
@@ -80,17 +81,21 @@
                     %tr
                         %td
                             -if current_shop.categories.any?
-                                = form_with model: ItemGroup.new, url: shop_menu_item_groups_path(@menu), local: true do |f|
-                                    .field
-                                        = f.label :group_image,'グループイメージ',class:'strong'
-                                        .control
-                                            = f.attachment_field :group_image
-                                    .field.has-addons
-                                        .control
-                                            .select.is-link
-                                                = f.collection_select :category_id,current_shop.categories,:id,:name, {prompt:'グループ名を選択'}
-                                        .control
-                                            = f.submit '作成', class:'button is-link'
+                                .columns
+                                    .column.is-8-desktop.is-offset-2-desktop.is-12-tablet
+                                        = form_with model: ItemGroup.new, url: shop_menu_item_groups_path(@menu), local: true do |f|
+                                            .field
+                                                = f.label :group_image,'グループイメージ(任意)',class:'label'
+                                                .control.box
+                                                    = f.attachment_field :group_image
+                                            .field
+                                                = f.label :category_id,'カテゴリー名',class:'label'
+                                                .control
+                                                    .select.is-link.is-fullwidth
+                                                        = f.collection_select :category_id,current_shop.categories,:id,:name, {prompt:'グループ名を選択'}
+                                            .field
+                                                .control.text-center
+                                                    = f.submit 'グループ作成', class:'button is-link'
                             -else
                                 %p 作成には先にカテゴリの登録が必要です。
                                 = link_to shop_categories_path, class:'button is-success' do

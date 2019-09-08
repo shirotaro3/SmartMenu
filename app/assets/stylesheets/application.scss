@@ -59,20 +59,37 @@
          background-color:rgba(255,255,255,.3);
      }
  }
- .is-round{
-    border-radius:50px;     
- }
 
  .table{
      width:100%;
  }
- .margin-top-15{
-     margin-top:15px;
- }
- .margin-top-28{
-     margin-top:28px;
+// 色選択ボックス(layouts/select-colors)
+ .select-colors{
+     label{
+        transition:.3s;
+        &:hover{
+            opacity:.7;
+        }
+     }
+     input[type=radio]{
+         display:none;
+         &:checked + .ball{
+             background-color:rgba(255,255,255,.3);
+             border:1px solid rgba(0,0,0,.3);
+         }
+     }
  }
 
+// inline-blockの円（色関係で使用）
+.ball{
+    height:20px;
+    width:20px;
+    border-radius:50%;
+    content:'';
+    display:inline-block;
+}
+
+// マイページのメイン部分・白背景・余白調整等
  .main-content{
      background-color:white;
      border-radius:10px;
@@ -177,6 +194,7 @@
         box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
         a{
             color:white;
+            transition: .3s;
             &:hover{
                 color:black;
                 background-color:rgba(255,255,255,.3);

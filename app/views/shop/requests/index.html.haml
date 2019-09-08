@@ -3,12 +3,39 @@
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
         .column.is-8.main-content
-            -# 新着リクエスト
             %table.table
                 %thead
                     %tr
                         %td
                             %h2.text-large
-                                %i.far.fa-comment-alt
+                                %i.far.fa-comment-dots
                                 リクエスト
-                            %p.text-small あなたのお店に届いているリクエストです。
+                            %p.text-smal
+                                あなたのお店に寄せられたリクエストです。
+                %tbody
+                    - if @requests.any?
+                        - @requests.each do |request|
+                            %tr
+                                %td
+                                    .columns.is-mobile.is-vcentered
+                                        .column
+                                            .columns
+                                                .column
+                                                    = request.title
+                                            .columns
+                                                .column
+                                                    = simple_format(request.body)
+                                            .columns
+                                                .colmun.text-small.strong
+                                                    = request.nickname
+                                        .column
+                                            %p
+                                                = link_to shop_request_path(request),method: :delete,class:'button is-rounded is-success',data:{:confirm=>'削除してもよろしいですか？'} do
+                                                    %i.fas.fa-check
+                                            %p
+                                                = link_to shop_request_path(request),class:'button is-rounded is-primary' do
+                                                    %i.fas.fa-reply
+                    -else
+                        %tr
+                            %td
+                                リクエストは届いていません。
