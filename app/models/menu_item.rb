@@ -4,4 +4,5 @@ class MenuItem < ApplicationRecord
     has_many :dizzies
     belongs_to :item_group
     attachment :item_image
+    acts_as_list :scope => :item_group
 end

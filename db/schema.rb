@@ -44,17 +44,18 @@ ActiveRecord::Schema.define(version: 2019_09_05_103933) do
     t.integer "category_id", null: false
     t.integer "menu_id", null: false
     t.string "group_image_id"
+    t.integer "position", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "menu_items", force: :cascade do |t|
-    t.integer "item_group_id", default: 0, null: false
-    t.string "item_image_id", default: "", null: false
+    t.integer "item_group_id", null: false
+    t.string "item_image_id"
     t.string "item_name", default: "", null: false
-    t.text "item_text", default: "", null: false
-    t.integer "price", default: 0, null: false
-    t.integer "position", default: 0, null: false
+    t.text "item_text"
+    t.integer "price", null: false
+    t.integer "position", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

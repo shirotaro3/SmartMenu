@@ -7,7 +7,7 @@ class Shop::MenusController < ApplicationController
         @menu = Menu.new(menu_params)
         @menu.shop_id = current_shop.id
         if @menu.save
-            redirect_to shop_menu_path(@menu),:notice => 'メニューを作成しました。'
+            redirect_to shop_menus_path,:notice => 'メニューを作成しました。'
         else
             flash.now[:alert] = '入力内容をご確認下さい。'
             @menus = current_shop.menus

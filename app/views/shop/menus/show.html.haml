@@ -2,7 +2,7 @@
     .columns
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
-        .column.is-8.is-10-mobile.is-offset-1-mobile.main-content
+        .column.is-8.main-content
             %table.table
                 %thead
                     %tr
@@ -33,15 +33,26 @@
             %table.table.is-hoverable
                 %thead
                     %tr
-                        %td{colspan:'3'}
+                        %td{colspan:'4'}
                             %h3.text-large
                                 %i.fas.fa-object-group
                                 アイテムグループ
                             %p.text-small メニュー内のグループです。
+                    -if @menu.item_groups.any?
+                        %tr
+                            %td
+                                表示順
+                            %td
+                            %td
+                                アイテム名
+                            %td
                 %tbody
                     -if @menu.item_groups.any?
                         - @menu.item_groups.each do |item_group|
                             %tr
+                                %td
+                                    %p.margin-top-28
+                                        =item_group.position
                                 %td
                                     =attachment_image_tag item_group, :group_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg", size: '80x80'
                                 %td
@@ -56,8 +67,8 @@
                                             %i.fas.fa-trash
                                             削除
                     -else
-                        %td.has-text-link.strong{colspan:'2'}
-                            アイテムグループを作成してみましょう。
+                        %td.has-text-danger.strong{colspan:'2'}
+                            アイテムグループはありません。
             %table.table
                 %thead
                     %tr

@@ -2,4 +2,80 @@
     .columns
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
-        .column.is-8.is-10-mobile.is-offset-1-mobile.main-content
+        .column.is-8.main-content
+            %table.table.is-hoverable
+                %thead
+                    %tr
+                        %td{colspan:'5'}
+                            %h2.text-large
+                                = attachment_image_tag @item_group,:group_image,:fill,30,30,format: 'jpeg',size:'30x30' if @item_group.group_image
+                                = @item_group.category.name
+                            %p.text-smal
+                                グループ内のアイテム一覧です。
+                    -if @menu_items.any?
+                        %tr
+                            %td
+                                表示順
+                            %td
+                            %td
+                                アイテム名
+                            %td
+                                価格（税抜）
+                            %td
+                -if @menu_items.any?
+                    %tbody
+                        - @menu_items.each do |menu_item|
+                            %tr
+                                %td
+                                    %p.margin-top-28
+                                    = menu_item.position
+                                %td
+                                    = attachment_image_tag menu_item,:item_image,:fill,80,80,format: 'jpeg',fallback: "no_image.jpg",size:'80x80'
+                                %td
+                                    %p.margin-top-28.strong
+                                        = menu_item.item_name
+                                %td
+                                    %p.margin-top-28
+                                        ¥
+                                        = menu_item.price
+                                %td
+                                    %p.margin-top-28
+                                        = link_to menu_item_path(menu_item),class:'button is-small is-rounded is-link strong' do
+                                            %i.fas.fa-search
+                                            詳細
+                                        = link_to menu_item_path(menu_item),class:'button is-small is-rounded is-danger strong' do
+                                            %i.fas.fa-trash
+                                            削除
+                -else
+                    %tr
+                        %td.strong.has-text-danger{colspan:'5'}
+                            アイテムがありません。
+                %table.table
+                    %thead
+                        %tr
+                            %td
+                                %h3.text-large
+                                    %i.far.fa-paper-plane
+                                    アイテム追加
+                    %tbody
+                        %tr
+                            %td
+                                =form_with model: MenuItem.new ,url: shop_item_group_menu_items_path(@item_group),local: true do |f|
+                                    .field
+                                        = f.label :item_image,'アイテム画像（任意）',class:'label'
+                                        .control
+                                            = f.attachment_field :item_image
+                                    .field
+                                        = f.label :item_name, 'アイテム名（必須）',class:'label'
+                                        .control
+                                            = f.text_field :item_name,class:'input',placeholder:'例：生ビール'
+                                    .field
+                                        = f.label :price, '税抜価格（必須）',class:'label'
+                                        .control
+                                            = f.text_field :price,class:'input'
+                                    .field
+                                        = f.label :item_text, 'アイテムテキスト（任意）',class:'label'
+                                        .control
+                                            = f.text_area :item_text,class:'textarea',placeholder:'アイテムの説明を入力して下さい。メニューに表示されます。'
+                                    .field.text-center
+                                        = f.submit 'アイテムを追加',class:'button'
