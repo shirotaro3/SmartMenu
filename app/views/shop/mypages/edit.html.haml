@@ -9,40 +9,44 @@
                         %td
                             %h2.text-large
                                 %i.fas.fa-store
-                                登録情報
+                                登録情報編集
                 %tbody
                     %tr
                         %td
-                            .columns.is-mobile
-                                .column.is-4.strong
-                                    お店の名前
-                                .column.is-8
-                                    = @shop.shop_name
-                            .columns.is-mobile
-                                .column.is-4.strong
-                                    お店の情報
-                                .column.is-8
-                            .columns.is-mobile
-                                .column.is-4
-                                    郵便番号
-                                .column.is-8
-                                    = @shop.postal_code
-                            .columns.is-mobile
-                                .column.is-4
-                                    住所
-                                .column.is-8
-                                    = @shop.state
-                                    = @shop.city
-                                    = @shop.address
-                            .columns.is-mobile
-                                .column.is-4
-                                    電話番号
-                                .column.is-8
-                                    = @shop.phone_number
-                            .columns.is-mobile
-                                .column.is-4
-                                    Eメール
-                                .column.is-8
-                                    = @shop.email
-                                    
-                            
+                            .columns
+                                .column.is-12-tablet.is-10-desktop.is-offset-1-desktop
+                                    = form_with model: current_shop,url: shop_mypage_path,local: true do |f|
+                                        .field
+                                            = f.label :shop_name,'お店の名前',class:'label'
+                                            .control
+                                                = f.text_field :shop_name,class:'input'
+                                        %span.label お店の住所
+                                        .box.has-background-white-ter
+                                            .field
+                                                = f.label :postal_code,'郵便番号',class:'label'
+                                                .control
+                                                    = f.text_field :postal_code,class:'input is-small'
+                                            .field
+                                                = f.label :state,'都道府県',class:'label'
+                                                .control
+                                                    .select.is-fullwidth.is-small
+                                                        = f.select :state,Shop.states.keys.to_a,{prompt:'選択してください'}
+                                            .field
+                                                = f.label :city,'市区町村',class:'label'
+                                                .control
+                                                    = f.text_field :city,class:'input is-small'
+                                            .field
+                                                = f.label :street,'町名・番地・建物',class:'label'
+                                                .control
+                                                    = f.text_field :street,class:'input is-small'
+                                        .field
+                                            = f.label :phone_number,'電話番号',class:'label'
+                                            .control
+                                                = f.text_field :phone_number,class:'input is-small'
+                                        .field
+                                            = f.label :email,'Eメール',class:'label'
+                                            .control
+                                                = f.text_field :email,class:'input is-small'
+                                        .field
+                                            .control.text-center
+                                                = f.submit '変更',class:'button'

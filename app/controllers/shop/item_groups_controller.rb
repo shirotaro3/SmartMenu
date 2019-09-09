@@ -4,7 +4,7 @@ class Shop::ItemGroupsController < ApplicationController
         item_group = ItemGroup.new(item_group_params)
         item_group.menu_id = params[:menu_id]
         if item_group.save!
-            redirect_to shop_menu_path(params[:menu_id]),:notice =>'アイテムグループを作成しました。'
+            redirect_to shop_item_group_menu_items_path(item_group),:notice =>'アイテムグループを作成しました。'
         else
             redirect_to shop_menu_path(params[:menu_id]),:alert=>'登録に失敗しました。'
         end

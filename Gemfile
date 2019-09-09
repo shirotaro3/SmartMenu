@@ -89,3 +89,6 @@ gem 'chartkick'
 # 画像のアップロード・リサイズ
 gem 'refile', require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+# pdf出力
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'

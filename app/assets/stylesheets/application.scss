@@ -19,7 +19,7 @@
  @import 'font-awesome';
 
  // 共通
- html{
+ .html{
 	min-height: 98.6vh;
     position: relative;
     background-color:#F6F6F6;
@@ -52,6 +52,10 @@
  .text-left{
      text-align:left;
  }
+ .td-padding{
+     padding-top:24px;
+     padding-bottom:24px;
+ }
  
  .touch{
      transition:.3s;
@@ -62,6 +66,10 @@
 
  .table{
      width:100%;
+     table-layout:fixed;
+ }
+ .column{
+    word-wrap: break-word;
  }
 // 色選択ボックス(layouts/select-colors)
  .select-colors{

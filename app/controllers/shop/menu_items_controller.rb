@@ -33,7 +33,40 @@ class Shop::MenuItemsController < ApplicationController
             redirect_to top_shop_mypage_path,:notice=>'アクセス権限がありません。'
         end
     end
- 
+    
+    def edit
+        @item_group = ItemGroup.find(params[:id])
+        if @item_group.menu.shop_id == current_shop
+            redirect_to top_shop_mypage_path,:notice=>'アクセス権限がありません。'
+        end
+    end
+    
+    # 並べ替え用
+    def move_higher
+        menu_item = MenuItem.find(params[:id])
+        menu_item.move_higher
+        # jsならrender・htmlならredirect
+        respond_to do |format|
+            format.js do
+                @menu_items = MenuItem.where(item_group_id: menu_item.item_group_id)
+                render
+            end
+            format.html {redirect_to shop_menu_items_path(menu_item)}
+        end
+    end
+
+    def move_lower
+        menu_item = MenuItem.find(params[:id])
+        menu_item.move_lower
+        # jsならrender・htmlならredirect
+        respond_to do |format|
+            format.js do
+                @menu_items = MenuItem.where(item_group_id: menu_item.item_group_id)
+                render
+            end
+            format.html {redirect_to shop_menu_items_path(menu_item)}
+        end
+    end
 
     private
     def menu_item_params

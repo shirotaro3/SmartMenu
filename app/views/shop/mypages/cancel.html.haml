@@ -1,0 +1,16 @@
+.container
+    .columns
+        .column.is-3.is-hidden-mobile
+            =render 'shop/sidebar'
+        .column.is-8.main-content.text-center
+            %h2.text-large
+                %i.fas.fa-exclamation-triangle
+                退会前にご確認ください。
+            .box.text-left
+                %ul.strong
+                    %li 退会手続きをされますと、メニュー等のデータは全て削除されます。
+                    %li 退会によって削除されたデータの復元は一切いたしかねます。
+                    %li 全てのサービスがご利用いただけなくなります。
+            %p 退会手続きを継続する場合は、以下のボタンを押して下さい。
+            %p
+                = link_to '退会する', shop_mypage_path(current_shop),method: :delete,data:{:confirm=>'退会後は全てのサービスがご利用いただけなくなります。本当によろしいですか？'},class:'button is-danger'

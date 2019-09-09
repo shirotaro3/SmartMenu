@@ -1,15 +1,11 @@
 !!!
-%html.html
+%html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title SmartMenu
+    %title SmartMenu<管理者>
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render 'layouts/header'
-    = render 'layouts/menu'
-    = render 'layouts/flash-message'
     = yield
-    = render 'layouts/footer'

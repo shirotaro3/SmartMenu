@@ -25,27 +25,8 @@
                                         税抜価格
                                     .column.is-2
                 -if @menu_items.any?
-                    %tbody
-                        - @menu_items.each do |menu_item|
-                            %tr
-                                %td
-                                    .columns.is-vcentered.is-mobile
-                                        .column.is-2
-                                            = menu_item.position
-                                        .column.is-3
-                                            = attachment_image_tag menu_item,:item_image,:fill,80,80,format: 'jpeg',fallback: "no_image.jpg",size:'80x80'
-                                        .column.is-3.strong
-                                            = menu_item.item_name
-                                        .column.is-2
-                                            ¥
-                                            = menu_item.price
-                                        .column.is-2.text-right
-                                            = link_to menu_item_path(menu_item),class:'button is-small is-rounded is-link strong' do
-                                                %i.fas.fa-search
-                                                詳細
-                                            = link_to menu_item_path(menu_item),class:'button is-small is-rounded is-danger strong' do
-                                                %i.fas.fa-trash
-                                                削除
+                    %tbody#itemlist
+                        = render 'itemlist',menu_items: @menu_items
                 -else
                     %tr
                         %td.strong.has-text-danger

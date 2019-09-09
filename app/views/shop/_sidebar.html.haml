@@ -2,7 +2,9 @@
     %ul
         = link_to top_shop_mypages_path do
             %li{ class:('is-selected-tab' if params[:controller] == 'shop/mypages' && !params[:id].present?) }
-                マイページTOP
+                %h1.is-inline
+                    マイページ
+                TOP
         = link_to shop_menus_path do
             %li{ class:('is-selected-tab' if params[:controller] == 'shop/menus' || params[:controller] == 'shop/menu_items') }
                 メニュー管理

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
 
   # ユーザー
-  scope module: :user do
+  namespace :user do
     resources :menus, only:[:show]
     resources :menu_items, only:[:index,:show]
     resources :emotions, only:[:create,:destroy]
@@ -18,7 +18,10 @@ Rails.application.routes.draw do
   # ショップ
   namespace :shop do
     resources :mypages,only:[:show,:edit,:update] do
-      get :top, on: :collection
+      collection do
+        get :top
+        get :cancel
+      end
     end
     resources :categories,except:[:show,:new]
     resources :emotions, only:[:index, :destroy]
@@ -27,7 +30,12 @@ Rails.application.routes.draw do
       get :qrcode, on: :member
       resources :special_features, only:[:create, :destroy, :edit]
       resources :item_groups,only:[:create,:destroy], shallow: true do
-        resources :menu_items, except: :new
+        resources :menu_items, except: :new do
+          member do
+            get :move_higher
+            get :move_lower
+          end
+        end
       end
     end
   end
