@@ -52,9 +52,15 @@ document.addEventListener("turbolinks:load", function() {
         $('#mypage-menu-modal').fadeToggle(170);
     });
 
+    // メニューボタン3(ユーザー)
+    $('#menu-btn3').on('click',function(){
+        $(this).toggleClass('is-pushed');
+        $('#menu-overlay').fadeToggle(170);
+    });
+
     // メニュー外クリックでメニュー非表示
     $('#menu-overlay').on('click',function(){
-        $('#menu-btn1,#menu-btn2').removeClass('is-pushed');
+        $('#menu-btn1,#menu-btn2,#menu-btn3').removeClass('is-pushed');
         $(this).fadeOut('fast',function(){
             $('#menu-modal,#mypage-menu-modal').hide();
         });

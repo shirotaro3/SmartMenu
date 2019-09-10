@@ -1,7 +1,21 @@
-%header#user-header.columns.is-mobile{style:"background-color:#{menu.color}"}
-    .column.is-5.is-gapless
-        .logo
-    .column.is-2.is-gapless.text-center
-        %span.button.is-small.header-btn#menu-btn1
-            %i.fa.fa-bars
-    .column.is-5.is-gapless.text-right
+%header#user-header{style:"background-color:#{menu.color}"}
+    .columns
+        .column.text-center
+            %span.button.is-small.is-rounded.header-btn#menu-btn3
+                %i.fa.fa-bars
+
+#menu-overlay
+    .columns.is-gapless#user-menu-modal
+        .column.is-3
+        .column.is-6.user-menu-list.text-center{style:"background-color:#{menu.color}"}
+            %ul
+                = link_to root_path do
+                    %li
+                        .grey-shadow
+                            %i.fas.fa-home
+                            = @menu.menu_name
+                = link_to destroy_shop_session_path, method: :delete do
+                    %li
+                        .grey-shadow
+                            %i.fas.fa-sign-out-alt
+                            ご意見・ご要望

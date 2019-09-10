@@ -8,7 +8,7 @@
                     %tr
                         %td
                             %h2.text-large
-                                = attachment_image_tag @item_group,:group_image,:fill,30,30,format: 'jpeg',size:'30x30' if @item_group.group_image
+                                = attachment_image_tag @item_group,:group_image,:fill,30,30,format: 'jpeg',size:'30x30',style:'width:30px;height:30px;' if @item_group.group_image
                                 = @item_group.category.name
                             %p.text-smal
                                 グループ内のアイテム一覧です。

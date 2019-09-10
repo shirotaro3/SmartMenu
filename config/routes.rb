@@ -9,8 +9,9 @@ Rails.application.routes.draw do
 
   # ユーザー
   namespace :user do
-    resources :menus, only:[:show]
-    resources :menu_items, only:[:index,:show]
+    resources :menus, only:[:show] do
+      resources :item_groups, only:[:show]
+    end
     resources :emotions, only:[:create,:destroy]
     resources :requests, only:[:create,:new]
   end
@@ -30,6 +31,10 @@ Rails.application.routes.draw do
       get :qrcode, on: :member
       resources :special_features, only:[:create, :destroy, :edit]
       resources :item_groups,only:[:create,:destroy], shallow: true do
+        member do
+          get :move_higher
+          get :move_lower
+        end
         resources :menu_items, except: :new do
           member do
             get :move_higher

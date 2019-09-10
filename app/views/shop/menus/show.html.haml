@@ -52,9 +52,9 @@
                         %tr
                             %td
                                 .columns.is-mobile
-                                    .column.is-2.text-small
+                                    .column.is-3.text-small
                                         表示順
-                                    .column.is-3
+                                    .column.is-2
                                     .column.is-3.text-small
                                         アイテム名
                                     .column.is-4
@@ -64,10 +64,10 @@
                             %tr
                                 %td
                                     .columns.is-vcentered.is-mobile
-                                        .column.is-2
-                                            =item_group.position
                                         .column.is-3
-                                            =attachment_image_tag item_group, :group_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg", size: '80x80'
+                                            =item_group.position
+                                        .column.is-2
+                                            =attachment_image_tag item_group, :group_image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpg", size: '300x300'
                                         .column.is-3
                                             =item_group.category.name
                                         .column.is-4.text-right

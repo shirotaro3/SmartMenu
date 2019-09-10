@@ -2,7 +2,7 @@
     %tr
         %td
             .columns.is-vcentered.is-mobile
-                .column.is-2
+                .column.is-3
                     -# 並び替えリンク　{}falseで非表示
                     .columns.is-vcentered.is-mobile
                         .column
@@ -10,8 +10,8 @@
                             = link_to_if(!menu_item.last?,'▼', move_lower_shop_menu_item_path(menu_item), :id => menu_item, remote: true, class:'button is-small is-rounded is-block'){}
                         .column
                             = menu_item.position
-                .column.is-3
-                    = attachment_image_tag menu_item,:item_image,:fill,80,80,format: 'jpeg',fallback: "no_image.jpg",size:'80x80'
+                .column.is-2
+                    = attachment_image_tag menu_item,:item_image,:fill,200,200,format: 'jpeg',fallback: "no_image.jpg",size:'200x200'
                 .column.is-3
                     = menu_item.item_name
                 .column.is-2

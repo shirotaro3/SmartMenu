@@ -1,3 +1,103 @@
 // Place all the styles related to the user::menus controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// user用header
+#user-header{
+    position:fixed;
+    width:100%;
+    top:0;
+    height:3.5em;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+    opacity:.7;
+    z-index:5;
+    .header-btn{
+        border:1px solid white;
+        color: white;
+        margin-top:7px;
+        transition:.3s;
+        z-index:8;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+        &:hover{
+            border:1px solid white;
+            color: white;
+            text-decoration:none;
+        }
+    }
+   //  ハンバーガーメニューボタン
+    .is-pushed{
+        box-shadow: 0px 0px 0px rgba(0,0,0,0.3);
+        margin-top:8px;
+    }
+    #menu-btn3{
+        padding:18px 50px;
+        font-size:0.96em;
+        background-color:rgba(100,100,100,.3);
+    }
+}
+
+#user-menu-modal{
+    position:fixed;
+    top:3.5em;
+    width:100%;
+    z-index:8;
+ }
+.user-menu-list{
+    color:white;
+    padding:0;
+    opacity:.9;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    .grey-shadow{
+        background-color:rgba(100,100,100,.5);
+        padding:40px 0px;
+        border-top:1px solid white;
+        color:white;
+        font-size:1.2em;
+        transition: .3s;
+        &:hover{
+            color:rgba(255,255,255,.5);
+        }
+    }
+}
+.user-head-margin{
+    height:2em;
+}
+.user-main-content{
+    border-radius:40px;
+    background-color:white;
+    color:rgba(0,0,0,.7);
+    margin:0 5%;
+}
+.user-box-filter{
+    background-color: rgba(255,255,255,.4);
+    box-shadow:4px 4px 4px rgba(0,0,0,.2),10px 10px 10px rgba(255,255,255,.6) inset;
+    margin:-12px;
+    padding:20px 10px;
+    border-radius:40px;
+}
+.menu-headline{
+    border-bottom:3px solid rgba(255,255,255,.4);
+    margin-bottom:1%;
+}
+.box-margin{
+    margin:2% 3%;
+}
+.menu-item-box{
+    margin:1% 2% 0 2%;
+    background-color:rgba(255,255,255,.6);
+    padding:5% 11%;
+    border-radius:50px;
+    transition:.3s;
+    box-shadow:8px 8px 8px rgba(0,0,0,.2),20px 20px 20px rgba(255,255,255,.6) inset;
+    img{
+        border-radius:30px;
+    }
+    color:#1e1e1e;
+    &:hover{
+        opacity:.9;
+        color:#3f3f3f;
+    }
+}
+.menu-item-text{
+    margin:10px 0;
+}

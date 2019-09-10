@@ -26,6 +26,13 @@
  }
  body{
     margin-bottom: 3em;
+    font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ＭＳ Ｐゴシック", sans-serif;
+ }
+
+ img{
+     width:100%;
+     max-width: 100%;
+     height: auto;
  }
 
  .container{
@@ -34,10 +41,14 @@
 
  .text-large {
     font-size: 1.4em;
-    font-family: 'Hiragino Kaku Gothic Std';
+    font-weight:bold;
  }
  .text-small{
-     font-size: 0.9em;
+    font-size: 0.9em;
+ }
+ .text-ex-large{
+    font-size: 2.3em;
+    font-weight:bold;
  }
  .strong{
     font-weight:bold;
@@ -133,7 +144,7 @@
 
  // *** header ***
  
- header {
+ .header {
      background-color: #AD8457;
      color: white;
      height:4em;

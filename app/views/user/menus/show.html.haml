@@ -1,3 +1,16 @@
-.columns
-    .column.is-4-desktop.is-8-tablet
-        aa
+.container
+    .columns
+        .column.is-8-desktop.is-offset-2-desktop.is-10-tablet.is-offset-1-tablet.text-center.user-main-content{style:"background-color:#{@menu.color}"}
+            .user-box-filter
+                %h1.text-ex-large.menu-headline
+                    = @menu.menu_name
+                %p.text-large ご覧になりたい項目をお選びください。
+                .box-margin
+                    .columns.is-multiline.is-fullwidth
+                        - @menu.item_groups.each do |item_group|
+                            .column.is-12-tablet.is-6-desktop
+                                = link_to user_menu_item_group_path(item_group) do
+                                    .menu-item-box
+                                        %p.text-ex-large
+                                            = item_group.category.name
+                                        =attachment_image_tag item_group, :group_image, :fill, 300, 250, format: 'jpeg', size: '300x250'
