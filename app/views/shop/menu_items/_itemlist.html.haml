@@ -21,6 +21,6 @@
                     = link_to shop_menu_item_path(menu_item),class:'button is-small is-rounded is-info strong' do
                         %i.fas.fa-search
                         詳細
-                    = link_to shop_menu_item_path(menu_item),class:'button is-small is-rounded is-danger strong' do
+                    = link_to shop_menu_item_path(menu_item),method: :delete,class:'button is-small is-rounded is-danger strong' do
                         %i.fas.fa-trash
                             削除

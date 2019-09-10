@@ -1,4 +1,6 @@
 class Shop::MenusController < ApplicationController
+    before_action :authenticate_shop!
+    
     def index
         @menus = current_shop.menus
     end
@@ -17,40 +19,36 @@ class Shop::MenusController < ApplicationController
 
     def update
         @menu = Menu.find(params[:id])
-        # 直打ち対策
-        if @menu.shop_id == current_shop.id
-            if @menu.update(menu_params)
-                redirect_to shop_menu_path(@menu),:notice=>'変更を保存しました。'
-            else
-                flash.now[:alert] = '保存に失敗しました。入力内容をご確認下さい。'
-                render :edit
-            end
+        correct_shop(@menu) and return
+        if @menu.update(menu_params)
+            redirect_to shop_menu_path(@menu),:notice=>'変更を保存しました。'
         else
-            redirect_to top_shop_mypages_path,:notice=>'アクセス権限がありません。'
+            flash.now[:alert] = '保存に失敗しました。入力内容をご確認下さい。'
+            render :edit
         end
     end
 
     def edit
         @menu = Menu.find(params[:id])
+        correct_shop(@menu) and return
     end
 
     def destroy
         menu = Menu.find(params[:id])
-        if menu.shop_id = current_shop.id
-            menu.destroy
-            redirect_to shop_menus_path, :notice=>'メニューを削除しました。'
-        else
-            redirect_to shop_mypage_top_path,:alert=>'アクセス権限がありません。'
-        end
+        correct_shop(menu) and return
+        menu.destroy
+        redirect_to shop_menus_path, :notice=>'メニューを削除しました。'
     end
 
     def show
         @menu = Menu.find(params[:id])
+        correct_shop(@menu) and return
     end
 
     # QRコードの表示
     def qrcode
         menu = Menu.find(params[:id])
+        correct_shop(menu) and return
         @url = qrcode_shop_menu_url(menu)
         render layout: 'layouts/qrcode'
     end

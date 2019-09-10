@@ -3,20 +3,18 @@ class Shop::ItemGroupsController < ApplicationController
     def create
         item_group = ItemGroup.new(item_group_params)
         item_group.menu_id = params[:menu_id]
-        if item_group.save!
-            redirect_to shop_item_group_menu_items_path(item_group),:notice =>'アイテムグループを作成しました。'
+        correct_shop(item_group.menu) and return
+        if item_group.save
+            redirect_to shop_menu_path(item_group.menu),:notice =>'アイテムグループを作成しました。'
         else
             redirect_to shop_menu_path(params[:menu_id]),:alert=>'登録に失敗しました。'
         end
     end
     def destroy
         item_group = ItemGroup.find(params[:id])
-        if item_group.menu.shop_id == current_shop.id
-            item_group.destroy
-            redirect_to shop_menu_path(item_group.menu),:notice=>'アイテムグループを削除しました。'
-        else
-            redirect_to top_shop_mypages_path,:alert=>'アクセス権限がありません。'
-        end
+        correct_shop(item_group.menu) and return
+        item_group.destroy
+        redirect_to shop_menu_path(item_group.menu),:notice=>'アイテムグループを削除しました。'
     end
     private
     def item_group_params

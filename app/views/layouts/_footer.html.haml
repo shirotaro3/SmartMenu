@@ -1,3 +1,8 @@
 %footer.columns.is-fluid.is-mobile
-    .column.is-4.is-offset-4.text-center
-        © 2019 menu-app
+    .column.text-center.text-small
+        -if params[:controller].include?('user')
+            このメニューは
+            =link_to 'SmartMenu', root_path
+            で作成されています。
+        -else
+            © 2019 SmartMenu

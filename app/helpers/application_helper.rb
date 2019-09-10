@@ -16,4 +16,5 @@ module ApplicationHelper
             return postal_code
         end
     end
+
 end

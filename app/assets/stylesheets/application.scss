@@ -19,7 +19,7 @@
  @import 'font-awesome';
 
  // 共通
- .html{
+ html{
 	min-height: 98.6vh;
     position: relative;
     background-color:#F6F6F6;
@@ -97,7 +97,7 @@
     display:inline-block;
 }
 
-// マイページのメイン部分・白背景・余白調整等
+// メインカラムのpadding調整
  .main-content{
      background-color:white;
      border-radius:10px;
@@ -225,12 +225,6 @@
      bottom: 0;
      left: 12px;
      width:100%;
-     a{
-         color:lightgrey;
-         &:hover{
-             color:white;
-         }
-     }
  }
  .logo{
      background-image:url('logo.png');
