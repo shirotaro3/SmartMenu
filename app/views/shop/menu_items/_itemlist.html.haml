@@ -3,7 +3,7 @@
         %td
             .columns.is-vcentered.is-mobile
                 .column.is-3
-                    -# 並び替えリンク　{}falseで非表示
+                    -# 並び替えリンク　最後の{}はfalseで非表示にするため
                     .columns.is-vcentered.is-mobile
                         .column
                             = link_to_if(!menu_item.first?,'▲', move_higher_shop_menu_item_path(menu_item), :id => menu_item, remote: true, class:'button is-small is-rounded is-block'){}

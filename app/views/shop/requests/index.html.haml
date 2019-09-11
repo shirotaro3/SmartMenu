@@ -18,23 +18,24 @@
                             %tr
                                 %td
                                     .columns.is-mobile.is-vcentered
-                                        .column
-                                            .columns
+                                        .column.is-10
+                                            .columns.is-mobile
+                                                .column.is-3
+                                                    件名
                                                 .column
                                                     = request.title
-                                            .columns
+                                            .columns.is-mobile
+                                                .column.is-3
+                                                    内容
                                                 .column
-                                                    = simple_format(request.body)
-                                            .columns
-                                                .colmun.text-small.strong
-                                                    = request.nickname
+                                                    = simple_format(request.message)
                                         .column
                                             %p
                                                 = link_to shop_request_path(request),method: :delete,class:'button is-rounded is-success',data:{:confirm=>'削除してもよろしいですか？'} do
                                                     %i.fas.fa-check
-                                            %p
-                                                = link_to shop_request_path(request),class:'button is-rounded is-primary' do
-                                                    %i.fas.fa-reply
+                                    %p.text-small.text-right
+                                        posted date
+                                        = simple_date(request.created_at)
                     -else
                         %tr
                             %td

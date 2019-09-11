@@ -63,17 +63,15 @@
     height:2em;
 }
 .user-main-content{
-    border-radius:40px;
+    border-radius:20px;
     background-color:white;
     color:rgba(0,0,0,.7);
-    margin:0 5%;
+    margin:0 2%;
 }
 .user-box-filter{
-    background-color: rgba(255,255,255,.4);
-    box-shadow:4px 4px 4px rgba(0,0,0,.2),10px 10px 10px rgba(255,255,255,.6) inset;
-    margin:-12px;
+    background-color: rgba(255,255,255,.9);
     padding:20px 10px;
-    border-radius:40px;
+    border-radius:20px;
 }
 .menu-headline{
     border-bottom:3px solid rgba(255,255,255,.4);
@@ -83,14 +81,14 @@
     margin:2% 3%;
 }
 .menu-item-box{
-    margin:1% 2% 0 2%;
-    background-color:rgba(255,255,255,.6);
-    padding:5% 11%;
+    margin:0 2% 0 2%;
+    padding:2% 5%;
     border-radius:50px;
     transition:.3s;
-    box-shadow:8px 8px 8px rgba(0,0,0,.2),20px 20px 20px rgba(255,255,255,.6) inset;
+    box-shadow:8px 8px 8px rgba(0,0,0,.1),10px 10px 10px rgba(255,255,255,.4) inset;
     img{
         border-radius:30px;
+        opacity:.9;
     }
     color:#1e1e1e;
     &:hover{
@@ -100,4 +98,13 @@
 }
 .menu-item-text{
     margin:10px 0;
+    display:inline-block;
+}
+
+.menu-head-image{
+    opacity:.8;
+    border-radius:50px;
+}
+.links{
+    padding:3px 20px;
 }

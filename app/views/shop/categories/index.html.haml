@@ -42,6 +42,6 @@
                             = form_with model: current_shop.categories.build,url:{:controller=>'shop/categories',:action=>'create'},local: true do |f|
                                 .field.has-addons
                                     .control
-                                        = f.text_field :name,class:'input is-primary',placeholder:'例：ソフトドリンク'
+                                        = f.text_field :name,class:'input is-primary',placeholder:'例: ドリンク(10文字まで)'
                                     .control
                                         = f.submit '登録',class:'button is-primary'

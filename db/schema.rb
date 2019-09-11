@@ -20,21 +20,18 @@ ActiveRecord::Schema.define(version: 2019_09_05_103933) do
   end
 
   create_table "dizzies", force: :cascade do |t|
-    t.integer "menu_item_id", null: false
     t.integer "shop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "grins", force: :cascade do |t|
-    t.integer "menu_item_id", null: false
     t.integer "shop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "happies", force: :cascade do |t|
-    t.integer "menu_item_id", null: false
     t.integer "shop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,9 +66,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_103933) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.integer "user_id", null: false
     t.integer "shop_id", null: false
-    t.string "email", default: "", null: false
     t.text "message", default: "", null: false
     t.string "title", default: "", null: false
     t.datetime "created_at", null: false
@@ -94,16 +89,6 @@ ActiveRecord::Schema.define(version: 2019_09_05_103933) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_shops_on_email", unique: true
     t.index ["reset_password_token"], name: "index_shops_on_reset_password_token", unique: true
-  end
-
-  create_table "special_features", force: :cascade do |t|
-    t.integer "menu_id", default: 0, null: false
-    t.string "feature_image_id", default: "", null: false
-    t.string "title", default: "", null: false
-    t.text "body", default: "", null: false
-    t.string "column_color", default: "#ffffff", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

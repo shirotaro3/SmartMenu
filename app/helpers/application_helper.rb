@@ -17,4 +17,8 @@ module ApplicationHelper
         end
     end
 
+    # datetimeを見やすく
+    def simple_date(datetime)
+        datetime.strftime("%Y年%m月%d日%H:%M")
+    end
 end

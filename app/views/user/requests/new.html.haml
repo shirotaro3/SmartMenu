@@ -1,0 +1,31 @@
+.container
+    .columns
+        .column.is-8-desktop.is-offset-2-desktop.is-10-tablet.is-offset-1-tablet.text-center.user-main-content
+            .box
+                %table.table
+                    %thead
+                        %tr
+                            %td
+                                .text-center
+                                    %h1.text-large ご意見・ご要望
+                                    %p お客様の声をお聞かせください。
+                                    %p.text-small ※全てのご要望にお答えできるとは限りませんので、あらかじめご了承ください。
+                    %tbody
+                        %tr
+                            %td
+                                = form_with model: Request.new, url: user_menu_requests_path(@menu) do |f|
+                                    .field
+                                        = f.label :title do
+                                            件名
+                                            %span.has-text-danger [必須]
+                                        .control
+                                            = f.text_field :title, class:'input',placeholder:'件名を入力してください。(12文字まで)'
+                                    .filed
+                                        = f.label :message do
+                                            お声の内容
+                                            %span.has-text-danger [必須]
+                                        .control
+                                            = f.text_area :message, class:'textarea',placeholder:"具体的な内容をご記入ください。(最大70文字まで)"
+                                    .field
+                                        .control.text-center
+                                            = f.submit '送信',class:'button'

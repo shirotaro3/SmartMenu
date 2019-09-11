@@ -1,28 +1,40 @@
 .container
     .columns
-        .column.is-10.is-offset-1.text-center.user-main-content{style:"background-color:#{@menu.color}"}
-            .user-box-filter
-                %h1.text-ex-large.menu-headline
-                    = @item_group.category.name
-                .box-margin
+        .column.is-10.is-offset-1.text-center
+            .links.text-left.text-small
+                = link_to "メニュートップ", user_menu_path(@menu)
+                >
+                =@item_group.category.name
+            .user-main-content
+                .box
+                    %h1.text-large.menu-{style:"border-bottom:2px solid #{@menu.color};"}
+                        = @item_group.category.name
+                    %p
+                        = @item_group.category.name
+                        の一覧です。
                     .columns.is-multiline.is-fullwidth
-                        - @item_group.menu_items.each do |menu_item|
-                            .column.is-12-tablet.is-6-desktop
+                        - if @item_group.menu_items.any?
+                            - @item_group.menu_items.each do |menu_item|
+                                .column.is-12-tablet.is-6-desktop
+                                    .menu-item-box
+                                        .columns.is-mobile.is-vcentered
+                                            - if menu_item.item_image.present?
+                                                .column.is-6
+                                                    =attachment_image_tag menu_item, :item_image, :fill, 300, 200, format: 'jpeg', size: '300x200'
+                                            .column
+                                                %p.menu-headline.strong
+                                                    = menu_item.item_name
+                                                %p
+                                                    %span.has-text-danger
+                                                        ¥
+                                                        = menu_item.price
+                                                    %span 
+                                                        (税込¥
+                                                        = menu_item.price
+                                                        )
+                                                %p.text-small.menu-item-text
+                                                    = menu_item.item_text
+                        -else
+                            .column
                                 .menu-item-box
-                                    .columns.is-mobile.is-vcentered
-                                        - if menu_item.item_image.present?
-                                            .column.is-6
-                                                =attachment_image_tag menu_item, :item_image, :fill, 300, 300, format: 'jpeg', size: '300x300'
-                                        .column
-                                            %p.text-large.menu-headline
-                                                = menu_item.item_name
-                                            %p
-                                                %span.has-text-danger
-                                                    ¥
-                                                    = menu_item.price
-                                                %span 
-                                                    (税込¥
-                                                    = menu_item.price
-                                                    )
-                                            %p.text-small.menu-item-text
-                                                = menu_item.item_text
+                                    ただいま準備中です。

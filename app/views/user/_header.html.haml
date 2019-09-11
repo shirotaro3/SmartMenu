@@ -9,13 +9,13 @@
         .column.is-3
         .column.is-6.user-menu-list.text-center{style:"background-color:#{menu.color}"}
             %ul
-                = link_to root_path do
+                = link_to user_menu_path(@menu) do
                     %li
                         .grey-shadow
                             %i.fas.fa-home
                             = @menu.menu_name
-                = link_to destroy_shop_session_path, method: :delete do
+                = link_to new_user_menu_request_path(@menu) do
                     %li
                         .grey-shadow
-                            %i.fas.fa-sign-out-alt
+                            %i.fas.fa-envelope
                             ご意見・ご要望

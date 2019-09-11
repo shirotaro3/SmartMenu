@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  namespace :user do
+    get 'dizzies/create'
+    get 'dizzies/destroy'
+  end
+  namespace :user do
+    get 'grins/create'
+    get 'grins/destroy'
+  end
+  namespace :user do
+    get 'happies/create'
+    get 'happies/destroy'
+  end
   root 'pages#top'
   get 'about' => 'pages#about'
   devise_for :shops, controllers: {
@@ -11,9 +23,11 @@ Rails.application.routes.draw do
   namespace :user do
     resources :menus, only:[:show] do
       resources :item_groups, only:[:show]
+      resources :emotions, only:[:create,:destroy]
+      resources :requests, only:[:create,:new] do
+        get :thanks, on: :collection
+      end
     end
-    resources :emotions, only:[:create,:destroy]
-    resources :requests, only:[:create,:new]
   end
 
   # ショップ
