@@ -2,6 +2,7 @@ class Shop::MenusController < ApplicationController
     before_action :authenticate_shop!
     
     def index
+        @menu = Menu.new
         @menus = current_shop.menus
     end
 
@@ -11,7 +12,7 @@ class Shop::MenusController < ApplicationController
         if @menu.save
             redirect_to shop_menu_path(@menu),:notice => 'メニューを作成しました。'
         else
-            flash.now[:alert] = '入力内容をご確認下さい。'
+            flash.now[:alert] = '作成に失敗しました。'
             @menus = current_shop.menus
             render :index
         end
@@ -23,7 +24,7 @@ class Shop::MenusController < ApplicationController
         if @menu.update(menu_params)
             redirect_to shop_menu_path(@menu),:notice=>'変更を保存しました。'
         else
-            flash.now[:alert] = '保存に失敗しました。入力内容をご確認下さい。'
+            flash[:alert] = '更新に失敗しました。'
             render :edit
         end
     end

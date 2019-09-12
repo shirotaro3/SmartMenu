@@ -1,52 +1,62 @@
 .container
   .columns
-    .column.is-6.is-offset-3.is-10-mobile.is-offset-1-mobile.main-content
-      %h1 新規登録
+    .column.is-6-desktop.is-offset-3-desktop.is-8-tablet.is-offset-2-tablet.is-10-mobile.is-offset-1-mobile.main-content
+      %h1.text-ex-large.has-under-line 新規登録
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = render "devise/shared/error_messages", resource: resource
-        .field
-          %label お店の名前
+        .field.has-small-margin
+          %label.label
+            お店の名前
+            %span.has-text-danger [必須]
           .control
             = f.text_field :shop_name,autofocus: true,class:'input', placeholder:'最大10文字まで'
+        %span.label
+          お店の情報
+          %span.has-text-danger [必須] 
+        .box.has-background-white-ter
+          .field
+            %label 郵便番号
+            %br
+            .control
+              = f.text_field :postal_code,class:'input is-small', placeholder:'半角数字7桁（ハイフンは不要です）'
+          .field
+            %label 都道府県
+            %br
+            .control
+              .select
+                = f.select :state,Shop.states.keys.to_a,{prompt:'選択してください'}
+          .field
+            %label 市区町村
+            %br
+            .control
+              = f.text_field :city,class:'input is-small'
+          .field
+            %label 町名・番地・建物
+            %br
+            .control
+              = f.text_field :street,class:'input is-small'
         .field
-          %label 郵便番号
-          %br
-          .control
-            = f.text_field :postal_code,class:'input is-small', placeholder:'半角数字7桁（ハイフンは不要です）'
-        .field
-          %label 都道府県
-          %br
-          .control
-            .select
-              = f.select :state,Shop.states.keys.to_a,{prompt:'選択してください'}
-        .field
-          %label 市区町村
-          %br
-          .control
-            = f.text_field :city,class:'input is-small'
-        .field
-          %label 町名・番地・建物
-          %br
-          .control
-            = f.text_field :street,class:'input is-small'
-        .field
-          %label 電話番号
-          %br
+          %label.label
+            電話番号
+            %span.has-text-danger [必須]
           .control
             = f.text_field :phone_number,class:'input is-small'
         .field
-          %label Eメール
-          %br
+          %label.label
+            Eメール
+            %span.has-text-danger [必須]
           .control
             = f.email_field :email, autofocus: true, autocomplete: "email",class:'input is-small',placeholder:'email@example.com'
         .field
-          %label パスワード
-          %br
+          %label.label
+            パスワード
+            %span.has-text-danger [必須]
           .control
             = f.password_field :password, autocomplete: "new-password",class:'input is-small', placeholder:'半角英数字6文字以上'
         .field
-          %label パスワード確認
-          %br
+          %label.label
+            パスワード確認
+            %span.has-text-danger [必須]
           .control
             = f.password_field :password_confirmation, autocomplete: "new-password",class:'input is-small',placeholder:'確認のためもう一度入力して下さい'
         .actions.text-center

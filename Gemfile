@@ -92,3 +92,5 @@ gem "refile-mini_magick"
 # pdf出力
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
+# ページネーション
+gem 'kaminari', '~> 1.1.1'

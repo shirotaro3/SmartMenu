@@ -23,9 +23,14 @@ document.addEventListener("turbolinks:load", function() {
      
     // フラッシュメッセージ　アニメーション
 	$('#flash-message').fadeIn("slow", function () {
-		$(this).delay(3000).fadeOut("slow");
+		$(this).delay(2300).fadeOut("", function(){
+            $('#error-message').fadeIn("");
+        });
     });
-    
+    $('#error-close-btn').on('click', function(){
+        $('#error-message').fadeOut('fast');
+    });
+
     // メニューボタン1(センター)
     $('#menu-btn1').on('click',function(){
         // メニュー展開中にもう一方のメニューを開こうとした時

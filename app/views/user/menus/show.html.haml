@@ -1,19 +1,24 @@
 .container
     .columns
-        .column.is-8-desktop.is-offset-2-desktop.is-10-tablet.is-offset-1-tablet.text-center
+        .column.is-12-desktop.is-offset-0-desktop.is-10-tablet.is-offset-1-tablet.text-center
             .user-main-content
-                .box
-                    %h1.text-large{style:"border-bottom:2px solid #{@menu.color}"}
-                        = @menu.menu_name
-                    %p ご覧になりたい項目をお選びください。
-                    .box-margin
-                        .columns.is-multiline.is-fullwidth
-                            - @menu.item_groups.each do |item_group|
-                                .column.is-12-tablet.is-6-desktop
-                                    = link_to user_menu_item_group_path(@menu,item_group) do
+                %h1.text-ex-large{style:"border-bottom:2px solid #{@menu.color}"}
+                    = @menu.menu_name
+                %p.has-small-margin ご覧になりたい項目をお選びください。
+                .box-margin
+                    .columns.is-multiline.is-fullwidth.has-small-margin
+                        - @menu.item_groups.each do |item_group|
+                            .column.is-12-tablet.is-6-desktop
+                                = link_to user_menu_item_group_path(@menu,item_group) do
+                                    .menu-ground{style:"background-color:#{@menu.color}"}
                                         .menu-item-box
                                             %p.text-large
                                                 = item_group.category.name
-                                            .columns.is-mobile
+                                            .columns.is-mobile.has-small-margin
                                                 .column.is-10.is-offset-1
-                                                    =attachment_image_tag item_group, :group_image, :fill, 300, 150, format: 'jpeg', size: '300x150'
+                                                    .menu-image
+                                                        =attachment_image_tag item_group, :group_image, :fill, 300, 170, format: 'jpeg', size: '300x170'
+            .user-main-content.is-inline-block.has-large-margin
+                このお店はどうですか？
+                #emotions
+                    = render 'user/emotions',emotions: @emotions

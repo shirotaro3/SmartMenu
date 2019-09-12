@@ -35,13 +35,14 @@
         background-color:rgba(100,100,100,.3);
     }
 }
-
+// モーダル位置調整
 #user-menu-modal{
     position:fixed;
     top:3.5em;
     width:100%;
     z-index:8;
  }
+//  ヘッダーメニュー展開時のリスト
 .user-menu-list{
     color:white;
     padding:0;
@@ -59,20 +60,19 @@
         }
     }
 }
+// ヘッダー分の余白
 .user-head-margin{
     height:2em;
 }
+// メイン部分の白い背景
 .user-main-content{
     border-radius:20px;
+    padding:25px;
     background-color:white;
     color:rgba(0,0,0,.7);
     margin:0 2%;
 }
-.user-box-filter{
-    background-color: rgba(255,255,255,.9);
-    padding:20px 10px;
-    border-radius:20px;
-}
+// 白いアンダーライン
 .menu-headline{
     border-bottom:3px solid rgba(255,255,255,.4);
     margin-bottom:1%;
@@ -80,31 +80,48 @@
 .box-margin{
     margin:2% 3%;
 }
+// アイテムボックス
 .menu-item-box{
-    margin:0 2% 0 2%;
-    padding:2% 5%;
+    padding:2% 5% 4% 5%;
     border-radius:50px;
+    background-color:rgba(255,255,255,.9);
     transition:.3s;
     box-shadow:8px 8px 8px rgba(0,0,0,.1),10px 10px 10px rgba(255,255,255,.4) inset;
-    img{
-        border-radius:30px;
-        opacity:.9;
-    }
-    color:#1e1e1e;
+    color:#3e3e3e;
     &:hover{
         opacity:.9;
         color:#3f3f3f;
     }
 }
+// 画像を囲んで使用 / 影・透明度・枠線等
+.menu-image{
+    border:3px solid white;
+    background-color:white;
+    border-radius:30px;
+    box-shadow:8px 8px 8px rgba(0,0,0,.5);
+    img{
+        border-radius:30px;
+        opacity:.9;
+        margin-bottom:-5px;
+    }
+}
+// アイテムボックスの下地・メニューカラーが付いている
+.menu-ground{
+    margin:0 2% 0 2%;
+    border-radius:50px;
+}
 .menu-item-text{
     margin:10px 0;
     display:inline-block;
 }
-
-.menu-head-image{
-    opacity:.8;
-    border-radius:50px;
-}
+// 階層リンクに使用
 .links{
     padding:3px 20px;
+}
+
+// emotionsのtdのpadding
+.emotions{
+    td{
+        padding: 0 4px;
+    }
 }

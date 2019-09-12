@@ -1,9 +1,13 @@
-#flash-message
-    -if flash[:notice]
-        .notice
-            %i.fa.fa-comment
-            =flash[:notice]
-    -if flash[:alert]
-        .alert
-            %i.fa.fa-exclamation-triangle
-            =flash[:alert]
+
+-if flash[:notice]
+        .columns
+                .column.is-4-desktop.is-offset-4-desktop.is-8-tablet.is-offset-2-tablet
+                        .notice
+                                %i.fa.fa-comment
+                                =flash[:notice]
+-if flash[:alert]
+        .columns
+                .column.is-6-desktop.is-offset-3-desktop.is-8-tablet.is-offset-2-tablet
+                        .alert
+                                %i.fas.fa-exclamation-triangle
+                                =flash[:alert]

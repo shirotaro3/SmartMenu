@@ -1,0 +1,22 @@
+.container
+    .columns
+        .column.is-3.is-hidden-mobile
+            =render 'shop/sidebar'
+        .column.is-8.main-content
+            
+            .columns
+                .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
+
+                    %h2.text-large.has-left-margin
+                        = @item_group.category.name
+                    .box.has-middle-margin
+                        = form_with model: @item_group, url: shop_item_group_path do |f|
+                            .field
+                                %span.label アイテムグループ画像
+                                .box
+                                    .images
+                                        = attachment_image_tag @item_group,:group_image,:fill,230,230,format: 'jpeg',size:'230x230',style:'max-width:230px;' if @item_group.group_image
+                                    = f.attachment_field :group_image
+                            .field
+                                .control.text-center
+                                    = f.submit '変更',class:"button"

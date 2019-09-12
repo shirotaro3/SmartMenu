@@ -1,0 +1,52 @@
+.container
+    .columns
+        .column.is-3.is-hidden-mobile
+            =render 'shop/sidebar'
+        .column.is-8.main-content
+            -# 階層リンク
+            .links-nav.text-ex-small
+                = link_to "メニュー管理",shop_menus_path
+                >
+                = link_to shop_menu_path(@menu_item.item_group.menu) do
+                    = @menu_item.item_group.menu.menu_name
+                >
+                = link_to shop_item_group_menu_items_path(@menu_item.item_group) do
+                    = @menu_item.item_group.category.name
+                >
+                = @menu_item.item_name
+            
+            -# アイテム編集フォーム
+            .columns
+                .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
+                    %h2.text-large
+                        = attachment_image_tag @menu_item,:item_image,:fill,30,30,format: 'jpeg',size:'30x30',style:'width:30px;height:30px;' if @menu_item.item_image
+                        = @menu_item.item_name
+                    .box.has-middle-margin
+                        = form_with model: @menu_item, url: shop_menu_item_path do |f|
+                            = render 'layouts/error-message', model: f.object
+                            .field
+                                = f.label :item_image,'アイテム画像',class:"label"
+                                .control
+                                    .images
+                                        = attachment_image_tag @menu_item,:item_image,:fill,230,230,format: 'jpeg',size:'230x230',style:'max-width:230px;' if @menu_item.item_image
+                                    = f.attachment_field :item_image
+                            .field
+                                = f.label :item_name,class:"label" do
+                                    アイテム名
+                                    %span.has-text-danger [必須]
+                                .control
+                                    = f.text_field :item_name,class:"input"
+                            .field
+                                = f.label :price,class:"label" do
+                                    税抜価格
+                                    %span.has-text-danger [必須]
+                                .control
+                                    = f.text_field :price,class:"input"
+                            .field
+                                = f.label :item_text,"アイテムテキスト", class:"label"
+                                .control
+                                    = f.text_area :item_text,class:"input",placeholder:"アイテムの説明を入力・20文字まで"
+                            .field
+                                .control.text-center
+                                    = f.submit "保存",class:"button"
+

@@ -1,0 +1,22 @@
+.emotions
+    %table.block-center
+        %tr.text-ex-large
+            %td
+                = link_to user_menu_grin_path(@menu),method: :post, remote: true,data:{disable_with:''} do
+                    %i.far.fa-grin
+            %td
+                = link_to user_menu_happy_path(@menu),method: :post, remote: true do
+                    %i.far.fa-grin-squint
+            %td
+                = link_to user_menu_dizzy_path(@menu),method: :post, remote: true, data:{disable_with:''} do
+                    %i.far.fa-dizzy
+        %tr.text-ex-small
+            %td
+                .text-center
+                    = emotions[:grin]
+            %td
+                .text-center
+                    = emotions[:happy]
+            %td
+                .text-center
+                    = emotions[:dizzy]

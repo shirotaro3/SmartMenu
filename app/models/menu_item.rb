@@ -5,4 +5,5 @@ class MenuItem < ApplicationRecord
     default_scope -> { order("position ASC") }
 
     validates :item_name, presence: true, length: { in: 2..10 }
+    validates :price, presence: true,length: { in: 1..6 }
 end

@@ -1,8 +1,10 @@
 class Shop::ItemGroupsController < ApplicationController
     before_action :authenticate_shop!
+
     def create
         item_group = ItemGroup.new(item_group_params)
         item_group.menu_id = params[:menu_id]
+        # sessionチェック
         correct_shop(item_group.menu) and return
         if item_group.save
             redirect_to shop_menu_path(item_group.menu),:notice =>'アイテムグループを作成しました。'
@@ -10,11 +12,19 @@ class Shop::ItemGroupsController < ApplicationController
             redirect_to shop_menu_path(params[:menu_id]),:alert=>'登録に失敗しました。'
         end
     end
+
     def destroy
         item_group = ItemGroup.find(params[:id])
+        # sessionチェック
         correct_shop(item_group.menu) and return
         item_group.destroy
         redirect_to shop_menu_path(item_group.menu),:notice=>'アイテムグループを削除しました。'
+    end
+
+    def edit
+        @item_group = ItemGroup.find(params[:id])
+        # sessionチェック
+        correct_shop(@item_group.menu) and return
     end
 
     # 並べ替え用
@@ -34,6 +44,7 @@ class Shop::ItemGroupsController < ApplicationController
 
     # 並べ替え用
     def move_lower
+        # move_higherとの違いは"move_lower"部分のみ
         item_group = ItemGroup.find(params[:id])
         correct_shop(item_group.menu) and return
         item_group.move_lower

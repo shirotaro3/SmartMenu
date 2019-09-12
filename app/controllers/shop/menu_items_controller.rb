@@ -2,23 +2,37 @@ class Shop::MenuItemsController < ApplicationController
     before_action :authenticate_shop!
 
     def index
+        @menu_item = MenuItem.new
         @item_group = ItemGroup.find(params[:item_group_id])
-        # session確認
+        # sessionチェック
         correct_shop(@item_group.menu) and return
         @menu_items = MenuItem.where(item_group_id: @item_group.id)
     end
 
     def create
         @item_group = ItemGroup.find(params[:item_group_id])
+        # sessionチェック
         correct_shop(@item_group.menu) and return
         @menu_item = MenuItem.new(menu_item_params)
         @menu_item.item_group_id = @item_group.id
         if @menu_item.save
-            redirect_to shop_item_group_menu_items_path(@item_group),:notice=>'追加しました。'
+            redirect_to shop_item_group_menu_items_path(@item_group),:notice=>'アイテムを追加しました。'
         else
             @menu_items = MenuItem.where(item_group_id: params[:item_group_id])
-            flash.now[:alert] = '登録に失敗しました。入力内容をご確認下さい。'
+            flash.now[:alert] = '登録に失敗しました。'
             render :index
+        end
+    end
+
+    def update
+        @menu_item = MenuItem.find(params[:id])
+        # sessionチェック
+        correct_shop(@menu_item.item_group.menu) and return
+        if @menu_item.update(menu_item_params)
+            redirect_to shop_item_group_menu_items_path(@menu_item.item_group),:notice => "アイテムを更新しました。"
+        else
+            flash.now[:alert] = "更新に失敗しました。"
+            render :edit
         end
     end
 

@@ -3,6 +3,15 @@
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
         .column.is-8.main-content
+            -# 階層リンク
+            .links-nav.text-ex-small
+                = link_to "メニュー管理",shop_menus_path
+                >
+                = link_to shop_menu_path(@menu) do
+                    = @menu.menu_name
+                >編集
+
+            -# メニュー編集フォーム
             %table.table
                 %thead
                     %tr
@@ -14,6 +23,7 @@
                     %tr
                         %td
                             = form_with model: @menu, url:{:controller=>'shop/menus',:action=>'update'},local: true do |f|
+                                = render 'layouts/error-message', model: f.object
                                 .columns
                                     .column.is-8-desktop.is-offset-2-desktop
                                         .field

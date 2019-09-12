@@ -3,37 +3,45 @@
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
         .column.is-8.main-content
-            -# 新着リクエスト
-            %table.table
-                %thead
-                    %tr
-                        %td
-                            %h2.text-large
-                                %i.far.fa-comment-dots
-                                新着リクエスト
-                %tbody
-                    - if @requests.any?
-                        - @requests.each do |request|
-                            %tr
-                                %td
-                                    =request.title
-                    -else
-                        %tr
-                            %td
-                                新着リクエストはありません。
 
-            -# 新着エモーション
-            %table.table
-                %thead
-                    %tr
-                        %td
-                            %h2.text-large
-                                %i.far.fa-grin-alt
-                                エモーション
-                %tbody
-                    %tr
-                        %td
-                            -if @data["happy"] == 0 && @data["dizzy"] == 0 && @data["grin"] == 0
-                                エモーションはまだついていません。
+            .columns
+                .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
+                    -# 新着リクエスト
+                    %h2.text-large.has-left-margin
+                        %i.far.fa-comment-dots
+                        最新リクエスト
+                    = link_to shop_requests_path do
+                        .box.touch.has-middle-margin
+                            - if @requests.any?
+                                %table.table
+                                    %thead
+                                        %tr
+                                            %td.text-small
+                                                件名
+                                            %td.text-small
+                                                日時
+                                    %tbody
+                                        - @requests.each do |request|
+                                            %tr
+                                                %td
+                                                    = request.title
+                                                %td
+                                                    .text-small
+                                                        = simple_date(request.created_at)
                             -else
-                                = pie_chart @data
+                                %p.text-center
+                                    リクエストはありません。
+
+                    -# 新着エモーション
+                    %h2.text-large.has-left-margin.has-large-margin
+                        %i.far.fa-grin-alt
+                        エモーション
+                    =link_to shop_emotions_path do
+                        .box.touch.has-middle-margin
+                            = render 'shop/mypages/emotions',emotions: @emotions
+                            -if @emotions[:happy] == 0 && @emotions[:dizzy] == 0 && @emotions[:grin] == 0
+                                %p.text-center
+                                    エモーションはまだついていません。
+                            -else
+                                .chart
+                                    = pie_chart @emotions

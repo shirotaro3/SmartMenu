@@ -21,9 +21,13 @@ Rails.application.routes.draw do
 
   # ユーザー
   namespace :user do
+    # メニュー
     resources :menus, only:[:show] do
       resources :item_groups, only:[:show]
-      resources :emotions, only:[:create,:destroy]
+      resource :grin, only:[:create]
+      resource :dizzy, only:[:create]
+      resource :happy, only:[:create]
+      # リクエスト
       resources :requests, only:[:create,:new] do
         get :thanks, on: :collection
       end
@@ -32,28 +36,28 @@ Rails.application.routes.draw do
 
   # ショップ
   namespace :shop do
-    resources :mypages,only:[:show,:edit,:update] do
-      collection do
-        get :top
-        get :cancel
-      end
-    end
-    resources :categories,except:[:show,:new]
-    resources :emotions, only:[:index, :destroy]
     resources :requests, only:[:index, :show, :destroy]
+    resources :categories,except:[:show,:new]
+    # マイページ
+    resources :mypages,only:[:show,:edit,:update] do
+      get :top, on: :collection
+      get :cancel, on: :collection
+    end
+    # エモーション
+    resources :emotions, only:[:index] do
+      get :reset, on: :collection
+    end
+    # メニュー
     resources :menus, except: :new, shallow: true do
       get :qrcode, on: :member
-      resources :special_features, only:[:create, :destroy, :edit]
-      resources :item_groups,only:[:create,:destroy], shallow: true do
-        member do
-          get :move_higher
-          get :move_lower
-        end
+      # アイテムグループ
+      resources :item_groups,only:[:create,:destroy,:edit,:update], shallow: true do
+        get :move_higher, on: :member
+        get :move_lower, on: :member
+        # メニューアイテム
         resources :menu_items, except: :new do
-          member do
-            get :move_higher
-            get :move_lower
-          end
+          get :move_higher, on: :member
+          get :move_lower, on: :member
         end
       end
     end

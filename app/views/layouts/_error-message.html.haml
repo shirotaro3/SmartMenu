@@ -1,0 +1,15 @@
+- if model.errors.any?
+    #error-message
+        .columns
+            .column.is-6-desktop.is-offset-3-desktop.is-8-tablet.is-offset-2-tablet
+                .error-message
+                    %ul
+                        %li
+                            %i.fas.fa-exclamation-triangle
+                                入力内容をご確認下さい。
+                                .has-small-margin
+                            #error-close-btn.button.is-rounded.is-white
+                                %i.fas.fa-times
+                        - model.errors.full_messages.each do |message|
+                            %li
+                                = message

@@ -3,40 +3,39 @@
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
         .column.is-8.main-content
-            %table.table
-                %thead
-                    %tr
-                        %td
-                            %h2.text-large
-                                %i.far.fa-comment-dots
-                                リクエスト
-                            %p.text-smal
-                                あなたのお店に寄せられたリクエストです。
-                %tbody
+
+            .columns
+                .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
+                    %h2.text-large.has-left-margin
+                        %i.far.fa-comment-dots
+                        リクエスト
+                    %p.text-small.has-left-margin
+                        あなたのお店に寄せられたリクエストです。
                     - if @requests.any?
                         - @requests.each do |request|
-                            %tr
-                                %td
-                                    .columns.is-mobile.is-vcentered
-                                        .column.is-10
-                                            .columns.is-mobile
-                                                .column.is-3
-                                                    件名
-                                                .column
-                                                    = request.title
-                                            .columns.is-mobile
-                                                .column.is-3
-                                                    内容
-                                                .column
-                                                    = simple_format(request.message)
-                                        .column
-                                            %p
-                                                = link_to shop_request_path(request),method: :delete,class:'button is-rounded is-success',data:{:confirm=>'削除してもよろしいですか？'} do
-                                                    %i.fas.fa-check
-                                    %p.text-small.text-right
-                                        posted date
-                                        = simple_date(request.created_at)
+                            .box.has-middle-margin.has-background-white-ter
+                                .columns.is-mobile.is-vcentered
+                                    .column.is-10
+                                        .columns.is-mobile
+                                            .column.is-3.strong
+                                                件名
+                                            .column
+                                                = request.title
+                                        .columns.is-mobile
+                                            .column.is-3.strong
+                                                内容
+                                            .column
+                                                = simple_format(request.message)
+                                    .column
+                                        %p
+                                            = link_to shop_request_path(request),method: :delete,class:'button is-rounded is-success',data:{:confirm=>'リクエストを削除してもよろしいですか？'} do
+                                                %i.fas.fa-check
+                                %p.text-small.text-right
+                                    posted date
+                                    = simple_date(request.created_at)
                     -else
-                        %tr
-                            %td
-                                リクエストは届いていません。
+                        .has-middle-margin.box
+                            リクエストは届いていません。
+                    -if @requests.total_pages >= 2
+                        .paginate.has-small-margin
+                            = paginate @requests

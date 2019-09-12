@@ -3,43 +3,46 @@
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
         .column.is-8.main-content
-            %table.table.is-hoverable
-                %thead
-                    %tr
-                        %td{colspan:'2'}
-                            %h2.text-large
-                                %i.far.fa-sticky-note
-                                カテゴリ一覧
-                %tbody
-                    -if @categories.any?
-                        - @categories.each do |category|
-                            %tr
-                                %td.strong
-                                    = category.name
-                                %td
-                                    .text-right
-                                        = link_to edit_shop_category_path(category),class:'button is-info is-small is-rounded strong' do
-                                            %i.fas.fa-edit
-                                            編集
-                                        = link_to shop_category_path(category),method: :delete,class:'button is-danger is-small is-rounded strong' do
-                                            %i.fas.fa-trash
-                                            削除
-                    -else
-                        %tr
-                            %td{colspan:'2'}
-                                カテゴリーがありません。
-            %table.table
-                %thead
-                    %tr
-                        %td{colspan:'2'}
-                            %h2.text-large
-                                %i.far.fa-paper-plane
-                                カテゴリ新規登録
-                            %p.text-small メニュー作成時に使用するカテゴリを作成します。
-                %tbody
-                    %tr
-                        %td
-                            = form_with model: current_shop.categories.build,url:{:controller=>'shop/categories',:action=>'create'},local: true do |f|
+
+            .columns
+                .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
+                    %h2.text-large.has-left-margin
+                        %i.far.fa-sticky-note
+                        カテゴリ一覧
+                    .box.has-middle-margin
+                        %table.table
+                            %thead
+                                %tr
+                                    %td.text-small{colspan:"2"}
+                                        カテゴリ名
+                            %tbody
+                                -if @categories.any?
+                                    - @categories.each do |category|
+                                        %tr
+                                            %td.strong
+                                                = category.name
+                                            %td
+                                                .text-right
+                                                    = link_to edit_shop_category_path(category),class:'button is-info is-small is-rounded strong' do
+                                                        %i.fas.fa-edit
+                                                        編集
+                                                    = link_to shop_category_path(category),method: :delete,class:'button is-danger is-small is-rounded strong' do
+                                                        %i.fas.fa-trash
+                                                        削除
+                                -else
+                                    %tr
+                                        %td{colspan:'2'}
+                                        カテゴリーがありません。
+                    
+                    %h2.text-large.has-large-margin.has-left-margin
+                        %i.far.fa-paper-plane
+                        カテゴリ新規登録
+                    %p.text-small.has-left-margin メニュー作成時に使用するカテゴリを作成します。
+                    .box.has-middle-margin
+                        = form_with model: @category,url:{:controller=>'shop/categories',:action=>'create'},local: true do |f|
+                            = render 'layouts/error-message',model: f.object
+                            .field
+                                %span.label カテゴリ名
                                 .field.has-addons
                                     .control
                                         = f.text_field :name,class:'input is-primary',placeholder:'例: ドリンク(10文字まで)'

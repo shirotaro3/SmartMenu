@@ -3,53 +3,48 @@
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
         .column.is-8.main-content
-            %table.table
-                %thead
-                    %tr
-                        %td
-                            %h2.text-large
-                                %i.fas.fa-store
-                                登録情報
-                %tbody
-                    %tr
-                        %td
-                            .columns.is-mobile
-                                .column.is-4.strong
-                                    お店の名前
-                                .column.is-8
-                                    = current_shop.shop_name
-                            .columns.is-mobile
-                                .column.is-4.strong
-                                    郵便番号
-                                .column.is-8
-                                    〒
-                                    = postal_code(current_shop.postal_code)
-                            .columns.is-mobile
-                                .column.is-4.strong
-                                    住所
-                                .column.is-8
-                                    = current_shop.state
-                                    = current_shop.city
-                                    = current_shop.street
-                            .columns.is-mobile
-                                .column.is-4.strong
-                                    電話番号
-                                .column.is-8
-                                    = current_shop.phone_number
-                            .columns.is-mobile
-                                .column.is-4.strong
-                                    Eメール
-                                .column.is-8
-                                    = current_shop.email
-                    %tr
-                        %td
-                            %p.text-center
-                                = link_to edit_shop_mypage_path(current_shop),class:'button' do
-                                    編集
-                                = link_to edit_shop_mypage_path(current_shop),class:'button' do
-                                    %i.fas.fa-key
-                                    パスワード変更
-            %p.text-right
-                = link_to cancel_shop_mypages_path do
-                    退会する
-                            
+
+            .columns
+                .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
+                    %h2.text-large
+                        %i.fas.fa-store
+                            登録情報
+                    .box.has-middle-margin
+                        .columns.is-mobile
+                            .column.is-4.strong
+                                お店の名前
+                            .column.is-8
+                                = current_shop.shop_name
+                        .columns.is-mobile
+                            .column.is-4.strong
+                                郵便番号
+                            .column.is-8
+                                〒
+                                = postal_code(current_shop.postal_code)
+                        .columns.is-mobile
+                            .column.is-4.strong
+                                住所
+                            .column.is-8
+                                = current_shop.state
+                                = current_shop.city
+                                = current_shop.street
+                        .columns.is-mobile
+                            .column.is-4.strong
+                                電話番号
+                            .column.is-8
+                                = current_shop.phone_number
+                        .columns.is-mobile
+                            .column.is-4.strong
+                                Eメール
+                            .column.is-8
+                                = current_shop.email
+                        %p.text-center
+                            = link_to edit_shop_mypage_path(current_shop),class:'button' do
+                                編集
+                            = link_to edit_shop_mypage_path(current_shop),class:'button' do
+                                %i.fas.fa-key
+                                パスワード変更
+                    %p.text-right
+                        = link_to cancel_shop_mypages_path do
+                            退会する
+                                    

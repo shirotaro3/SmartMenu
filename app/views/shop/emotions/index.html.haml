@@ -3,7 +3,22 @@
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
         .column.is-8.main-content
-            %h2.text-large
-                %i.far.fa-grin-alt
-                エモーション
-            %p.text-small お店の利用者の感情を知ることができます。
+
+            .columns
+                .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
+                    %h2.text-large.has-left-margin
+                        %i.far.fa-grin-alt
+                        エモーション
+                    %p.text-small.has-left-margin
+                        お店の利用者がボタンを押した回数です。
+                    .box.has-middle-margin
+                        = render 'shop/mypages/emotions',emotions: @emotions
+                        -if @emotions[:happy] == 0 && @emotions[:dizzy] == 0 && @emotions[:grin] == 0
+                            %p.text-center
+                                エモーションはまだついていません。
+                        -else
+                            .chart
+                                = pie_chart @emotions
+                            .has-large-margin.text-center
+                                = link_to reset_shop_emotions_path,class:"button is-info",data:{:confirm=>"エモーションをリセットしてもよろしいですか？"} do
+                                    エモーションをリセット

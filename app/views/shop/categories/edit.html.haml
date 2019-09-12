@@ -3,23 +3,23 @@
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
         .column.is-8.main-content
-            %table.table
-                %thead
-                    %tr
-                        %td
-                            %h2.text-large
-                                %i.fas.fa-edit
-                                カテゴリ編集
-                %tbody
-                    %tr
-                        %td
-                            = form_with model: @category, url:{:controller=>'shop/categories',:action=>'update'},local: true do |f|
-                                .columns
-                                    .column.is-6
-                                        .field
-                                            = f.label :menu_name,'カテゴリー名',class:'label'
-                                            .control
-                                                = f.text_field :name,class:'input'
-                                        .field
-                                            .control.text-center
-                                                = f.submit '変更を保存',class:'button'
+            .links-nav.text-ex-small
+                = link_to "カテゴリ",shop_categories_path
+                >
+                = @category.name
+
+            .columns
+                .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
+                    %h2.text-large.has-left-margin
+                        %i.fas.fa-edit
+                        カテゴリ編集
+                    .box.has-middle-margin
+                        = form_with model: @category, url:{:controller=>'shop/categories',:action=>'update'},local: true do |f|
+                            = render 'layouts/error-message', model: f.object
+                            .field
+                                = f.label :menu_name,'カテゴリー名',class:'label'
+                                .control
+                                    = f.text_field :name,class:'input',placeholder:"2〜10文字"
+                            .field
+                                .control.text-center
+                                    = f.submit '変更を保存',class:'button'

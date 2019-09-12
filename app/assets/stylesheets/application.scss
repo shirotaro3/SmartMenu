@@ -29,6 +29,7 @@
     font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ＭＳ Ｐゴシック", sans-serif;
  }
 
+//  画像のレスポンシブ化(縦横比を保ちながら親要素の横幅まで拡大)
  img{
      width:100%;
      max-width: 100%;
@@ -47,11 +48,29 @@
     font-size: 0.9em;
  }
  .text-ex-large{
-    font-size: 2.3em;
+    font-size: 2em;
     font-weight:bold;
+ }
+ .text-ex-small{
+     font-size: 0.8em;
  }
  .strong{
     font-weight:bold;
+}
+.has-under-line{
+    border-bottom:1px solid #ebebeb;
+}
+.has-large-margin{
+    margin-top:30px;
+}
+.has-middle-margin{
+    margin-top:16px;
+}
+.has-small-margin{
+    margin-top:8px;
+}
+.has-left-margin{
+    margin-left:10px;
 }
 
  .text-right{
@@ -63,6 +82,13 @@
  .text-left{
      text-align:left;
  }
+ .block-center{
+     margin: 0 auto;
+ }
+ .is-float-right{
+     float:right;
+ }
+//  shop/menus/indexでtdの縦幅を出すために使用
  .td-padding{
      padding-top:24px;
      padding-bottom:24px;
@@ -71,17 +97,27 @@
  .touch{
      transition:.3s;
      &:hover{
-         background-color:rgba(255,255,255,.3);
+         opacity:.6;
      }
  }
 
+//  テーブルクラスの横幅を100%にして、レイアウト保持のため横幅を固定
  .table{
      width:100%;
      table-layout:fixed;
  }
+//  文字列が長くなった時、回り込むようにする（ハミ出し防止）
  .column{
     word-wrap: break-word;
  }
+//  kaminariのページネーションを囲う・inline化して中央寄せする
+.paginate{
+    text-align:center;
+    *{
+        display:inline;
+    }
+}
+
 // 色選択ボックス(layouts/select-colors)
  .select-colors{
      label{
@@ -90,6 +126,7 @@
             opacity:.7;
         }
      }
+    //  checkedの時、隣接する.ballに色をつける
      input[type=radio]{
          display:none;
          &:checked + .ball{
@@ -110,19 +147,38 @@
 
 // メインカラムのpadding調整
  .main-content{
-     background-color:white;
-     border-radius:10px;
      padding-top:20px;
      padding-bottom:20px;
      margin:0 20px;
+     background-color:white;
+     border-radius:10px;
+     position:relative;
  }
-
+ // main-contentの上部に階層リンクを配置
+ .links-nav{
+     position:absolute;
+     top:-19px;
+ }
+//  チャートの透明度
+.chart{
+    opacity:.8;
+}
+// エモーションの顔の色（チャートと同じ色）
+.happy{
+    color:#E36141;
+}
+.grin{
+    color:#5C85D6;
+}
+.dizzy{
+    color:#FFAD33;
+}
  // *** フラッシュメッセージ ***
  #flash-message{
-     position:absolute;
+     position:fixed;
      top:4em;
-     left:20%;
-     width:60%;
+     left:0;
+     width:100%;
      z-index:6;
      display:none;
      .notice,.alert{
@@ -137,9 +193,28 @@
      }
      .alert{
          background-color:white;
-         border:2px solid red;
+         border:1px solid red;
          color:red;
      }
+ }
+ #error-message{
+    position:fixed;
+    top:4em;
+    left:0;
+    width:100%;
+    z-index:6;
+    display:none;
+    .error-message{
+        padding:10px;
+        background-color:white;
+        border:1px solid red;
+        color:red;
+        font-weight:bold;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+    }
+ }
+ #error-close-btn{
+     float:right;
  }
 
  // *** header ***

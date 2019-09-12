@@ -24,6 +24,14 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    # emotionsのカウントをハッシュで返す
+    def set_emotions(shop)
+        grin_count = shop.grins.count
+        happy_count = shop.happies.count
+        dizzy_count = shop.dizzies.count
+        return @emotions = {grin: grin_count,happy: happy_count,dizzy: dizzy_count}
+    end
+
     protected
     # devise ストロングパラメータ
     def configure_permitted_parameters

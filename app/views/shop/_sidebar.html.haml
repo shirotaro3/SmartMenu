@@ -6,7 +6,8 @@
                     マイページ
                 TOP
         = link_to shop_menus_path do
-            %li{ class:('is-selected-tab' if params[:controller] == 'shop/menus' || params[:controller] == 'shop/menu_items') }
+            -# コントローラーがmenus・menu_items・items_groupsの時、クラス付与
+            %li{ class:('is-selected-tab' if params[:controller] == 'shop/menus' || params[:controller] == 'shop/menu_items' || params[:controller] == 'shop/item_groups') }
                 メニュー管理
         = link_to shop_categories_path do
             %li{ class:('is-selected-tab' if params[:controller] == 'shop/categories') }

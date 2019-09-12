@@ -10,6 +10,7 @@
   %body
     = render 'layouts/header'
     = render 'layouts/menu'
-    = render 'layouts/flash-message'
+    #flash-message
+      = render 'layouts/flash-message',model: yield(:model)
     = yield
     = render 'layouts/footer'
