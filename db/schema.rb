@@ -10,11 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_05_103933) do
+ActiveRecord::Schema.define(version: 2019_09_13_053224) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "password_digest", null: false
+    t.string "remember_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.integer "shop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "deleted_shops", force: :cascade do |t|
+    t.string "shop_name", default: "", null: false
+    t.string "postal_code", default: "", null: false
+    t.integer "state", null: false
+    t.string "city", default: "", null: false
+    t.string "street", default: "", null: false
+    t.string "phone_number", default: "", null: false
+    t.string "email", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

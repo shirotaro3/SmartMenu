@@ -94,3 +94,5 @@ gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 # ページネーション
 gem 'kaminari', '~> 1.1.1'
+# パスワードのハッシュ化
+gem 'bcrypt'

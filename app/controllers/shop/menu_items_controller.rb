@@ -28,6 +28,8 @@ class Shop::MenuItemsController < ApplicationController
         @menu_item = MenuItem.find(params[:id])
         # sessionチェック
         correct_shop(@menu_item.item_group.menu) and return
+        # 階層リンクの文字列保持
+        @item_name = @menu_item.item_name
         if @menu_item.update(menu_item_params)
             redirect_to shop_item_group_menu_items_path(@menu_item.item_group),:notice => "アイテムを更新しました。"
         else
@@ -44,6 +46,8 @@ class Shop::MenuItemsController < ApplicationController
     def edit
         @menu_item = MenuItem.find(params[:id])
         correct_shop(@menu_item.item_group.menu) and return
+        # 階層リンクの文字列保持
+        @item_name = @menu_item.item_name
     end
 
     def destroy

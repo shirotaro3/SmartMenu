@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
-    
+
     # devise サインアップ後リダイレクト先
     def after_sign_up_path_for(resource)
         top_shop_mypages_path

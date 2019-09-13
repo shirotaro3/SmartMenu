@@ -27,6 +27,17 @@ class Shop::ItemGroupsController < ApplicationController
         correct_shop(@item_group.menu) and return
     end
 
+    def update
+        @item_group = ItemGroup.find(params[:id])
+        # sessionチェック
+        correct_shop(@item_group.menu) and return
+        if @item_group.update(item_group_params)
+            redirect_to shop_item_group_menu_items_path(@item_group)
+        else
+            render :edit
+        end
+    end
+
     # 並べ替え用
     def move_higher
         item_group = ItemGroup.find(params[:id])

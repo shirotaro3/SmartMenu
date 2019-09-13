@@ -19,7 +19,7 @@
                 = link_to about_path do
                     %li
                         %i.fas.fa-question
-                        About?
+                        利用方法
                 = link_to root_path do
                     %li
                         %i.fas.fa-home
@@ -33,6 +33,10 @@
         .columns#mypage-menu-modal
             .column.is-4.is-offset-8.menu-list
                 %ul
+                    = link_to top_shop_mypages_path do
+                        %li
+                            %i.fas.fa-user
+                            マイページTOP
                     = link_to shop_menus_path do
                         %li
                             %i.fas.fa-clipboard-list

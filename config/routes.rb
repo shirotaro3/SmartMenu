@@ -1,16 +1,5 @@
 Rails.application.routes.draw do
-  namespace :user do
-    get 'dizzies/create'
-    get 'dizzies/destroy'
-  end
-  namespace :user do
-    get 'grins/create'
-    get 'grins/destroy'
-  end
-  namespace :user do
-    get 'happies/create'
-    get 'happies/destroy'
-  end
+
   root 'pages#top'
   get 'about' => 'pages#about'
   devise_for :shops, controllers: {
@@ -65,8 +54,7 @@ Rails.application.routes.draw do
 
   # 管理者
   namespace :admin do
-    resources :shops,except: :new
-    resources :requests,except: :new
+    resource :session, only:[:new, :create, :destroy]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

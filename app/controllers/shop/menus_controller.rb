@@ -21,6 +21,8 @@ class Shop::MenusController < ApplicationController
     def update
         @menu = Menu.find(params[:id])
         correct_shop(@menu) and return
+        # 更新失敗時に階層リンクの文字が変わるのを防止
+        @menu_name = @menu.menu_name
         if @menu.update(menu_params)
             redirect_to shop_menu_path(@menu),:notice=>'変更を保存しました。'
         else
@@ -32,6 +34,8 @@ class Shop::MenusController < ApplicationController
     def edit
         @menu = Menu.find(params[:id])
         correct_shop(@menu) and return
+        # 更新失敗時に階層リンクの文字が変わるのを防止
+        @menu_name = @menu.menu_name
     end
 
     def destroy
