@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Shop, type: :model do
   before do
-    @user = create(:shop)
+    @shop = create(:shop)
   end
 
   describe 'バリデーション' do
@@ -16,6 +16,33 @@ RSpec.describe Shop, type: :model do
     end
 
     it 'stateが空だとNG' do
-      @shop.shop
+      @shop.state = ''
+      expect(@shop.valid?).to eq(false)
+    end
+
+    it 'cityが空だとNG' do
+      @shop.city = ''
+      expect(@shop.valid?).to eq(false)
+    end
+
+    it 'streetが空だとNG' do
+      @shop.street = ''
+      expect(@shop.valid?).to eq(false)
+    end
+
+    it 'postal_codeが空だとNG' do
+      @shop.postal_code = ''
+      expect(@shop.valid?).to eq(false)
+    end
+
+    it 'phone_numberが空だとNG' do
+      @shop.phone_number = ''
+      expect(@shop.valid?).to eq(false)
+    end
+
+    it 'emailが空だとNG' do
+      @shop.email = ''
+      expect(@shop.valid?).to eq(false)
+    end
   end
 end
