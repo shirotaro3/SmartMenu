@@ -1,5 +1,17 @@
-= form_with :session, url: admin_session_path do |f|
-    = f.text_field :email
-    = f.password_field :password
-
-    = f.submit 'ログイン'
+.container
+    .columns
+        .column.is-4-desktop.is-offset-4-desktop.is-6-tablet.is-offset-3-tablet
+            .box
+                %h1.text-large.text-center.has-under-line Login
+                = form_with url: admin_session_path, local: true do |f|
+                    .field.has-middle-margin
+                        = f.label :email,'email',class:"label"
+                        .control
+                            = f.text_field :email,class:"input"
+                    .field
+                        = f.label :password,'password',class:"label"
+                        .control
+                            = f.password_field :password,class:"input"
+                    .field
+                        .control.text-center
+                            = f.submit 'Submit',class:"button is-danger"

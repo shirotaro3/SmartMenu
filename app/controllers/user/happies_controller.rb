@@ -5,7 +5,7 @@ class User::HappiesController < ApplicationController
     happy = Happy.new(shop_id: shop.id)
     happy.save
     respond_to do |format|
-      format.js {set_emotions(shop)}
+      format.js {@emotions = shop.emotions}
       format.html {redirect_to user_menu_path(@menu)}
     end
   end

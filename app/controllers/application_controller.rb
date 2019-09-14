@@ -24,12 +24,23 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    # emotionsのカウントをハッシュで返す
-    def set_emotions(shop)
-        grin_count = shop.grins.count
-        happy_count = shop.happies.count
-        dizzy_count = shop.dizzies.count
-        return @emotions = {grin: grin_count,happy: happy_count,dizzy: dizzy_count}
+    # adminログイン状態保持(クッキーを確認して@current_adminをセット)
+    def current_admin
+        # クッキーのremember_tokenを暗号化して代入
+        remember_token = Admin.encrypt(cookies[:admin_remember_token])
+        # DBにある暗号化されたremember_tokenと照合、一致すればadmin代入
+        @current_admin ||= Admin.find_by(remember_token: remember_token)
+    end
+
+    # adminログイン状態を真偽値で返す
+    def signed_in?
+        @current_admin.present?
+    end
+
+    private
+    # adminサインインしていなければルートへリダイレクト
+    def require_admin_sign_in!
+        redirect_to root_path unless signed_in?
     end
 
     protected

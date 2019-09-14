@@ -1,16 +1,20 @@
 class Admin::SessionsController < ApplicationController
+
+    layout 'admin'
+
+    before_action :require_sign_in!,only: [:destroy]
     before_action :set_admin, only: [:create]
 
     def new
     end
 
     def create
-        # before_actionでemailが一致する@adminを渡している
-        if @admin.authenticate(session_params[:password])
+        # パスワード認証
+        if @admin.authenticate(params[:password])
             sign_in(@admin)
             redirect_to root_path
         else
-            flash.now[:alert] = t('.flash.invalid_password')
+            flash.now[:danger] = "failed: invalid email or password."
             render :new
         end
     end
@@ -23,31 +27,29 @@ class Admin::SessionsController < ApplicationController
     private
     
     def set_admin
-        @admin = Admin.find_by!(email: session_params[:mail])
+        @admin = Admin.find_by!(email: params[:email])
     rescue
-        # emailが一致しないとき (find_by!の例外)
-        render action: 'new'
+        # emailが一致しないとき (find_by!の例外発生時)
+        flash.now[:danger] = "failed: invalid email or password."
+        render :new
     end
 
     # ログインに使用
     def sign_in(admin)
         # クラスメソッドでランダムな文字列を生成
         remember_token = Admin.new_remember_token
-        # 永続(期限付き)クッキーにremember_tokenを代入
+        # 永続(期限付き)クッキーにremember_tokenを保存
         cookies.permanent[:admin_remember_token] = remember_token
         # クラスメソッドで暗号化したremember_tokenをadminに保存
         admin.update!(remember_token: Admin.encrypt(remember_token))
-        @admin = admin
+        @current_admin = admin
     end
 
     # ログアウトに使用
     def sign_out
+        @current_admin = nil
         # クッキーを削除
         cookies.delete(:admin_remember_token)
     end
 
-    # ストロングパラメーター
-    def session_params
-        params.require(:session).permit(:email, :password)
-    end
 end

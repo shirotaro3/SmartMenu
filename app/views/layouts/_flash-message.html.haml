@@ -11,3 +11,9 @@
                         .alert
                                 %i.fas.fa-exclamation-triangle
                                 =flash[:alert]
+-if flash[:danger]
+        .columns
+                .column.is-6-desktop.is-offset-3-desktop.is-8-tablet.is-offset-2-tablet
+                        .danger
+                                %i.fas.fa-exclamation-triangle
+                                =flash[:danger]

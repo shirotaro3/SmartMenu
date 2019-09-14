@@ -2,8 +2,10 @@ class Shop::MypagesController < ApplicationController
     before_action :authenticate_shop!
     before_action :reject_incorrect, only: [:show,:edit]
     def top
+        # リクエスト5件まで取得(モデルにてorder)
         @requests = current_shop.requests.limit(5)
-        set_emotions(current_shop)
+        # Shopモデルのインスタンスメソッド・happy・dizzy・grinのカウントをハッシュで返す
+        @emotions = current_shop.emotions
     end
 
     def cancel
@@ -17,9 +19,16 @@ class Shop::MypagesController < ApplicationController
     end
 
     def destroy
-        shop = current_shop
-        shop.destroy
-        redirect_to root_path
+        deleted_shop = DeletedShop.duplicate(current_shop)
+        begin
+            ActiveRecord::Base.transaction do
+                deleted_shop.save!
+                current_shop.destroy!
+                redirect_to root_path,:notice=>"退会処理が完了しました。"
+            end
+        rescue
+            redirect_to action: :cancel,:notice=>"処理に失敗しました。"
+        end
     end
 
     def update

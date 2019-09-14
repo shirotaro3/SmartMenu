@@ -3,6 +3,6 @@ class User::ItemGroupsController < ApplicationController
     def show
         @menu = Menu.find(params[:menu_id])
         @item_group = ItemGroup.find(params[:id])
-        set_emotions(@menu.shop)
+        @emotions = menu.shop.emotions
     end
 end

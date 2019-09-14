@@ -4,12 +4,12 @@ class Shop < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :grins
-  has_many :happies
-  has_many :dizzies
-  has_many :menus
-  has_many :categories
-  has_many :requests
+  has_many :grins, dependent: :destroy
+  has_many :happies, dependent: :destroy
+  has_many :dizzies, dependent: :destroy
+  has_many :menus, dependent: :destroy
+  has_many :categories, dependent: :destroy
+  has_many :requests, dependent: :destroy
 
   # バリデーション
 
@@ -33,4 +33,13 @@ class Shop < ApplicationRecord
     徳島県:36,香川県:37,愛媛県:38,高知県:39,
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
+
+  # インスタンスのemotionsを配列で返す
+  def emotions
+    grin_count = self.grins.count
+    happy_count = self.happies.count
+    dizzy_count = self.dizzies.count
+    {grin: grin_count,happy: happy_count,dizzy: dizzy_count}
+  end
+
 end
