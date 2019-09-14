@@ -3,7 +3,19 @@
     .column.is-6-desktop.is-offset-3-desktop.is-8-tablet.is-offset-2-tablet.is-10-mobile.is-offset-1-mobile.main-content
       %h1.text-ex-large.has-under-line 新規登録
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = render "devise/shared/error_messages", resource: resource
+        -# エラーメッセージ
+        - if f.object.errors.any?
+          .columns.has-middle-margin
+            .column.is-10.is-offset-1
+              .error-message
+                %ul
+                  %li
+                    %p
+                      %i.fas.fa-exclamation-triangle
+                      入力内容をご確認下さい。
+                  - f.object.errors.full_messages.each do |message|
+                    %li
+                      = message
         .field.has-small-margin
           %label.label
             お店の名前

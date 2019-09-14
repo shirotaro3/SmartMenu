@@ -1,0 +1,37 @@
+.columns.is-fullwidth
+    .column.is-3-tablet.is-3-desktop.has-background-primary.is-hidden-mobile
+        = render 'admin/sidebar'
+    .column.is-9.has-background-white-ter
+        .container
+            .box
+                %h1.text-large.has-under-line.has-text-danger 削除済み-Shop詳細
+                %table.table.has-middle-margin.is-bordered.has-background-white-ter
+                    %tbody
+                        %tr
+                            %td
+                                ショップ名
+                            %td
+                                = @deleted_shop.shop_name
+                        %tr
+                            %td
+                                住所
+                            %td
+                                %p
+                                    〒
+                                    = postal_code(@deleted_shop.postal_code)
+                                %p
+                                    = @deleted_shop.state
+                                    = @deleted_shop.city
+                                    = @deleted_shop.street
+                        %tr
+                            %td
+                                電話番号
+                            %td
+                                = @deleted_shop.phone_number
+                        %tr
+                            %td
+                                email
+                            %td
+                                = @deleted_shop.email
+            %p.text-center
+                =link_to '削除済みショップ一覧',admin_deleted_shops_path

@@ -1,0 +1,31 @@
+.columns.is-fullwidth
+    .column.is-3-tablet.is-3-desktop.has-background-primary.is-hidden-mobile
+        = render 'admin/sidebar'
+    .column.is-9.has-background-white-ter
+        .container
+            .box
+                %h1.text-large.has-under-line Shop一覧
+                %table.table.has-middle-margin.is-bordered
+                    %thead
+                        %tr
+                            %td
+                                ID
+                            %td
+                                ショップ名
+                            %td
+                                作成日
+                            %td
+                    %tbody
+                        - @shops.each do |shop|
+                            %tr
+                                %td
+                                    = shop.id
+                                %td
+                                    = shop.shop_name
+                                %td
+                                    = simple_date(shop.created_at)
+                                %td
+                                    .text-center
+                                        = link_to "詳細",admin_shop_path(shop),class:"button is-small is-light"
+                                        = link_to "編集",edit_admin_shop_path(shop),method: :get,class:"button is-small is-light"
+                                        = link_to "削除",admin_shop_path(shop),method: :delete,class:"button is-small is-danger"

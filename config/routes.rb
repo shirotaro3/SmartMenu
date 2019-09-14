@@ -54,7 +54,12 @@ Rails.application.routes.draw do
 
   # 管理者
   namespace :admin do
-    resource :session, only:[:new, :create, :destroy]
+    resource :session, only:[:new, :create] do
+      delete :destroy, on: :collection
+    end
+    resources :shops, except:[:create,:new]
+    resources :deleted_shops, only:[:index,:show]
+    resource :tax, only:[:show,:edit,:update]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -10,3 +10,6 @@ Admin.create!(
     email: "admin@admin.admin",
     password: "admin"
 )
+Tax.create!(
+    rate: 0.8
+)

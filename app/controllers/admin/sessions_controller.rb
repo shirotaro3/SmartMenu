@@ -2,7 +2,8 @@ class Admin::SessionsController < ApplicationController
 
     layout 'admin'
 
-    before_action :require_sign_in!,only: [:destroy]
+    before_action :current_admin, only:[:destroy]
+    before_action :require_admin_sign_in!,only: [:destroy]
     before_action :set_admin, only: [:create]
 
     def new
@@ -12,7 +13,7 @@ class Admin::SessionsController < ApplicationController
         # パスワード認証
         if @admin.authenticate(params[:password])
             sign_in(@admin)
-            redirect_to root_path
+            redirect_to admin_shops_path
         else
             flash.now[:danger] = "failed: invalid email or password."
             render :new

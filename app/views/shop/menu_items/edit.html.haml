@@ -23,7 +23,7 @@
                         = attachment_image_tag @menu_item,:item_image,:fill,30,30,format: 'jpeg',size:'30x30',style:'width:30px;height:30px;' if @menu_item.item_image
                         = @menu_item.item_name
                     .box.has-middle-margin
-                        = form_with model: @menu_item, url: shop_menu_item_path do |f|
+                        = form_with model: @menu_item, url: shop_menu_item_path,local: true do |f|
                             = render 'layouts/error-message', model: f.object
                             .field
                                 = f.label :item_image,'アイテム画像',class:"label"

@@ -10,13 +10,13 @@
                         %i.far.fa-sticky-note
                         カテゴリ一覧
                     .box.has-middle-margin
-                        %table.table
-                            %thead
-                                %tr
-                                    %td.text-small{colspan:"2"}
-                                        カテゴリ名
-                            %tbody
-                                -if @categories.any?
+                        -if @categories.any?
+                            %table.table
+                                %thead
+                                    %tr
+                                        %td.text-small{colspan:"2"}
+                                            カテゴリ名
+                                %tbody
                                     - @categories.each do |category|
                                         %tr
                                             %td.strong
@@ -29,10 +29,9 @@
                                                     = link_to shop_category_path(category),method: :delete,class:'button is-danger is-small is-rounded strong' do
                                                         %i.fas.fa-trash
                                                         削除
-                                -else
-                                    %tr
-                                        %td{colspan:'2'}
-                                        カテゴリーがありません。
+                        -else
+                            .text-center
+                                カテゴリーがありません。
                     
                     %h2.text-large.has-large-margin.has-left-margin
                         %i.far.fa-paper-plane

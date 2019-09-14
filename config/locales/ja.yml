@@ -212,3 +212,45 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
+    
+ja:
+  activerecord:
+    models:
+      admin: 管理者
+      category: カテゴリ
+      deleted_shop: 削除済みショップ
+      item_group: アイテムグループ
+      menu: メニュー
+      request: リクエスト
+      shop: ショップ
+    attributes:
+      shop:
+        email: メールアドレス
+        password: パスワード
+        shop_name: お店の名前
+        postal_code: 郵便番号
+        state: 都道府県名
+        city: 市区町村名
+        street: 町名・番地・建物
+        phone_number: 電話番号
+      deleted_shop:
+        email: メールアドレス
+        password: パスワード
+        shop_name: お店の名前
+        postal_code: 郵便番号
+        state: 都道府県名
+        city: 市区町村名
+        street: 町名・番地・建物
+        phone_number: 電話番号
+      menu_item:
+        price: 税抜価格
+        item_name: アイテム名
+        item_text: アイテムテキスト
+      menu:
+        color: メニューカラー
+        menu_name: メニュー名
+      request:
+        message: お声の内容
+        title: 件名
+      category:
+        name: カテゴリ名

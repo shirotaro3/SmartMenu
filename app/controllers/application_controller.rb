@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
+    helper_method :current_tax
 
     # devise サインアップ後リダイレクト先
     def after_sign_up_path_for(resource)
@@ -32,9 +33,14 @@ class ApplicationController < ActionController::Base
         @current_admin ||= Admin.find_by(remember_token: remember_token)
     end
 
-    # adminログイン状態を真偽値で返す
+    # adminログイン状態を真偽値で返す/require_admin_sign_in!で使用
     def signed_in?
         @current_admin.present?
+    end
+
+    # 税率(ヘルパーメソッド)
+    def current_tax
+        @tax = Tax.first
     end
 
     private

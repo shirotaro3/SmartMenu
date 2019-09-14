@@ -1,0 +1,12 @@
+.columns.is-fullwidth
+    .column.is-3-tablet.is-3-desktop.has-background-primary.is-hidden-mobile
+        = render 'admin/sidebar'
+    .column.is-9.has-background-white-ter
+        .container
+            .box
+                %h1.text-large.has-under-line 現在の税率レート
+                .text-center
+                    .box.has-background-warning.has-middle-margin.is-inline-block.text-ex-large
+                        = current_tax.rate
+                    %p
+                        = link_to '税率変更',edit_admin_tax_path,class:"button is-danger"

@@ -1,0 +1,17 @@
+.columns.is-fullwidth
+    .column.is-3-tablet.is-3-desktop.has-background-primary.is-hidden-mobile
+        = render 'admin/sidebar'
+    .column.is-9.has-background-white-ter
+        .container
+            .box
+                %h1.text-large.has-under-line.has-text-danger 税率レート変更
+                .columns
+                    .column.is-6.is-offset-3
+                        .box.has-background-warning.has-middle-margin
+                            = form_with model: @tax, url: admin_tax_path,local: true do |f|
+                                = f.label :rate, '税率レート',class:"label"
+                                = f.text_field :rate,class:"input is-danger"
+                                .text-center
+                                    = f.submit '変更',class:"button is-danger"
+                %p.text-center
+                    =link_to '戻る',admin_tax_path
