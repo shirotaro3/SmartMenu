@@ -13,8 +13,13 @@
         .column.is-3
             = menu_item.item_name
         .column.is-2
-            ¥
-            = menu_item.price
+            %p
+                ¥
+                = menu_item.price
+            %p
+                (¥
+                = tax_calc(menu_item.price)
+                )
         .column.is-2.text-right
             = link_to edit_shop_menu_item_path(menu_item),class:'button is-small is-rounded is-info strong' do
                 %i.fas.fa-edit

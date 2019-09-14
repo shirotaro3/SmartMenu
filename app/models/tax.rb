@@ -1,4 +1,4 @@
 class Tax < ApplicationRecord
     
-    validates :rate, :numericality => { :less_than => 1.0 }
+    validates :rate, :numericality => { :greater_than => 1.0,:less_than=> 10.0 }
 end
