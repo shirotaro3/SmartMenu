@@ -54,9 +54,7 @@ Rails.application.routes.draw do
 
   # 管理者
   namespace :admin do
-    resource :session, only:[:new, :create] do
-      delete :destroy, on: :collection
-    end
+    resource :session, only:[:new, :create, :destroy]
     resources :shops, except:[:create,:new]
     resources :deleted_shops, only:[:index,:show]
     resource :tax, only:[:show,:edit,:update]
