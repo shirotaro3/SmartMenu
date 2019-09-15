@@ -76,6 +76,13 @@ document.addEventListener("turbolinks:load", function() {
         event.stopPropagation();
     });
 
+    // スクロールボタン
+	$('#back-to-top').on('click', function(){
+		$('html').animate({scrollTop: 0},300,function(){
+			$('#scroll-button').fadeOut(300);
+		});
+	});
+
     // オプションを指定してSkipprの実行
     $("#theTarget").skippr({
         // スライドショーの変化 ("fade" or "slide")

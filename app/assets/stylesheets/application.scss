@@ -296,15 +296,15 @@
  }
  
 //  ヘッダーハンバーガーメニュー
-    // ページ全体を覆う見えない幕(メニュー外のクリックを拾うために使用)
+// ページ全体を覆う
  #menu-overlay{
-     position:fixed;
+     position:absolute;
      width:100%;
      height:100%;
      top:0px;
      z-index:7;
      display:none;
-        // メニューのul,liを囲っている・それぞれ真ん中メニューと右メニュー
+    // メニューのul,liを囲っている・それぞれ真ん中メニューと右メニュー
      #menu-modal, #mypage-menu-modal{
         position:absolute;
         top:4em;
