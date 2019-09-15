@@ -4,7 +4,7 @@ class Shop::ItemGroupsController < ApplicationController
     def create
         item_group = ItemGroup.new(item_group_params)
         item_group.menu_id = params[:menu_id]
-        # sessionチェック
+        # IDチェック
         correct_shop(item_group.menu) and return
         if item_group.save
             redirect_to shop_menu_path(item_group.menu),:notice =>'アイテムグループを作成しました。'
@@ -15,7 +15,7 @@ class Shop::ItemGroupsController < ApplicationController
 
     def destroy
         item_group = ItemGroup.find(params[:id])
-        # sessionチェック
+        # IDチェック
         correct_shop(item_group.menu) and return
         item_group.destroy
         redirect_to shop_menu_path(item_group.menu),:notice=>'アイテムグループを削除しました。'
@@ -23,13 +23,13 @@ class Shop::ItemGroupsController < ApplicationController
 
     def edit
         @item_group = ItemGroup.find(params[:id])
-        # sessionチェック
+        # IDチェック
         correct_shop(@item_group.menu) and return
     end
 
     def update
         @item_group = ItemGroup.find(params[:id])
-        # sessionチェック
+        # IDチェック
         correct_shop(@item_group.menu) and return
         if @item_group.update(item_group_params)
             redirect_to shop_item_group_menu_items_path(@item_group)
@@ -41,7 +41,7 @@ class Shop::ItemGroupsController < ApplicationController
     # 並べ替え用
     def move_higher
         item_group = ItemGroup.find(params[:id])
-        # sessionチェック
+        # IDチェック
         correct_shop(item_group.menu) and return
         # positionカラム更新(gem:acts_as_list)
         item_group.move_higher

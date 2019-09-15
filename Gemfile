@@ -43,7 +43,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   # SpringでRSpecを使用
   gem 'spring-commands-rspec'
-  # factorybot
+  # テストで使用するデータ作成
   gem 'factory_bot_rails'
 end
 
