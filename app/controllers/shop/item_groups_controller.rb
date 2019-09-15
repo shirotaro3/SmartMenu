@@ -46,7 +46,7 @@ class Shop::ItemGroupsController < ApplicationController
         # positionカラム更新(gem:acts_as_list)
         item_group.move_higher
         @menu = item_group.menu
-        # htmlならリダイレクト、jsなら処理用のデータを渡す
+        # htmlならリダイレクト
         respond_to do |format|
             format.js
             format.html {redirect_to shop_menu_path(@menu)}
