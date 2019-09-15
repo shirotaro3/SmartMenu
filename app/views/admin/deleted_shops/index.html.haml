@@ -3,6 +3,7 @@
         = render 'admin/sidebar'
     .column.is-9.has-background-white-ter
         .container
+            = render 'admin/admin-links'
             .box
                 %h1.text-large.has-under-line.has-text-danger 削除済み-Shop一覧
                 %table.table.has-middle-margin.is-bordered.has-background-white-ter
@@ -27,3 +28,7 @@
                                 %td
                                     .text-center
                                         = link_to "詳細",admin_deleted_shop_path(deleted_shop),class:"button is-small is-white"
+            
+            -if @deleted_shops.total_pages >= 2
+                .paginate.has-small-margin
+                    = paginate @deleted_shop

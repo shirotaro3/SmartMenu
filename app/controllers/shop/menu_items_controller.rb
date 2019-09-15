@@ -4,14 +4,14 @@ class Shop::MenuItemsController < ApplicationController
     def index
         @menu_item = MenuItem.new
         @item_group = ItemGroup.find(params[:item_group_id])
-        # sessionチェック
+        # IDチェック
         correct_shop(@item_group.menu) and return
         @menu_items = MenuItem.where(item_group_id: @item_group.id)
     end
 
     def create
         @item_group = ItemGroup.find(params[:item_group_id])
-        # sessionチェック
+        # IDチェック
         correct_shop(@item_group.menu) and return
         @menu_item = MenuItem.new(menu_item_params)
         @menu_item.item_group_id = @item_group.id
@@ -26,9 +26,9 @@ class Shop::MenuItemsController < ApplicationController
 
     def update
         @menu_item = MenuItem.find(params[:id])
-        # sessionチェック
+        # IDチェック
         correct_shop(@menu_item.item_group.menu) and return
-        # 階層リンクの文字列保持
+        # 階層リンクの文字列保持(失敗時のrender)
         @item_name = @menu_item.item_name
         if @menu_item.update(menu_item_params)
             redirect_to shop_item_group_menu_items_path(@menu_item.item_group),:notice => "アイテムを更新しました。"
@@ -60,7 +60,7 @@ class Shop::MenuItemsController < ApplicationController
     # 並べ替え用
     def move_higher
         menu_item = MenuItem.find(params[:id])
-        # sessionチェック
+        # IDチェック
         correct_shop(menu_item.item_group.menu) and return
         # positionカラム更新(gem:acts_as_list)
         menu_item.move_higher

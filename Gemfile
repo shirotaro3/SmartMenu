@@ -82,7 +82,7 @@ gem 'bulma-rails'
 # font-awesomeアイコン表示
 gem 'font-awesome-sass'
 # hamlit導入
-gem 'haml-rails'
+gem 'hamlit-rails'
 # jsライブラリ
 gem 'jquery-rails'
 # QRコード生成
@@ -100,3 +100,5 @@ gem 'wicked_pdf'
 gem 'kaminari', '~> 1.1.1'
 # パスワードのハッシュ化
 gem 'bcrypt'
+# slack通知
+gem 'slack-notifier'

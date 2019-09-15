@@ -31,7 +31,7 @@
                                                         = menu_item.price
                                                     %span 
                                                         (税込¥
-                                                        = tax_calc(menu_item.price)
+                                                        = current_tax.calc(menu_item.price)
                                                         )
                                                 - if menu_item.item_text.present?
                                                     %p.text-small.menu-item-text

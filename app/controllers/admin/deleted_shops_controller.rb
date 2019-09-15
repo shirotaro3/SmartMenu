@@ -5,7 +5,7 @@ class Admin::DeletedShopsController < ApplicationController
     before_action :require_admin_sign_in!
 
     def index
-        @deleted_shops = DeletedShop.all
+        @deleted_shops = DeletedShop.all.page(params[:page]).per(15)
     end
     
     def show

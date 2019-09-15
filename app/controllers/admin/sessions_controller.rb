@@ -13,7 +13,10 @@ class Admin::SessionsController < ApplicationController
         # パスワード認証
         if @admin.authenticate(params[:password])
             sign_in(@admin)
-            redirect_to admin_shops_path
+            # slack通知
+            notifier = Slack::Notifier.new(Rails.application.config.slack_webhook_url)
+            notifier.ping("SmartMenu:管理者ログインがありました。")
+            redirect_to admin_shops_path,:notice=>"管理者ログインしました。"
         else
             flash.now[:danger] = "failed: invalid email or password."
             render :new

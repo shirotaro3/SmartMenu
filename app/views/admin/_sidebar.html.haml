@@ -1,15 +1,15 @@
 .admin-sidebar
     .container
         .columns.is-mobile
-            .column.is-10.is-offset-1
+            .column.is-10.is-offset-1.text-center
                 %ul
                     %li.has-under-line.text-large
                         管理メニュー
                     %li.has-middle-margin
-                        = link_to 'Shops',admin_shops_path,class:"button is-white"
+                        = link_to 'Shops',admin_shops_path,class:"button is-white is-block"
                     %li.has-middle-margin
-                        = link_to 'DeletedShops',admin_deleted_shops_path,class:"button is-white"
+                        = link_to 'DeletedShops',admin_deleted_shops_path,class:"button is-white is-block"
                     %li.has-middle-margin
-                        = link_to 'Taxrate',admin_tax_path,class:"button is-white"
+                        = link_to 'Taxrate',admin_tax_path,class:"button is-white is-block"
                     %li.has-large-margin
-                        = link_to 'Logout',admin_session_path,method: :delete,class:"button is-warning"
+                        = link_to 'Logout',admin_session_path,method: :delete,class:"button is-warning is-block"

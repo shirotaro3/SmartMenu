@@ -4,7 +4,7 @@ class Admin::ShopsController < ApplicationController
     before_action :current_admin
     before_action :require_admin_sign_in!
     def index
-        @shops = Shop.all
+        @shops = Shop.all.page(params[:page]).per(15)
     end
 
     def destroy
