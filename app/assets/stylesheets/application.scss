@@ -20,19 +20,22 @@
 
  // 共通
  html{
+    //  footerをposition:fixedを使わずに下部に配置する
 	min-height: 98.6vh;
     position: relative;
     background-color:#F6F6F6;
  }
+
  body{
+    //  スマホに配慮したフォントファミリ
     font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ＭＳ Ｐゴシック", sans-serif;
  }
-//  adminでは非適用
+//  footer用余白・adminではフッターがないため非適用
  .body{
     margin-bottom: 3em;
  }
 
-//  画像のレスポンシブ化(縦横比を保ちながら親要素の横幅まで拡大)
+//  画像のレスポンシブ化(縦横比を保ちながら親要素の横幅まで拡大・縮小)
  img{
      width:100%;
      max-width: 100%;
@@ -43,6 +46,7 @@
      margin-top:60px;
  }
 
+//  文字の大きさなど
  .text-large {
     font-size: 1.4em;
     font-weight:bold;
@@ -57,14 +61,30 @@
  .text-ex-small{
      font-size: 0.8em;
  }
+ .text-moderate-large{
+     font-size: 1.2em;
+ }
  .strong{
     font-weight:bold;
 }
+
+// アンダーライン系
 .has-under-line{
     border-bottom:1px solid #ebebeb;
 }
+.has-under-line-blue{
+    border-bottom:5px solid #7A75F7;
+}
+.has-under-line-pink{
+    border-bottom:5px solid pink;
+}
+
+// 上部余白の指定
 .has-large-margin{
     margin-top:30px;
+}
+.has-ex-large-margin{
+    margin-top:50px;
 }
 .has-middle-margin{
     margin-top:16px;
@@ -75,7 +95,7 @@
 .has-left-margin{
     margin-left:10px;
 }
-
+// inlineとinline-blockに使用
  .text-right{
      text-align:right;
  }
@@ -85,13 +105,15 @@
  .text-left{
      text-align:left;
  }
+//  blockに使用
  .block-center{
      margin: 0 auto;
  }
+//  主にボタンの右寄せに使用
  .is-float-right{
      float:right;
  }
-//  shop/menus/indexでtdの縦幅を出すために使用
+//  shop/menus/indexでtdの縦幅を出すために使用(仕様変更でtdではなくdivに
  .td-padding{
      padding-top:24px;
      padding-bottom:24px;
@@ -109,7 +131,7 @@
      width:100%;
      table-layout:fixed;
  }
-//  文字列が長くなった時、回り込むようにする（ハミ出し防止）
+//  文字列が長くなった時、回り込むようにする（文字ハミ出し防止）
  .column{
     word-wrap: break-word;
  }
@@ -121,7 +143,7 @@
     }
 }
 
-// 色選択ボックス(layouts/select-colors)
+// 色選択ボックス(layouts/_select-colors)
  .select-colors{
      label{
         transition:.3s;
@@ -129,7 +151,7 @@
             opacity:.7;
         }
      }
-    //  checkedの時、隣接する.ballに色をつける
+    //  checkedの時、隣接する.ballに色をつける(隣接セレクタ）
      input[type=radio]{
          display:none;
          &:checked + .ball{
@@ -257,7 +279,7 @@
              background-color:rgba(255,255,255,.2);
          }
      }
-    //  ハンバーガーメニューボタン
+    //  ハンバーガーメニューボタン(header-btnと合わせて適用)
      .is-pushed{
         background-color:rgba(255,255,255,.2);
         box-shadow: 0px 0px 0px rgba(0,0,0,0.3);
@@ -274,6 +296,7 @@
  }
  
 //  ヘッダーハンバーガーメニュー
+    // ページ全体を覆う見えない幕(メニュー外のクリックを拾うために使用)
  #menu-overlay{
      position:fixed;
      width:100%;
@@ -281,6 +304,7 @@
      top:0px;
      z-index:7;
      display:none;
+        // メニューのul,liを囲っている・それぞれ真ん中メニューと右メニュー
      #menu-modal, #mypage-menu-modal{
         position:absolute;
         top:4em;
@@ -320,6 +344,7 @@
      left: 12px;
      width:100%;
  }
+//  ロゴの大きさ調整
  .logo{
      background-image:url('logo.png');
      background-size:cover;

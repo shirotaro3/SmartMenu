@@ -1,3 +1,65 @@
 = render 'main-visual'
-.container.margin-side
-    %h1 top
+.columns.is-fullwidht.is-mobile.is-vcentered.top-section
+    .column
+        .section-padding.text-center
+            %h1.text-ex-large.is-inline-block.has-under-line-blue
+                SmartMenuにようこそ！
+            .text-large.has-ex-large-margin
+                %p SmartMenuはお店のメニューを作成できるWEBアプリです。
+                %p 作成したメニューはQRコードから開くことができます。
+
+#s1.columns.is-fullwidth.has-background-white.top-section.is-vcentered.is-multiline
+    .column
+        .section-image-padding
+            .menu-image
+                = image_tag 'section1.jpg'
+    .column.is-6-desktop.is-12-tablet
+        .section-padding.text-center
+            %h2.text-ex-large.is-inline-block.has-under-line-pink
+                お店のメニューを簡単に作成
+            .text-moderate-large.has-ex-large-margin
+                %p SmartMenuを使えば、サイト上で商品画像や価格を入力するだけで自動でメニューを作成することができます。
+                %p レイアウトが苦手な方でも安心してご利用いただけます。
+                %p
+                    メニューに個性を出したいという方のために、お好きなテーマカラーを設定できる機能もご用意しました。
+
+
+#s2.columns.is-fullwidth.top-section.is-vcentered.is-multiline
+
+
+    .column.is-hidden-desktop
+        .section-image-padding
+            .menu-image
+                = image_tag 'section2.jpg'
+
+    .column.is-6-desktop.is-12-tablet
+        .text-center.section-padding
+            %h2.text-ex-large.is-inline-block.has-under-line-blue
+                テーブルやカウンターに設置するだけ
+            .text-moderate-large.has-ex-large-margin
+                %p メニューが完成したら、QRコードを用意しましょう。
+                %p QRコードはサイト上で簡単に生成できます。
+                %p あとはお客様が座る、カウンターやテーブルに設置するだけです。
+                %p SmartMenuは忙しいあなたの手を煩わせません。
+
+        
+    .column.is-hidden-mobile-only.is-hidden-tablet-only
+        .section-image-padding
+            .menu-image
+                = image_tag 'section2.jpg'
+
+
+#s3.columns.is-fullwidth.has-background-white.top-section.is-vcentered.is-multiline
+    .column
+        .section-image-padding
+            .menu-image
+                = image_tag 'section3.jpg'
+    .column.is-6-desktop.is-12-tablet
+        .text-center.section-padding
+            %h2.text-ex-large.is-inline-block.has-under-line-pink
+                SmartMenuでスマートなお店に
+            .text-moderate-large.has-ex-large-margin
+                %p SmartMenuはお店側と利用するお客様の双方にメリットをもたらします。
+                %p エモーション機能によって、利用するお客様は直感的にあなたのお店にフィードバックを送ることができます。
+                %p リクエスト機能を使用すれば、メールやハガキ等の面倒な処理は不要です。
+                %p メニュー上から簡単にリクエストを送信でき、あなたはそれをサイト上で確認できます。

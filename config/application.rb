@@ -17,7 +17,7 @@ module MyMenu
     # cannot render console防止
     config.web_console.whitelisted_ips = '10.0.2.2'
     # slack通知先
-    config.slack_webhook_url = ENV['https://hooks.slack.com/services/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']
+    config.slack_webhook_url = 'https://hooks.slack.com/services/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'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
