@@ -52,10 +52,17 @@ class Shop::MenusController < ApplicationController
 
     # QRコードの表示
     def qrcode
-        menu = Menu.find(params[:id])
-        correct_shop(menu) and return
-        @url = qrcode_shop_menu_url(menu)
-        render layout: 'layouts/qrcode'
+        @menu = Menu.find(params[:id])
+        correct_shop(@menu) and return
+        @url = user_menu_url(@menu)
+        respond_to do |format|
+            format.html
+            format.pdf do
+                render  pdf: 'qrcode',
+                        layout: 'layouts/qrcode',
+                        encoding: 'utf-8'
+            end
+        end
     end
 
     private

@@ -24,7 +24,7 @@
                                     .column.is-4
                                         =menu.menu_name
                                     .column.is-5.text-right
-                                        = link_to qrcode_shop_menu_path(menu), target: :_blank, class:'button is-small is-rounded' do
+                                        = link_to qrcode_shop_menu_path(menu,format: :pdf), target: :_blank, class:'button is-small is-rounded' do
                                             %i.fas.fa-qrcode
                                             QR
                                         = link_to shop_menu_path(menu), class:'button is-info is-small is-rounded strong' do

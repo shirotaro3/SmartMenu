@@ -3,6 +3,5 @@ class PagesController < ApplicationController
     end
     
     def about
-        flash.now[:notice] = 'hello'
     end
 end
