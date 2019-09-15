@@ -20,7 +20,16 @@ module ApplicationHelper
     def simple_date(datetime)
         datetime.strftime("%Y年%m月%d日%H:%M")
     end
-        
+
+    # タイトル表示
+    def title(title = "")
+        if title.empty?
+            title
+        else
+            "#{title} | SmartMenu"
+        end
+    end
+    
     ## 以下コントローラーに記述
     # def current_tax
     #     @tax = Tax.first

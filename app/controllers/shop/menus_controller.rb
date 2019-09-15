@@ -54,9 +54,10 @@ class Shop::MenusController < ApplicationController
     def qrcode
         @menu = Menu.find(params[:id])
         correct_shop(@menu) and return
+        # MENUのURL QRコードヘルパーで使用
         @url = user_menu_url(@menu)
         respond_to do |format|
-            format.html
+            format.html{render layout: 'layouts/qrcode'}
             format.pdf do
                 render  pdf: 'qrcode',
                         layout: 'layouts/qrcode',
