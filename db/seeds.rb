@@ -11,5 +11,5 @@ Admin.create!(
     password: "admin"
 )
 Tax.create!(
-    rate: 0.8
+    rate: 1.08
 )
