@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resources :requests, only:[:index, :show, :destroy]
     resources :categories,except:[:show,:new]
     # マイページ
-    resources :mypages,only:[:show,:edit,:update,:destroy] do
+    resources :mypages,except:[:new,:index,:create] do
       get :top, on: :collection
       get :cancel, on: :collection
     end
