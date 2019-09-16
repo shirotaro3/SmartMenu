@@ -4,7 +4,18 @@
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
         .column.is-8.main-content
-            
+            -# 階層リンク
+            .links-nav.text-ex-small
+                = link_to "メニュー管理",shop_menus_path
+                >
+                = link_to shop_menu_path(@menu_item.item_group.menu) do
+                    = @menu_item.item_group.menu.menu_name
+                >
+                = link_to shop_item_group_menu_items_path(@menu_item.item_group) do
+                    = @menu_item.item_group.category.name
+                >
+                = @item_name
+                編集
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
 
@@ -15,9 +26,16 @@
                             .field
                                 %span.label アイテムグループ画像
                                 .box
-                                    .images
-                                        = attachment_image_tag @item_group,:group_image,:fill,230,230,format: 'jpeg',size:'230x230',style:'max-width:230px;' if @item_group.group_image
-                                    = f.attachment_field :group_image
+                                    .images.preview
+                                        = attachment_image_tag @item_group,:group_image,:fill,230,230,format: 'jpeg',size:'230x230' if @item_group.group_image
+                                    .preview
+                                    .control
+                                        .field.has-addons
+                                            %label.button.is-primary.is-small
+                                                %span
+                                                    画像ファイルを選択
+                                                    = f.attachment_field :group_image,style:"display:none"
+                                            %input{type:"text",class:"input is-small is-primary",readonly:""}
                             .field
                                 .control.text-center
                                     = f.submit '変更',class:"button"

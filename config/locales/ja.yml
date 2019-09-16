@@ -233,6 +233,8 @@ ja:
         city: 市区町村名
         street: 町名・番地・建物
         phone_number: 電話番号
+        password_confirmation: パスワード（確認）
+        current_password: 現在のパスワード
       deleted_shop:
         email: メールアドレス
         password: パスワード

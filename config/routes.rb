@@ -28,18 +28,20 @@ Rails.application.routes.draw do
     resources :requests, only:[:index, :show, :destroy]
     resources :categories,except:[:show,:new]
     # マイページ
-    resources :mypages,except:[:new,:index,:create] do
+    resource :mypages,except:[:new,:create] do
       get :top, on: :collection
       get :cancel, on: :collection
+      get :password, on: :collection
+      patch :update_password, on: :collection
     end
     # エモーション
     resources :emotions, only:[:index] do
       get :reset, on: :collection
     end
-    # メニュー
+    # メニュー(shallow true)
     resources :menus, except: :new, shallow: true do
       get :qrcode, on: :member
-      # アイテムグループ
+      # アイテムグループ(shallow true)
       resources :item_groups,only:[:create,:destroy,:edit,:update], shallow: true do
         get :move_higher, on: :member
         get :move_lower, on: :member

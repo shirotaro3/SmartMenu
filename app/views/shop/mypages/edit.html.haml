@@ -5,7 +5,7 @@
             =render 'shop/sidebar'
         .column.is-8.main-content
             .links-nav.text-ex-small
-                = link_to "登録情報",shop_mypage_path(@shop)
+                = link_to "登録情報",shop_mypages_path
                 >編集
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
@@ -13,7 +13,7 @@
                         %i.fas.fa-store
                         登録情報編集
                     .box.has-middle-margin
-                        = form_with model: @shop,url: shop_mypage_path,local: true do |f|
+                        = form_with model: current_shop,url: shop_mypages_path,local: true do |f|
                             = render 'layouts/error-message', model: f.object
                             .field
                                 = f.label :shop_name,'お店の名前',class:'label'

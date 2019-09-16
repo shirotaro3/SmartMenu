@@ -83,6 +83,47 @@ document.addEventListener("turbolinks:load", function() {
 		});
     });
 
+    // input type file
+    $(document).on('change', ':file', function() {
+        var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        // パスを書き換え
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+        input.parent().parent().next(':text').val(label);
+    });
+
+    $(function(){
+        //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
+        $('form').on('change', 'input[type="file"]', function(e) {
+          var file = e.target.files[0],
+              reader = new FileReader(),
+              $preview = $(".preview");
+              t = this;
+      
+          // 画像ファイル以外の場合は何もしない
+          if(file.type.indexOf("image") < 0){
+            return false;
+          }
+      
+          // ファイル読み込みが完了した際のイベント登録
+          reader.onload = (function(file) {
+            $('.images').hide();
+            return function(e) {
+              //既存のプレビューを削除
+              $preview.empty();
+              // .prevewの領域の中にロードした画像を表示するimageタグを追加
+              $preview.append($('<img>').attr({
+                        src: e.target.result,
+                        width: "150px",
+                        class: "preview",
+                        title: file.name
+                    }));
+            };
+          })(file);
+      
+          reader.readAsDataURL(file);
+        });
+      });
 
     // オプションを指定してSkipprの実行
     $("#theTarget").skippr({

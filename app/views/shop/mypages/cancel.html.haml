@@ -14,4 +14,4 @@
                     %li 全てのサービスがご利用いただけなくなります。
             %p 退会手続きを継続する場合は、以下のボタンを押して下さい。
             %p
-                = link_to '退会する', shop_mypage_path(current_shop),method: :delete,data:{:confirm=>'退会後は全てのサービスがご利用いただけなくなります。本当によろしいですか？'},class:'button is-danger'
+                = link_to '退会する', shop_mypages_path,method: :delete,data:{:confirm=>'退会後は全てのサービスがご利用いただけなくなります。本当によろしいですか？'},class:'button is-danger'

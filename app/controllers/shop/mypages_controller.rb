@@ -1,6 +1,5 @@
 class Shop::MypagesController < ApplicationController
     before_action :authenticate_shop!
-    before_action :reject_incorrect, only: [:show,:edit]
     def top
         # リクエスト5件まで取得(モデルにてorder)
         @requests = current_shop.requests.limit(5)
@@ -15,7 +14,6 @@ class Shop::MypagesController < ApplicationController
     end
 
     def edit
-        @shop = current_shop
     end
 
     def destroy
@@ -32,23 +30,33 @@ class Shop::MypagesController < ApplicationController
     end
 
     def update
-        @shop = current_shop
-        if @shop.update(shop_params)
-            redirect_to shop_mypage_path(@shop),:notice=>'変更を保存しました。'
+        if current_shop.update(shop_params)
+            redirect_to shop_mypages_path,:notice=>'変更を保存しました。'
         else
             flash.now[:alert] = "更新に失敗しました。"
             render :edit
         end
     end
 
+    def password
+    end
+
+    def update_password
+        if current_shop.update_with_password(shop_params)
+            sign_in(current_shop, bypass: true)
+            redirect_to shop_mypages_path, :notice=>"パスワードを変更しました。"
+        else
+            flash.now[:alert] = "変更に失敗しました。"
+            render :password
+        end
+    end
+
+
 
     private
 
-    def reject_incorrect
-        redirect_to top_shop_mypages_path if params[:id].to_i != current_shop.id
-    end
 
     def shop_params
-        params.require(:shop).permit(:state,:city,:street,:phone_number,:shop_name,:postal_code,:email)
+        params.require(:shop).permit(:state,:city,:street,:phone_number,:shop_name,:postal_code,:email,:password,:password_confirmation,:current_password)
     end
 end

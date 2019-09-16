@@ -18,6 +18,6 @@
         = link_to shop_requests_path do
             %li{ class:('is-selected-tab' if params[:controller] == 'shop/requests') }
                 リクエスト
-        = link_to shop_mypage_path(current_shop) do
+        = link_to shop_mypages_path do
             %li{ class:('is-selected-tab' if params[:controller] == 'shop/mypages' && params[:id].present?) }
                 登録情報
