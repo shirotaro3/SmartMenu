@@ -1,14 +1,22 @@
 .emotions
     %table.block-center
         %tr.text-ex-large
-            %td
-                = link_to user_menu_grin_path(@menu),method: :post, remote: true,data:{disable_with:''} do
+            -unless session["shop#{@menu.shop_id}"]
+                %td
+                    = link_to user_menu_grin_path(@menu),method: :post, remote: true,data:{disable_with:''} do
+                        %i.far.fa-grin
+                %td
+                    = link_to user_menu_happy_path(@menu),method: :post, remote: true do
+                        %i.far.fa-grin-squint
+                %td
+                    = link_to user_menu_dizzy_path(@menu),method: :post, remote: true, data:{disable_with:''} do
+                        %i.far.fa-dizzy
+            -else
+                %td{class:("has-text-danger" if session["shop#{@menu.shop_id}"] == "gri")}
                     %i.far.fa-grin
-            %td
-                = link_to user_menu_happy_path(@menu),method: :post, remote: true do
+                %td{class:("has-text-danger" if session["shop#{@menu.shop_id}"] == "hap")}
                     %i.far.fa-grin-squint
-            %td
-                = link_to user_menu_dizzy_path(@menu),method: :post, remote: true, data:{disable_with:''} do
+                %td{class:("has-text-danger" if session["shop#{@menu.shop_id}"] == "diz")}
                     %i.far.fa-dizzy
         %tr.text-ex-small
             %td
