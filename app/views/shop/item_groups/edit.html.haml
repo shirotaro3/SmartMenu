@@ -25,17 +25,16 @@
                         = form_with model: @item_group, url: shop_item_group_path do |f|
                             .field
                                 %span.label アイテムグループ画像
-                                .box
-                                    .images.preview
-                                        = attachment_image_tag @item_group,:group_image,:fill,230,230,format: 'jpeg',size:'230x230' if @item_group.group_image
-                                    .preview
-                                    .control
-                                        .field.has-addons
-                                            %label.button.is-primary.is-small
-                                                %span
-                                                    画像ファイルを選択
-                                                    = f.attachment_field :group_image,style:"display:none"
-                                            %input{type:"text",class:"input is-small is-primary",readonly:""}
+                                .images.preview
+                                    = attachment_image_tag @item_group,:group_image,:fill,230,230,format: 'jpeg',size:'230x230' if @item_group.group_image
+                                .preview
+                                .control
+                                    .field.has-addons
+                                        %label.button.is-primary.is-small
+                                            %span
+                                                画像ファイルを選択
+                                                = f.attachment_field :group_image,style:"display:none"
+                                        %input{type:"text",class:"input is-small is-primary",readonly:""}
                             .field
                                 .control.text-center
                                     = f.submit '変更',class:"button"

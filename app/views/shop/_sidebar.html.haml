@@ -1,7 +1,7 @@
 .sidebar
     %ul
         = link_to top_shop_mypages_path do
-            %li{ class:('is-selected-tab' if params[:controller] == 'shop/mypages' && !params[:id].present?) }
+            %li{ class:('is-selected-tab' if params[:controller] == 'shop/mypages' && params[:action].include?("top")) }
                 %h1.is-inline
                     マイページ
                 TOP
@@ -19,5 +19,5 @@
             %li{ class:('is-selected-tab' if params[:controller] == 'shop/requests') }
                 リクエスト
         = link_to shop_mypages_path do
-            %li{ class:('is-selected-tab' if params[:controller] == 'shop/mypages' && params[:id].present?) }
+            %li{ class:('is-selected-tab' if params[:controller] == 'shop/mypages' && params[:action].exclude?("top")) }
                 登録情報

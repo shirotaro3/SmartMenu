@@ -53,15 +53,14 @@
                             = render 'layouts/error-message', model: f.object
                             .field
                                 %span.label アイテム画像
-                                .box
-                                    .preview
-                                    .control
-                                        .field.has-addons
-                                            %label.button.is-primary.is-small
-                                                %span
-                                                    画像ファイルを選択
-                                                    = f.attachment_field :item_image,style:"display:none"
-                                            %input{type:"text",class:"input is-small is-primary",readonly:""}
+                                .preview
+                                .control
+                                    .field.has-addons
+                                        %label.button.is-primary.is-small
+                                            %span
+                                                画像ファイルを選択
+                                                = f.attachment_field :item_image,style:"display:none"
+                                        %input{type:"text",class:"input is-small is-primary",readonly:""}
                             .field
                                 = f.label :item_name,class:'label' do
                                     アイテム名

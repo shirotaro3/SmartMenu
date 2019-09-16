@@ -72,15 +72,14 @@
                             = form_with model: ItemGroup.new, url: shop_menu_item_groups_path(@menu), local: true do |f|
                                 .field
                                     %span.label グループ画像
-                                    .box
-                                        .preview
-                                        .control
-                                            .field.has-addons
-                                                %label.button.is-primary.is-small
-                                                    %span
-                                                        画像ファイルを選択
-                                                        = f.attachment_field :group_image,style:"display:none"
-                                                %input{type:"text",class:"input is-small is-primary",readonly:""}
+                                    .preview
+                                    .control
+                                        .field.has-addons
+                                            %label.button.is-primary.is-small
+                                                %span
+                                                    画像ファイルを選択
+                                                    = f.attachment_field :group_image,style:"display:none"
+                                            %input{type:"text",class:"input is-small is-primary",readonly:""}
                                 .field
                                     = f.label :category_id,'カテゴリー名',class:'label'
                                     .control

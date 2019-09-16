@@ -28,17 +28,16 @@
                             = render 'layouts/error-message', model: f.object
                             .field
                                 = f.label :item_image,'アイテム画像',class:"label"
-                                .box
-                                    .images.preview
-                                        = attachment_image_tag @menu_item,:item_image,:fill,230,230,format: 'jpeg',size:'230x230',style:'max-width:230px;' if @menu_item.item_image
-                                    .preview
-                                    .control
-                                        .field.has-addons
-                                            %label.button.is-primary.is-small
-                                                %span
-                                                    画像ファイルを選択
-                                                    = f.attachment_field :item_image,style:"display:none"
-                                            %input{type:"text",class:"input is-small is-primary",readonly:""}
+                                .images.preview
+                                    = attachment_image_tag @menu_item,:item_image,:fill,230,230,format: 'jpeg',size:'230x230',style:'max-width:230px;' if @menu_item.item_image
+                                .preview
+                                .control
+                                    .field.has-addons
+                                        %label.button.is-primary.is-small
+                                            %span
+                                                画像ファイルを選択
+                                                = f.attachment_field :item_image,style:"display:none"
+                                        %input{type:"text",class:"input is-small is-primary",readonly:""}
                             .field
                                 = f.label :item_name,class:"label" do
                                     アイテム名

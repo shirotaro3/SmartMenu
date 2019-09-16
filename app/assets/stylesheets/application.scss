@@ -78,6 +78,28 @@
 .has-under-line-pink{
     border-bottom:5px solid pink;
 }
+.has-left-line{
+    border-left: solid 5px #AD8457;
+    padding-left: 0.25em; 
+}
+.headline- {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.7em;
+  }
+  .headline-:before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    display: inline-block;
+    width: 100px;
+    height: 3px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: #AD8457;
+    border-radius: 2px;
+  }
 
 // 上部余白の指定
 .has-large-margin{
@@ -148,6 +170,11 @@
     padding:0 20%;
 }
 
+.box{
+    box-shadow: inset 0 0 15px rgba(0,0,0,.1);
+    border-radius: 30px;
+    padding: 25px 22px;
+}
 
 // 色選択ボックス(layouts/_select-colors)
  .select-colors{
