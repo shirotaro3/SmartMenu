@@ -20,9 +20,10 @@
             -# アイテム編集フォーム
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
-                    %h2.text-large
-                        = attachment_image_tag @menu_item,:item_image,:fill,30,30,format: 'jpeg',size:'30x30',style:'width:30px;height:30px;' if @menu_item.item_image
+                    %h2.text-large.text-center.has-under-line-pink
                         = @menu_item.item_name
+                        編集
+                    %p.text-center.text-small アイテム画像・アイテム名等の編集が行えます。
                     .box.has-middle-margin
                         = form_with model: @menu_item, url: shop_menu_item_path,local: true do |f|
                             = render 'layouts/error-message', model: f.object

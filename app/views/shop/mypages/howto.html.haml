@@ -1,0 +1,68 @@
+-content_for(:title) {'ご利用方法'}
+.container
+    .columns
+        .column.is-3.is-hidden-mobile
+            =render 'shop/sidebar'
+        .column.is-8.main-content
+
+            .columns
+                .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet.text-center
+                    %h2.text-ex-large SmartMenuご利用方法
+                    .has-small-margin
+                        %p SmartMenuをご利用いただき、ありがとうございます。
+                        %p ご利用方法・各種機能のご案内をさせていただきます。
+                    .box.has-middle-margin
+                        %h3.text-large.has-under-line-pink 〜メニューの作成方法〜
+                        %ul.has-middle-margin
+                            %li.box.has-small-margin.has-background-light
+                                .step
+                                    .has-under-line-blue.is-inline-block Step1
+                                .has-small-margin
+                                    左側または右上のメニューより
+                                    =link_to "「カテゴリ」",shop_categories_path
+                                    を作成してください。
+                            %li ↓
+                            %li.box.has-small-margin.has-background-light
+                                .step
+                                    .has-under-line-blue.is-inline-block Step2
+                                .has-small-margin
+                                    =link_to "「メニュー管理」",shop_menus_path
+                                    より、メニューを作成します。
+                            %li ↓
+                            %li.box.has-small-margin.has-background-light
+                                .step
+                                    .has-under-line-blue.is-inline-block Step3
+                                .has-small-margin
+                                    メニュー詳細より「アイテムカテゴリ」を作成します。
+                            %li ↓
+                            %li.box.has-small-margin.has-background-light
+                                .step
+                                    .has-under-line-blue.is-inline-block Step4
+                                .has-small-margin
+                                    作成したアイテムカテゴリ内に「アイテム」を追加していきます。
+                            %li ↓
+                            %li.box.has-small-margin.has-background-light
+                                .step
+                                    .has-under-line-blue.is-inline-block.strong アイテムの登録が終われば完成です！
+                                .has-small-margin.strong
+                                    「メニュー管理」→「メニュー詳細」より作成したメニューをご確認いただけます。
+                                    .text-small.has-middle-margin
+                                        QRコードボタンを押すと、PDF形式でQRコードが出力されます。お店に設置してご利用ください。
+                            
+                    .box.has-middle-margin
+                        %h3.text-large.has-under-line-pink 〜各種機能の説明〜
+                        %ul.has-middle-margin
+                            %li.box.has-small-margin.has-background-light
+                                .step
+                                    .has-under-line-blue.is-inline-block.strong エモーション機能
+                                .has-small-margin
+                                    %p エモーション機能は、お店の利用者がお店に対してフィードバックを送信することができる機能です。
+                                    %p メニュー下部に表示されているエモーションボックスより、３つの表情アイコンを選んでクリックすることで送信されます。
+                                    %p.text-small.has-middle-margin 万が一、悪戯等で不当な評価がついてしまった場合には、数値をリセットすることも可能です。
+                            %li.box.has-small-margin.has-background-light
+                                .step
+                                    .has-under-line-blue.is-inline-block.strong リクエスト機能
+                                .has-small-margin
+                                    %p リクエスト機能は、メニュー画面上部にあるプルダウンから開くことができる「ご意見・ご要望」ページより、お店に要望等を送信することができる機能です。
+                                    %p 匿名で送信でき、お店側はサイト上で簡単に閲覧・削除ができるため、利用者のリアルな声を手軽に確認することができます。
+                            

@@ -7,9 +7,9 @@
 
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
-                    %h2.text-large.has-left-margin
-                        %i.far.fa-sticky-note
-                        カテゴリ一覧
+                    %h2.text-large.has-under-line-pink.text-center
+                        カテゴリ
+                    %p.text-small.text-center カテゴリの一覧です。
                     .box.has-middle-margin
                         -if @categories.any?
                             %table.table
@@ -20,7 +20,7 @@
                                 %tbody
                                     - @categories.each do |category|
                                         %tr
-                                            %td.strong
+                                            %td
                                                 = category.name
                                             %td
                                                 .text-right
@@ -33,18 +33,18 @@
                         -else
                             .text-center
                                 カテゴリーがありません。
-                    
-                    %h2.text-large.has-large-margin.has-left-margin
-                        %i.far.fa-paper-plane
-                        カテゴリ新規登録
-                    %p.text-small.has-left-margin メニュー作成時に使用するカテゴリを作成します。
-                    .box.has-middle-margin
-                        = form_with model: @category,url:{:controller=>'shop/categories',:action=>'create'},local: true do |f|
-                            = render 'layouts/error-message',model: f.object
-                            .field
-                                %span.label カテゴリ名
-                                .field.has-addons
-                                    .control
-                                        = f.text_field :name,class:'input is-primary',placeholder:'例: ドリンク(10文字まで)'
-                                    .control
-                                        = f.submit '登録',class:'button is-primary'
+                    .box.has-middle-margin.text-center
+                        .text-center
+                            %h3.text-large.text-center.has-under-line.is-inline-block
+                                カテゴリ新規登録
+                            %p.text-small 新しいカテゴリを作成します。
+                        .has-large-margin
+                            = form_with model: @category,url:{:controller=>'shop/categories',:action=>'create'},local: true do |f|
+                                = render 'layouts/error-message',model: f.object
+                                .field.is-inline-block.text-left
+                                    %span.label カテゴリ名
+                                    .field.has-addons
+                                        .control
+                                            = f.text_field :name,class:'input is-primary',placeholder:'例: ドリンク(10文字まで)'
+                                        .control
+                                            = f.submit '登録',class:'button is-primary'

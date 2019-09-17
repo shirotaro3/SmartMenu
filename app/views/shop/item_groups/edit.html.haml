@@ -8,19 +8,18 @@
             .links-nav.text-ex-small
                 = link_to "メニュー管理",shop_menus_path
                 >
-                = link_to shop_menu_path(@menu_item.item_group.menu) do
-                    = @menu_item.item_group.menu.menu_name
+                = link_to shop_menu_path(@item_group.menu) do
+                    = @item_group.menu.menu_name
                 >
-                = link_to shop_item_group_menu_items_path(@menu_item.item_group) do
-                    = @menu_item.item_group.category.name
-                >
-                = @item_name
-                編集
+                = link_to shop_item_group_menu_items_path(@item_group) do
+                    = @item_group.category.name
+                >編集
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
 
-                    %h2.text-large.has-left-margin
+                    %h2.text-large.has-under-line-pink.text-center
                         = @item_group.category.name
+                        グループ編集
                     .box.has-middle-margin
                         = form_with model: @item_group, url: shop_item_group_path do |f|
                             .field

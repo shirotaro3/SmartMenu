@@ -4,17 +4,19 @@
         .column.is-3.is-hidden-mobile
             =render 'shop/sidebar'
         .column.is-8.main-content.text-center
-        .links-nav.text-ex-small
-                = link_to "登録情報",shop_mypages_path
+            .links-nav.text-ex-small
+                = link_to "ご登録情報",shop_mypages_path
                 >退会
-            %h2.text-large
+            
+            %h2.text-large.has-under-line-pink
                 %i.fas.fa-exclamation-triangle
                 退会前にご確認ください。
-            .box.text-left
-                %ul.strong
-                    %li 退会手続きをされますと、メニュー等のデータは全て削除されます。
-                    %li 退会によって削除されたデータの復元は一切いたしかねます。
-                    %li 全てのサービスがご利用いただけなくなります。
-            %p 退会手続きを継続する場合は、以下のボタンを押して下さい。
-            %p
-                = link_to '退会する', shop_mypages_path,method: :delete,data:{:confirm=>'退会後は全てのサービスがご利用いただけなくなります。本当によろしいですか？'},class:'button is-danger'
+            .box.has-middle-margin
+                .box.text-left
+                    %ul.strong
+                        %li 退会手続きをされますと、メニュー等のデータは全て削除されます。
+                        %li 退会によって削除されたデータの復元は一切いたしかねます。
+                        %li 全てのサービスがご利用いただけなくなります。
+                %p 退会手続きを継続する場合は、以下のボタンを押して下さい。
+                %p
+                    = link_to '退会する', shop_mypages_path,method: :delete,data:{:confirm=>'退会後は全てのサービスがご利用いただけなくなります。本当によろしいですか？'},class:'button is-danger'

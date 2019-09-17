@@ -7,6 +7,10 @@
                         %li
                             %i.fas.fa-user
                             マイページ
+                    = link_to howto_shop_mypages_path do
+                        %li
+                            %i.fas.fa-user
+                            ご利用方法
                 -else
                     = link_to new_shop_registration_path do
                         %li
@@ -16,10 +20,6 @@
                         %li
                             %i.fas.fa-sign-in-alt
                             ログイン
-                = link_to about_path do
-                    %li
-                        %i.fas.fa-question
-                        利用方法
                 = link_to root_path do
                     %li
                         %i.fas.fa-home

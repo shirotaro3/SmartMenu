@@ -10,8 +10,7 @@
 
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
-                    %h2.text-large.has-left-margin
-                        %i.fas.fa-edit
+                    %h2.text-large.text-center.has-under-line-pink
                         カテゴリ編集
                     .box.has-middle-margin
                         = form_with model: @category, url:{:controller=>'shop/categories',:action=>'update'},local: true do |f|

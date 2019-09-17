@@ -13,27 +13,22 @@
                 >編集
 
             -# メニュー編集フォーム
-            %table.table
-                %thead
-                    %tr
-                        %td
-                            %h2.text-large
-                                %i.fas.fa-edit
-                                メニュー情報編集
-                %tbody
-                    %tr
-                        %td
-                            = form_with model: @menu, url:{:controller=>'shop/menus',:action=>'update'},local: true do |f|
-                                = render 'layouts/error-message', model: f.object
-                                .columns
-                                    .column.is-8-desktop.is-offset-2-desktop
-                                        .field
-                                            = f.label :menu_name,'メニュー名',class:'label'
-                                            .control
-                                                = f.text_field :menu_name,class:'input'
-                                        .field
-                                            %span.label テーマカラー
-                                            = render 'layouts/select-colors', f: f
-                                        .field
-                                            .control.text-center
-                                                = f.submit '変更を保存',class:'button'
+            %h2.text-large.has-under-line-pink.text-center
+                %i.fas.fa-edit
+                メニュー情報編集
+            %p.text-center.text-small メニュー名・カラーを変更できます。
+            .box.has-middle-margin
+                = form_with model: @menu, url:{:controller=>'shop/menus',:action=>'update'},local: true do |f|
+                    = render 'layouts/error-message', model: f.object
+                    .columns
+                        .column.is-8-desktop.is-offset-2-desktop
+                            .field
+                                = f.label :menu_name,'メニュー名',class:'label'
+                                .control
+                                    = f.text_field :menu_name,class:'input'
+                            .field
+                                %span.label テーマカラー
+                                = render 'layouts/select-colors', f: f
+                            .field
+                                .control.text-center
+                                    = f.submit '変更を保存',class:'button'

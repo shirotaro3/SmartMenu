@@ -18,7 +18,7 @@
                                                 .column.is-10.is-offset-1
                                                     .menu-image
                                                         =attachment_image_tag item_group, :group_image, :fill, 300, 170, format: 'jpeg', size: '300x170'
-            .user-main-content.is-inline-block.has-large-margin
+            .user-main-content.is-inline-block.has-large-margin.emotions-box
                 このお店はどうですか？
                 #emotions
                     = render 'user/emotions',emotions: @emotions

@@ -14,9 +14,9 @@
             -# メニュー一覧
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
-                    %h2.text-large.has-left-margin
-                        %i.fas.fa-search
+                    %h2.text-large.has-under-line-pink.text-center
                         メニュー情報
+                    %p.text-small.text-center メニューの詳細です。QRコードの表示・プレビュー・編集が行えます。
                     .box.has-middle-margin
                         .columns.is-mobile
                             .column.is-4
@@ -43,54 +43,57 @@
                                     = user_menu_url(@menu)
                             
                     -# アイテムグループリスト
-                    %h3.text-large.has-large-margin.has-left-margin
-                        %i.fas.fa-object-group
-                        アイテムグループ
-                    %p.text-small メニュー内のグループです。
                     .box.has-middle-margin
-                        -if @menu.item_groups.any?
-                            .columns.is-mobile.has-under-line
-                                .column.is-3.text-small
-                                    表示順
-                                .column.is-2
-                                .column.is-3.text-small
-                                    アイテム名
-                                .column.is-4
-                        -if @menu.item_groups.any?
-                            #grouplist
-                                =render 'grouplist',menu: @menu
-                        -else
-                            .has-text-danger.strong.text-center
-                                アイテムグループを作成してください。
+                        .text-center
+                            %h3.text-large.has-under-line.is-inline-block
+                                アイテムグループ
+                            %p.text-small メニュー内のグループです。
+                        .has-large-margin
+                            -if @menu.item_groups.any?
+                                .columns.is-mobile.has-under-line
+                                    .column.is-3.text-small
+                                        表示順
+                                    .column.is-2
+                                    .column.is-3.text-small
+                                        アイテム名
+                                    .column.is-4
+                            -if @menu.item_groups.any?
+                                #grouplist
+                                    =render 'grouplist',menu: @menu
+                            -else
+                                .has-text-danger.strong.text-center
+                                    アイテムグループを作成してください。
 
                     -# アイテムグループ新規作成
-                    %h3.text-large.has-large-margin.has-left-margin
-                        %i.far.fa-paper-plane
-                        アイテムグループ新規作成
                     .box.has-middle-margin
-                        -if current_shop.categories.any?
-                            = form_with model: ItemGroup.new, url: shop_menu_item_groups_path(@menu), local: true do |f|
-                                .field
-                                    %span.label グループ画像
-                                    .preview
-                                    .control
-                                        .field.has-addons
-                                            %label.button.is-primary.is-small
-                                                %span
-                                                    画像ファイルを選択
-                                                    = f.attachment_field :group_image,style:"display:none"
-                                            %input{type:"text",class:"input is-small is-primary",readonly:""}
-                                .field
-                                    = f.label :category_id,'カテゴリー名',class:'label'
-                                    .control
-                                        .select.is-link.is-fullwidth
-                                            = f.collection_select :category_id,current_shop.categories,:id,:name, {prompt:'グループ名を選択'}
-                                .field
-                                    .control.text-center
-                                        = f.submit 'グループ作成', class:'button is-link'
-                        -else
-                            .text-center
-                                %p 作成には先にカテゴリの登録が必要です。
-                                = link_to shop_categories_path, class:'button is-success' do
-                                    %i.fas.fa-plus-circle
-                                    カテゴリを登録
+                        .text-center
+                            %h3.text-large.has-under-line.is-inline-block
+                                アイテムグループ新規作成
+                            %p.text-small 新しいアイテムグループを作成します。
+                        .has-large-margin
+                            -if current_shop.categories.any?
+                                = form_with model: ItemGroup.new, url: shop_menu_item_groups_path(@menu), local: true do |f|
+                                    .field
+                                        %span.label グループ画像
+                                        .preview
+                                        .control
+                                            .field.has-addons
+                                                %label.button.is-primary.is-small
+                                                    %span
+                                                        画像ファイルを選択
+                                                        = f.attachment_field :group_image,style:"display:none"
+                                                %input{type:"text",class:"input is-small is-primary",readonly:""}
+                                    .field
+                                        = f.label :category_id,'カテゴリー名',class:'label'
+                                        .control
+                                            .select.is-link.is-fullwidth
+                                                = f.collection_select :category_id,current_shop.categories,:id,:name, {prompt:'グループ名を選択'}
+                                    .field
+                                        .control.text-center
+                                            = f.submit 'グループ作成', class:'button is-link'
+                            -else
+                                .text-center
+                                    %p 作成には先にカテゴリの登録が必要です。
+                                    = link_to shop_categories_path, class:'button is-success' do
+                                        %i.fas.fa-plus-circle
+                                        カテゴリを登録

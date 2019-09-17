@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root 'pages#top'
-  get 'about' => 'pages#about'
   devise_for :shops, controllers: {
     sessions:      'shops/sessions',
     passwords:     'shops/passwords',
@@ -32,6 +31,7 @@ Rails.application.routes.draw do
       get :top, on: :collection
       get :cancel, on: :collection
       get :password, on: :collection
+      get :howto, on: :collection
       patch :update_password, on: :collection
     end
     # エモーション

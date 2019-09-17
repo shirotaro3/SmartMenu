@@ -7,10 +7,9 @@
 
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
-                    %h2.text-large.has-left-margin
-                        %i.far.fa-comment-dots
+                    %h2.text-large.has-under-line-pink.text-center
                         リクエスト
-                    %p.text-small.has-left-margin
+                    %p.text-small.text-center
                         あなたのお店に寄せられたリクエストです。
                     - if @requests.any?
                         - @requests.each do |request|

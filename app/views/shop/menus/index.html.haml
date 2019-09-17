@@ -7,9 +7,10 @@
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
                     -# メニュー一覧
-                    %h2.text-large.has-left-margin
-                        %i.fas.fa-clipboard-list
-                        メニュー一覧
+                    .text-center
+                        %h2.text-large.has-under-line-pink
+                            メニュー管理
+                        %p.text-small メニューの一覧です。QRコードの表示・編集・閲覧が行えます。
                     .box.has-middle-margin
                         - if @menus.any?
                             .columns.is-mobile.has-under-line
@@ -38,27 +39,29 @@
                                 メニューはありません。
 
                     -# メニュー新規作成
-                    %h2.text-large.has-large-margin.has-left-margin
-                        %i.far.fa-paper-plane
-                        メニュー新規作成
                     .box.has-middle-margin
-                        -if current_shop.categories.any?
-                            = form_with model: @menu, url: { :controller=>'shop/menus', :action=>'create'},local: true do |f|
-                                = render 'layouts/error-message', model: f.object
-                                .field
-                                    = f.label :menu_name,'メニュー名',class:'label'
-                                    .control
-                                        = f.text_field :menu_name, class:'input is-link',placeholder:'メニュー名・8文字以内'
-                                .field
-                                    %span.label メニューカラー
-                                    %p.text-small メニューのテーマカラーを選択して下さい。
-                                    = render 'layouts/select-colors', f: f
-                                .field
-                                    .control.text-center
-                                        = f.submit 'メニュー作成', class:'button is-link'
-                        -else
-                            .text-center
-                                %p 作成には先にカテゴリの登録が必要です。
-                                = link_to shop_categories_path, class:'button is-success' do
-                                    %i.fas.fa-plus-circle
-                                    カテゴリを登録
+                        .text-center
+                            %h3.text-large.has-under-line.is-inline-block
+                                メニュー新規作成
+                            %p.text-small 新しいメニューを作成します。
+                        .has-middle-margin
+                            -if current_shop.categories.any?
+                                = form_with model: @menu, url: { :controller=>'shop/menus', :action=>'create'},local: true do |f|
+                                    = render 'layouts/error-message', model: f.object
+                                    .field
+                                        = f.label :menu_name,'メニュー名',class:'label'
+                                        .control
+                                            = f.text_field :menu_name, class:'input is-link',placeholder:'メニュー名・8文字以内'
+                                    .field
+                                        %span.label メニューカラー
+                                        %p.text-small メニューのテーマカラーを選択して下さい。
+                                        = render 'layouts/select-colors', f: f
+                                    .field
+                                        .control.text-center
+                                            = f.submit 'メニュー作成', class:'button is-link'
+                            -else
+                                .text-center
+                                    %p 作成には先にカテゴリの登録が必要です。
+                                    = link_to shop_categories_path, class:'button is-success' do
+                                        %i.fas.fa-plus-circle
+                                        カテゴリを登録

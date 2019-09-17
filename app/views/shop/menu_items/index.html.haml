@@ -6,27 +6,23 @@
         .column.is-8.main-content
             
             -# 階層リンク
-            .columns
-                .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
-                    .links-nav.text-ex-small
-                        = link_to "メニュー管理",shop_menus_path
-                        >
-                        = link_to shop_menu_path(@item_group.menu) do
-                            = @item_group.menu.menu_name
-                        >
-                        = @item_group.category.name
+            .links-nav.text-ex-small
+                = link_to "メニュー管理",shop_menus_path
+                >
+                = link_to shop_menu_path(@item_group.menu) do
+                    = @item_group.menu.menu_name
+                >
+                = @item_group.category.name
 
             -# アイテム一覧        
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
-                    .is-float-right
-                        =link_to edit_shop_item_group_path(@item_group),class:"button is-small is-rounded" do
-                            グループ画像変更
-                    %h2.text-large.has-left-margin
-                        = attachment_image_tag @item_group,:group_image,:fill,30,30,format: 'jpeg',size:'30x30',style:'width:30px;height:30px;' if @item_group.group_image
-                        = @item_group.category.name
-                    %p.text-smal
+                    .has-under-line-pink.text-center
+                        %h2.text-large
+                            = @item_group.category.name
+                    %p.text-small.text-center
                         グループ内のアイテム一覧です。
+                        =link_to "[グループ画像変更]",edit_shop_item_group_path(@item_group)
                     .box.has-middle-margin
                         -if @menu_items.any?
                             .columns.is-mobile.has-under-line
@@ -45,37 +41,40 @@
                                 アイテムを追加してください。
         
                     -# アイテム追加フォーム
-                    %h3.text-large.has-large-margin.has-left-margin
-                        %i.far.fa-paper-plane
-                        アイテム追加
                     .box.has-middle-margin
-                        =form_with model: @menu_item ,url: shop_item_group_menu_items_path(@item_group),local: true do |f|
-                            = render 'layouts/error-message', model: f.object
-                            .field
-                                %span.label アイテム画像
-                                .preview
-                                .control
-                                    .field.has-addons
-                                        %label.button.is-primary.is-small
-                                            %span
-                                                画像ファイルを選択
-                                                = f.attachment_field :item_image,style:"display:none"
-                                        %input{type:"text",class:"input is-small is-primary",readonly:""}
-                            .field
-                                = f.label :item_name,class:'label' do
-                                    アイテム名
-                                    %span.has-text-danger [必須]
-                                .control
-                                    = f.text_field :item_name,class:'input',placeholder:'例：生ビール'
-                            .field
-                                = f.label :price,class:'label' do
-                                    税抜価格
-                                    %span.has-text-danger [必須]
-                                .control
-                                    = f.text_field :price,class:'input'
-                            .field
-                                = f.label :item_text, 'アイテムテキスト',class:'label'
-                                .control
-                                    = f.text_field :item_text,class:'input',placeholder:'アイテムの説明を入力・20文字まで'
-                            .field.text-center
-                                = f.submit 'アイテムを追加',class:'button'
+
+                        .text-center
+                            %h3.text-large.has-under-line.is-inline-block
+                                アイテム追加
+                            %p.text-small 新しくアイテムを追加します。
+                        .has-middle-margin
+                            =form_with model: @menu_item ,url: shop_item_group_menu_items_path(@item_group),local: true do |f|
+                                = render 'layouts/error-message', model: f.object
+                                .field
+                                    %span.label アイテム画像
+                                    .preview
+                                    .control
+                                        .field.has-addons
+                                            %label.button.is-primary.is-small
+                                                %span
+                                                    画像ファイルを選択
+                                                    = f.attachment_field :item_image,style:"display:none"
+                                            %input{type:"text",class:"input is-small is-primary",readonly:""}
+                                .field
+                                    = f.label :item_name,class:'label' do
+                                        アイテム名
+                                        %span.has-text-danger [必須]
+                                    .control
+                                        = f.text_field :item_name,class:'input',placeholder:'例：生ビール'
+                                .field
+                                    = f.label :price,class:'label' do
+                                        税抜価格
+                                        %span.has-text-danger [必須]
+                                    .control
+                                        = f.text_field :price,class:'input'
+                                .field
+                                    = f.label :item_text, 'アイテムテキスト',class:'label'
+                                    .control
+                                        = f.text_field :item_text,class:'input',placeholder:'アイテムの説明を入力・20文字まで'
+                                .field.text-center
+                                    = f.submit 'アイテムを追加',class:'button'
