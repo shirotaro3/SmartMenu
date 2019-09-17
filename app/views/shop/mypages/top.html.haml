@@ -13,9 +13,9 @@
                             こんにちは！
                             = current_shop.shop_name
                             さん
-                        %p.has-middle-margin
+                        %p.has-middle-margin.strong
                             SmartMenuをご利用いただきありがとうございます。
-                        %p
+                        %p.strong
                             メニューの作成方法・各種機能のご案内は
                             =link_to "[こちら]",howto_shop_mypages_path
                             よりご覧いただけます。
@@ -24,13 +24,14 @@
 
 
                     -# 新着リクエスト
-                    = link_to shop_requests_path do
-                        .box.touch.has-middle-margin
-                            .text-center
-                                %h3.text-large.text-center.has-under-line.is-inline-block
-                                    最新リクエスト
-                            .has-large-margin
-                                - if @requests.any?
+                    -if  @requests.any?
+                        = link_to shop_requests_path do
+                            .box.touch.has-middle-margin
+                                .text-center
+                                    %h3.text-large.text-center.has-under-line.is-inline-block
+                                        最新リクエスト
+                                    %p.text-small リクエストを最新5件まで表示します。
+                                .has-large-margin
                                     %table.table
                                         %thead
                                             %tr
@@ -46,21 +47,17 @@
                                                     %td
                                                         .text-small
                                                             = simple_date(request.created_at)
-                                -else
-                                    %p.text-center
-                                        リクエストはありません。
 
                     -# 新着エモーション
-                    =link_to shop_emotions_path do
-                        .box.touch.has-middle-margin
-                            .text-center
-                                %h3.text-large.has-under-line.is-inline-block
-                                    エモーション
-                            .has-large-margin
-                                = render 'shop/mypages/emotions',emotions: @emotions
-                                -if @emotions[:happy] == 0 && @emotions[:dizzy] == 0 && @emotions[:grin] == 0
-                                    %p.text-center
-                                        エモーションはまだついていません。
-                                -else
+
+                    -unless @emotions[:happy] == 0 && @emotions[:dizzy] == 0 && @emotions[:grin] == 0
+                        =link_to shop_emotions_path do
+                            .box.touch.has-middle-margin
+                                .text-center
+                                    %h3.text-large.has-under-line.is-inline-block
+                                        エモーション
+                                    %p.text-small お店の利用者がボタンを押した回数です。
+                                .has-large-margin
+                                    = render 'shop/mypages/emotions',emotions: @emotions
                                     .chart
                                         = pie_chart @emotions

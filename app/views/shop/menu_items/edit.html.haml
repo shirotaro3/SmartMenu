@@ -58,4 +58,6 @@
                             .field
                                 .control.text-center
                                     = f.submit "保存",class:"button"
+            .text-center.text-small
+                = link_to "戻る",shop_item_group_menu_items_path(@menu_item.item_group)
 

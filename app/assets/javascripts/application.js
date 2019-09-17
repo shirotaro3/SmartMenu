@@ -17,6 +17,7 @@
 //= require jquery_ujs
 //= require chartkick
 //= require Chart.bundle
+//= require jquery.jpostal 
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
 document.addEventListener("turbolinks:load", function() {

@@ -10,8 +10,8 @@
                     %h2.text-large.has-under-line-pink.text-center
                         カテゴリ
                     %p.text-small.text-center カテゴリの一覧です。
-                    .box.has-middle-margin
-                        -if @categories.any?
+                    -if @categories.any?
+                        .box.has-middle-margin
                             %table.table
                                 %thead
                                     %tr
@@ -30,9 +30,6 @@
                                                     = link_to shop_category_path(category),method: :delete,class:'button is-danger is-small is-rounded strong' do
                                                         %i.fas.fa-trash
                                                         削除
-                        -else
-                            .text-center
-                                カテゴリーがありません。
                     .box.has-middle-margin.text-center
                         .text-center
                             %h3.text-large.text-center.has-under-line.is-inline-block

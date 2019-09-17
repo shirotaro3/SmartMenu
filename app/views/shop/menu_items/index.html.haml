@@ -23,8 +23,10 @@
                     %p.text-small.text-center
                         グループ内のアイテム一覧です。
                         =link_to "[グループ画像変更]",edit_shop_item_group_path(@item_group)
-                    .box.has-middle-margin
-                        -if @menu_items.any?
+
+                    
+                    -if @menu_items.any?
+                        .box.has-middle-margin
                             .columns.is-mobile.has-under-line
                                 .column.is-2
                                     表示順
@@ -36,9 +38,6 @@
                                 .column.is-2
                             #itemlist
                                 = render 'itemlist',menu_items: @menu_items
-                        -else
-                            .strong.has-text-danger.text-center
-                                アイテムを追加してください。
         
                     -# アイテム追加フォーム
                     .box.has-middle-margin
@@ -78,3 +77,7 @@
                                         = f.text_field :item_text,class:'input',placeholder:'アイテムの説明を入力・20文字まで'
                                 .field.text-center
                                     = f.submit 'アイテムを追加',class:'button'
+            .text-center.text-small
+                = link_to shop_menu_path(@item_group.menu) do
+                    = @item_group.menu.menu_name
+                    に戻る

@@ -10,9 +10,10 @@
                     .text-center
                         %h2.text-large.has-under-line-pink
                             メニュー管理
-                        %p.text-small メニューの一覧です。QRコードの表示・編集・閲覧が行えます。
-                    .box.has-middle-margin
-                        - if @menus.any?
+                        %p.text-small QRコードの表示・編集・閲覧が行えます。
+                    
+                    - if @menus.any?
+                        .box.has-middle-margin
                             .columns.is-mobile.has-under-line
                                 .column.is-3.text-small
                                     カラー
@@ -34,9 +35,6 @@
                                         = link_to shop_menu_path(menu),method: :delete,class:'button is-danger is-small is-rounded strong' do
                                             %i.fas.fa-trash
                                             削除
-                        - else
-                            .text-center
-                                メニューはありません。
 
                     -# メニュー新規作成
                     .box.has-middle-margin
@@ -61,7 +59,7 @@
                                             = f.submit 'メニュー作成', class:'button is-link'
                             -else
                                 .text-center
-                                    %p 作成には先にカテゴリの登録が必要です。
+                                    %p.strong
+                                        作成には先にカテゴリの登録が必要です。
                                     = link_to shop_categories_path, class:'button is-success' do
-                                        %i.fas.fa-plus-circle
                                         カテゴリを登録

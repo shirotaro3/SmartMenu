@@ -43,13 +43,14 @@
                                     = user_menu_url(@menu)
                             
                     -# アイテムグループリスト
-                    .box.has-middle-margin
-                        .text-center
-                            %h3.text-large.has-under-line.is-inline-block
-                                アイテムグループ
-                            %p.text-small メニュー内のグループです。
-                        .has-large-margin
-                            -if @menu.item_groups.any?
+                    -if @menu.item_groups.any?
+                        .box.has-middle-margin
+                            .text-center
+                                %h3.text-large.has-under-line.is-inline-block
+                                    アイテムグループ
+                                %p.text-small メニュー内のグループです。
+                            
+                            .has-large-margin
                                 .columns.is-mobile.has-under-line
                                     .column.is-3.text-small
                                         表示順
@@ -57,12 +58,8 @@
                                     .column.is-3.text-small
                                         アイテム名
                                     .column.is-4
-                            -if @menu.item_groups.any?
                                 #grouplist
                                     =render 'grouplist',menu: @menu
-                            -else
-                                .has-text-danger.strong.text-center
-                                    アイテムグループを作成してください。
 
                     -# アイテムグループ新規作成
                     .box.has-middle-margin
@@ -97,3 +94,6 @@
                                     = link_to shop_categories_path, class:'button is-success' do
                                         %i.fas.fa-plus-circle
                                         カテゴリを登録
+                            
+            .text-center.text-small
+                = link_to "戻る",shop_menus_path

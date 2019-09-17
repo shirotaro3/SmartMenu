@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
   root 'pages#top'
-  devise_for :shops, controllers: {
-    sessions:      'shops/sessions',
-    passwords:     'shops/passwords',
-    registrations: 'shops/registrations'
-  }
+  devise_for :shops, skip: :all
+  devise_scope :shop do
+    get 'sign_up' => 'shops/registrations#new', as: :new_shop_registration
+    post 'sign_up' => 'shops/registrations#create', as: :shop_registration
+    post 'sing_up' => 'shops/passwords#new', as: :new_shop_password
+    get 'sign_in' => 'shops/sessions#new', as: :new_shop_session
+    post 'sign_in' => 'shops/sessions#create', as: :shop_session
+    delete 'sign_out' => 'shops/sessions#destroy', as: :destroy_shop_session
+  end
 
   # ユーザー
   namespace :user do
