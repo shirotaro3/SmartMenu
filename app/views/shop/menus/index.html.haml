@@ -32,7 +32,7 @@
                                         = link_to shop_menu_path(menu), class:'button is-info is-small is-rounded strong' do
                                             %i.fas.fa-search
                                             詳細
-                                        = link_to shop_menu_path(menu),method: :delete,class:'button is-danger is-small is-rounded strong' do
+                                        = link_to shop_menu_path(menu),method: :delete,class:'button is-danger is-small is-rounded strong',data:{confirm:"削除してもよろしいですか？\n削除するとアイテムグループとアイテムも全て削除されます。"} do
                                             %i.fas.fa-trash
                                             削除
 
