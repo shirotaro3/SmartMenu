@@ -13,10 +13,10 @@ class Shop < ApplicationRecord
 
   # バリデーション
 
-  validates :shop_name, presence: true, length: { in: 1..15 }
+  validates :shop_name, presence: true, length: { in: 2..15 }
   validates :postal_code, presence: true, length: { is: 7 }
   validates :state, presence: true
-  validates :city, length: { in: 2..8}
+  validates :city, presence: true, length: { maximum: 8}
   validates :street, length: { in: 6..40}
   VALID_PHONE_REGEX = /\A0[0-9]{9,10}\z/
   validates :phone_number, presence: true, uniqueness: true
