@@ -21,13 +21,19 @@ RSpec.describe Menu, "モデルに関するテスト",type: :model do
         expect(build(:menu)).to_not be_valid
       end
       it "menu_nameが空欄" do
-        expect(build(:menu, shop_id: @shop.id, menu_name: "")).to_not be_valid
+        menu = build(:menu, :no_name)
+        menu.shop = @shop
+        expect(menu).to_not be_valid
       end
       it "menu_nameが10文字以上" do
-        expect(build(:menu, shop_id: @shop.id, menu_name: Faker::Lorem.characters(number: 11))).to_not be_valid
+        menu = build(:menu, :too_long_name)
+        menu.shop = @shop
+        expect(menu).to_not be_valid
       end
       it "colorが空欄" do
-        expect(build(:menu, :no_color)).to_not be_valid
+        menu = build(:menu, :no_color)
+        menu.shop = @shop
+        expect(menu).to_not be_valid
       end
     end
   end

@@ -8,7 +8,7 @@ FactoryBot.define do
     end
 
     trait :too_long_name do
-      menu_name {Faker::Lorem.characters(number: 9)}
+      menu_name {Faker::Lorem.characters(number: 11)}
     end
 
     trait :no_color do

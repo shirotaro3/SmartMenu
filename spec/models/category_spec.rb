@@ -22,11 +22,15 @@ RSpec.describe Category,"モデルに関するテスト", type: :model do
       end
 
       it "nameが空欄" do
-        expect(build(:category, :no_name)).to_not be_valid
+        category = build(:category, :no_name)
+        category.shop = @shop
+        expect(category).to_not be_valid
       end
 
       it "nameが11文字以上" do
-        expect(build(:category, :too_long_name)).to_not be_valid
+        category = build(:category, :too_long_name)
+        category.shop = @shop
+        expect(category).to_not be_valid
       end
     end
   end
