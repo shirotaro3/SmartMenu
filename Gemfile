@@ -106,4 +106,3 @@ gem 'kaminari', '~> 1.1.1'
 gem 'bcrypt'
 # slack通知
 gem 'slack-notifier'
-gem 'rename'
