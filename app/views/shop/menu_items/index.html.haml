@@ -64,19 +64,19 @@
                                         アイテム名
                                         %span.has-text-danger [必須]
                                     .control
-                                        = f.text_field :item_name,class:'input',placeholder:'例：生ビール'
+                                        = f.text_field :item_name,class:'input',placeholder:'例：生ビール（10文字まで）'
                                 .field
                                     = f.label :price,class:'label' do
                                         税抜価格
                                         %span.has-text-danger [必須]
                                     .control
-                                        = f.text_field :price,class:'input'
+                                        = f.text_field :price,class:'input',placeholder:"例：900（半角数字6桁まで）"
                                 .field
-                                    = f.label :item_text, 'アイテムテキスト',class:'label'
+                                    = f.label :item_text, 'アイテムテキスト[任意]',class:'label'
                                     .control
-                                        = f.text_field :item_text,class:'input',placeholder:'アイテムの説明を入力・20文字まで'
+                                        = f.text_field :item_text,class:'input',placeholder:'アイテムの説明を入力（20文字まで）'
                                 .field.text-center
-                                    = f.submit 'アイテムを追加',class:'button'
+                                    = f.submit 'アイテムを追加',class:'button is-link'
             .text-center.text-small
                 = link_to shop_menu_path(@item_group.menu) do
                     = @item_group.menu.menu_name

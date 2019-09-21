@@ -19,7 +19,7 @@ class Shop < ApplicationRecord
   validates :city, presence: true, length: { maximum: 8}
   validates :street, length: { in: 6..40}
   VALID_PHONE_REGEX = /\A0[0-9]{9,10}\z/
-  validates :phone_number, presence: true, uniqueness: true
+  validates :phone_number, presence: true, uniqueness: true, format: { with: VALID_PHONE_REGEX }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 

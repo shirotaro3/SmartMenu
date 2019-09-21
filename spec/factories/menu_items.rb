@@ -11,10 +11,6 @@ FactoryBot.define do
       item_name {Faker::Lorem.characters(number: 11)}
     end
 
-    trait :too_long_price do
-      price {Faker::Number.number(digest: 7)}
-    end
-
     trait :create_with_text do
       item_text {|n| "text#{n}"}
     end

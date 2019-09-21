@@ -33,11 +33,6 @@ RSpec.describe MenuItem, type: :model do
         menu_item.item_group = @item_group
         expect(menu_item).to_not be_valid
       end
-      it "priceが7文字以上" do
-        menu_item = build(:menu_item,:too_long_price)
-        menu_item.item_group = @item_group
-        expect(menu_item).to_not be_valid
-      end
     end
   end
 end

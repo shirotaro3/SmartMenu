@@ -44,7 +44,7 @@
               %label 市区町村
               %br
               .control
-                = f.text_field :city,class:'input is-small'
+                = f.text_field :city,class:'input is-small',placeholder:"例：渋谷区"
             .field
               %label 町名・番地・建物
               %br
@@ -55,7 +55,7 @@
               電話番号
               %span.has-text-danger [必須]
             .control
-              = f.text_field :phone_number,class:'input is-small'
+              = f.text_field :phone_number,class:'input is-small',placeholder:"市外局番から入力して下さい（ハイフンは不要です）"
           .field
             %label.label
               Eメール

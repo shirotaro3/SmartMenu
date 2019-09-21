@@ -25,13 +25,13 @@
                             .field
                                 = f.label :menu_name,'メニュー名',class:'label'
                                 .control
-                                    = f.text_field :menu_name,class:'input'
+                                    = f.text_field :menu_name,class:'input is-link'
                             .field
                                 %span.label テーマカラー
                                 = render 'layouts/select-colors', f: f
                             .field
                                 .control.text-center
-                                    = f.submit '変更を保存',class:'button'
+                                    = f.submit '変更を保存',class:'button is-link'
             .text-center.text-small
                 = link_to shop_menu_path(@menu) do
                     戻る
