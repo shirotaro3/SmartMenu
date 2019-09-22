@@ -6,9 +6,9 @@
                 >
                 =@item_group.category.name
             .user-main-content
-                %h1.text-ex-large{style:"border-bottom:2px solid #{@menu.color};"}
+                %h1.text-large{style:"border-bottom:2px solid #{@menu.color};"}
                     = @item_group.category.name
-                %p.has-small-margin
+                %p.has-small-margin.text-small
                     = @item_group.category.name
                     の一覧です。
                 .columns.is-multiline.is-fullwidth.has-small-margin
@@ -25,11 +25,11 @@
                                             .column
                                                 %p.menu-headline.strong
                                                     = menu_item.item_name
-                                                %p
+                                                %p.text-small
                                                     %span.has-text-danger
                                                         ¥
                                                         = menu_item.price
-                                                    %span 
+                                                    %span.text-small
                                                         (税込¥
                                                         = current_tax.calc(menu_item.price)
                                                         )
@@ -42,6 +42,6 @@
                                 ただいま準備中です。
 
             .user-main-content.is-inline-block.has-large-margin.emotions-box
-                このお店はどうですか？
+                %span.text-small このお店はどうですか？
                 #emotions
                     = render 'user/emotions',emotions: @emotions

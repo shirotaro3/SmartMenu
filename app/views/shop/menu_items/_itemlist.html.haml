@@ -1,5 +1,5 @@
 - menu_items.each do |menu_item|
-    .columns.is-vcentered.is-mobile.has-under-line
+    .columns.is-vcentered.is-mobile.has-over-line
         .column.is-3
             -# 並び替えリンク　最後の{}はfalseで非表示にするため
             .columns.is-vcentered.is-mobile
@@ -12,7 +12,9 @@
             = attachment_image_tag menu_item,:item_image,:fill,200,200,format: 'jpeg',fallback: "no_image.jpg",size:'200x200'
         .column.is-3
             = menu_item.item_name
-        .column.is-2
+            -if menu_item.item_text.present?
+                %i.text-ex-small.far.fa-comment
+        .column.is-2.text-ex-small.text-center
             %p
                 ¥
                 = menu_item.price
@@ -23,7 +25,7 @@
         .column.is-2.text-right
             = link_to edit_shop_menu_item_path(menu_item),class:'button is-small is-rounded is-info strong' do
                 %i.fas.fa-edit
-                編集
+                %span.is-hidden-mobile 編集
             = link_to shop_menu_item_path(menu_item),method: :delete,class:'button is-small is-rounded is-danger strong' do
                 %i.fas.fa-trash
-                    削除
+                %span.is-hidden-mobile 削除

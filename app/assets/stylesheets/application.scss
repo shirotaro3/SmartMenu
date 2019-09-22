@@ -29,6 +29,7 @@
  body{
     //  スマホに配慮したフォントファミリ
     font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ＭＳ Ｐゴシック", sans-serif;
+    font-size:1em;
  }
 //  footer用余白・adminではフッターがないため非適用
  .body{
@@ -43,26 +44,26 @@
  }
 
  .container{
-     margin-top:60px;
+     margin-top:40px;
  }
 
 //  文字の大きさなど
  .text-large {
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight:bold;
  }
  .text-small{
     font-size: 0.9em;
  }
  .text-ex-large{
-    font-size: 2em;
+    font-size: 1.7em;
     font-weight:bold;
  }
  .text-ex-small{
      font-size: 0.8em;
  }
  .text-moderate-large{
-     font-size: 1.2em;
+     font-size: 1.1em;
  }
  .strong{
     font-weight:bold;
@@ -82,6 +83,9 @@
     border-left: solid 5px #AD8457;
     padding-left: 0.25em; 
 }
+.has-over-line{
+    border-top:1px solid #ebebeb;
+}
 
 // 上部余白の指定
 .has-large-margin{
@@ -96,7 +100,7 @@
 .has-small-margin{
     margin-top:8px;
 }
-// inlineとinline-blockに使用
+// 文字寄せ
  .text-right{
      text-align:right;
  }
@@ -106,7 +110,7 @@
  .text-left{
      text-align:left;
  }
-//  blockに使用
+//  
  .block-center{
      margin: 0 auto;
  }
@@ -114,7 +118,7 @@
  .is-float-right{
      float:right;
  }
-//  shop/menus/indexでtdの縦幅を出すために使用(仕様変更でtdではなくdivに
+//  tdの高さ出し
  .td-padding{
      padding-top:24px;
      padding-bottom:24px;
@@ -148,11 +152,11 @@
 .preview{
     padding:0 20%;
 }
-
+// box bulma-cssに上書き
 .box{
     box-shadow: inset 0 0 5px rgba(0,0,0,.1);
     border-radius: 30px;
-    padding: 25px 22px;
+    padding: 25px 12px;
 }
 
 // 色選択ボックス(layouts/_select-colors)
@@ -186,7 +190,7 @@
  .main-content{
      padding-top:30px;
      padding-bottom:30px;
-     margin:0 20px;
+     margin:0 10px;
      background-color:white;
      border-radius:30px;
      position:relative;

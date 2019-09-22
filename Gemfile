@@ -47,7 +47,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   # faker
   gem 'faker'
-  gem 'rspec-parameterized'
 end
 
 group :development do
@@ -66,6 +65,9 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'shoulda-matchers'
+end
+
+group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -97,6 +99,7 @@ gem 'chartkick'
 # 画像のアップロード・リサイズ
 gem 'refile', require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+gem 'refile-s3'
 # pdf出力
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'

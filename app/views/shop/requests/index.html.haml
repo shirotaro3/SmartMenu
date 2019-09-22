@@ -15,7 +15,7 @@
                         - @requests.each do |request|
                             .box.has-middle-margin.has-background-white-ter
                                 .columns.is-mobile.is-vcentered
-                                    .column.is-10
+                                    .column.is-9
                                         .columns.is-mobile
                                             .column.is-3.strong
                                                 件名
@@ -27,7 +27,7 @@
                                             .column
                                                 = simple_format(request.message)
                                     .column
-                                        %p
+                                        %p.is-float-right
                                             = link_to shop_request_path(request),method: :delete,class:'button is-rounded is-success',data:{:confirm=>'リクエストを削除してもよろしいですか？'} do
                                                 %i.fas.fa-check
                                 %p.text-small.text-right

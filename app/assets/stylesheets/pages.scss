@@ -13,6 +13,10 @@
     margin-top:-12px;
     border-bottom:1px solid rgba(80,0,0,.5);
 }
+.main-visual-mobile{
+    margin-top:-12px;
+    opacity:.9;
+}
 #theTarget{
     .image1{
         background-image:url('menu1.jpg');
@@ -51,7 +55,7 @@
 
 // ***TOP
 .top-section{
-    min-height:450px;
+    min-height:16em;
 }
 .welcome-padding{
     padding:0 4%;    

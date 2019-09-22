@@ -1,5 +1,5 @@
 - @menu.item_groups.each do |item_group|
-    .columns.is-vcentered.is-mobile.has-under-line
+    .columns.is-vcentered.is-mobile.has-over-line
         .column.is-3
             -# 並び替えリンク　最後の{}はfalseでボタンを非表示にするため
             .columns.is-vcentered.is-mobile
@@ -15,7 +15,7 @@
         .column.is-4.text-right
             = link_to shop_item_group_menu_items_path(item_group),class:'button is-info is-small is-rounded strong' do
                 %i.fas.fa-search
-                詳細
+                %span.is-hidden-mobile 詳細
             = link_to shop_item_group_path(item_group),method: :delete,class:'button is-danger is-small is-rounded strong' do
                 %i.fas.fa-trash
-                    削除
+                %span.is-hidden-mobile 削除

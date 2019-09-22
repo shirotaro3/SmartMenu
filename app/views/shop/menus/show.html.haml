@@ -16,7 +16,7 @@
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
                     %h2.text-large.has-under-line-pink.text-center
                         メニュー情報
-                    %p.text-small.text-center メニューの詳細です。QRコードの表示・プレビュー・編集が行えます。
+                    %p.text-small.text-center メニューの詳細です。プレビュー・編集・グループの追加が行えます。
                     .box.has-middle-margin
                         .columns.is-mobile
                             .column.is-4
@@ -51,12 +51,12 @@
                                 %p.text-small メニュー内のグループです。
                             
                             .has-large-margin
-                                .columns.is-mobile.has-under-line
+                                .columns.is-mobile
                                     .column.is-3.text-small
                                         表示順
                                     .column.is-2
                                     .column.is-3.text-small
-                                        アイテム名
+                                        グループ名
                                     .column.is-4
                                 #grouplist
                                     =render 'grouplist',menu: @menu

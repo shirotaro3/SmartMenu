@@ -18,13 +18,13 @@
                                             件名
                                             %span.has-text-danger [必須]
                                         .control
-                                            = f.text_field :title, class:'input',placeholder:'件名を入力してください。(12文字まで)'
+                                            = f.text_field :title, class:'input',placeholder:'件名を入力してください(12文字まで)'
                                     .filed
                                         = f.label :message do
                                             お声の内容
                                             %span.has-text-danger [必須]
                                         .control
-                                            = f.text_area :message, class:'textarea',placeholder:"具体的な内容をご記入ください。(200文字まで)"
+                                            = f.text_area :message, class:'textarea',placeholder:"内容をご記入ください(200文字まで)"
                                     .field
-                                        .control.text-center
-                                            = f.submit '送信',class:'button'
+                                        .control.text-center.has-middle-margin
+                                            = f.submit '送信',class:'button is-rounded is-dark'
