@@ -31,7 +31,7 @@
                                             = link_to shop_request_path(request),method: :delete,class:'button is-rounded is-success',data:{:confirm=>'リクエストを削除してもよろしいですか？'} do
                                                 %i.fas.fa-check
                                 %p.text-small.text-right
-                                    posted date
+                                    Posted at
                                     = simple_date(request.created_at)
                     -else
                         .has-middle-margin.box
