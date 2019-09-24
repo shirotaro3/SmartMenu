@@ -73,7 +73,7 @@ group :test do
 end
 
 group :production do
-  gem 'capistrano-unicorn'
+  gem 'puma'
   gem 'mysql2'
 end
 
