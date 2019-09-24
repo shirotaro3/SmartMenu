@@ -33,7 +33,7 @@ class DeviseCreateShops < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
       t.string :shop_name, null: false, default: ''
       t.string :postal_code, null: false, default: ''
-      t.integer :state, null: false, default: ''
+      t.integer :state, null: false
       t.string :city, null: false, default: ''
       t.string :street, null: false, default: ''
       t.string :phone_number, null: false, default: ''
