@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.4.0"
+lock "~> 3.11.1"
 
 set :application, "SmartMenu"
 set :repo_url, "git@github.com:shirotaro3/SmartMenu.git"
