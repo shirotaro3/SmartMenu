@@ -48,7 +48,7 @@ set :rbenv_ruby, '2.5.5'
 set :log_level, :debug
 
 namespace :deploy do
-    +install_plugin Capistrano::Unicorn
+    install_plugin Capistrano::Unicorn
   
     desc 'Create database'
     task :db_create do
