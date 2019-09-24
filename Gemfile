@@ -5,8 +5,7 @@ ruby '2.5.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
-# Use sqlite
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -45,6 +44,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   # faker
   gem 'faker'
+  # Use sqlite
+  gem 'sqlite3'
 end
 
 group :development do
@@ -58,6 +59,8 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
   gem 'capistrano-rails'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :test do
@@ -70,8 +73,8 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 1.1.4'
   gem 'unicorn'
+  gem 'mysql2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
