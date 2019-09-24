@@ -48,10 +48,7 @@ set :rbenv_ruby, '2.5.5'
 set :log_level, :debug
 
 namespace :deploy do
-    desc 'Restart application'
-    task :restart do
-      invoke 'unicorn:restart'
-    end
+    +install_plugin Capistrano::Unicorn
   
     desc 'Create database'
     task :db_create do
@@ -75,7 +72,6 @@ namespace :deploy do
       end
     end
   
-    after :publishing, :restart
   
     after :restart, :clear_cache do
       on roles(:web), in: :groups, limit: 3, wait: 10 do
