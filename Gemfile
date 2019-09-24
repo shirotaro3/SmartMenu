@@ -73,7 +73,7 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn'
+  gem 'capistrano-unicorn'
   gem 'mysql2'
 end
 
