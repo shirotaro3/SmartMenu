@@ -19,13 +19,13 @@
 }
 #theTarget{
     .image1{
-        background-image:url('menu1.jpg');
+        background-image: image-url('menu1.jpg');
     }
     .image2{
-        background-image:url('qr.jpg');
+        background-image: image-url('qr.jpg');
     }
     .image3{
-        background-image:url('menu2.jpg');
+        background-image: image-url('menu2.jpg');
     }
     .image1,.image2,.image3 {
         padding:50px 3% 0 3%;
