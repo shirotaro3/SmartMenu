@@ -46,6 +46,8 @@ set :rbenv_ruby, '2.5.5'
 
 #出力するログのレベル。
 set :log_level, :debug
+append :rbenv_map_bins, 'puma', 'pumactl'
+set :rbenv_map_bins, %w{rake gem bundle ruby rails puma pumactl}
 
 namespace :deploy do
     desc "Make sure local git is in sync with remote."
