@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_09_14_091559) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "admins", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
@@ -83,14 +80,14 @@ ActiveRecord::Schema.define(version: 2019_09_14_091559) do
   create_table "menus", force: :cascade do |t|
     t.string "menu_name", default: "", null: false
     t.string "color", default: "white"
-    t.integer "shop_id", default: 0, null: false
+    t.integer "shop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "requests", force: :cascade do |t|
     t.integer "shop_id", null: false
-    t.text "message", default: "", null: false
+    t.text "message", null: false
     t.string "title", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
