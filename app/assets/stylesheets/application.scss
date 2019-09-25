@@ -23,7 +23,6 @@
     //  footerをposition:fixedを使わずに下部に配置する
 	min-height: 98.6vh;
     position: relative;
-    background-color:#F6F6F6;
  }
 
  body{
@@ -375,3 +374,21 @@
      height:37px;
      margin-top:8px;
  }
+
+//  新規登録・ログインページ
+.box-background{
+    background-image: image-url('cafe.jpg');
+    opacity:.9;
+    background-size:cover;
+    background-position:center;
+    padding-top:10px;
+    padding-bottom:50px;
+    margin-top:-12px;
+    margin-bottom:-20px;
+}
+.positioning{
+    min-height:78.5vh;
+}
+.is-background-clear{
+    background-color:rgba(255,255,255,.9);
+}
