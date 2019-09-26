@@ -1,0 +1,34 @@
+-content_for(:title) {'送信内容をご確認ください'}
+.container
+    .columns
+        .column.is-3.is-hidden-mobile
+            =render 'shop/sidebar'
+        .column.is-8.main-content
+
+            .columns
+                .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
+                    .text-center
+                        %h2.text-large.has-under-line-pink
+                            送信内容をご確認ください
+                        %p.text-small
+                            以下の内容でお間違いなければ送信ボタンを押してください。
+                        
+                    %table.table.has-middle-margin.is-bordered
+                        %tbody
+                            %tr
+                                %td
+                                    お名前
+                                %td{colspan:"5"}
+                                    = @inquiry.name
+                            %tr
+                                %td
+                                    本文
+                                %td{colspan:"5"}
+                                    = simple_format(@inquiry.message)
+                    = form_with model: @inquiry,url: shop_inquiry_path,local: true do |f|
+                        = f.hidden_field :name
+                        = f.hidden_field :message
+                        .text-center
+                            .is-inline
+                                = f.submit "送信",class:"button is-rounded is-dark"
+                                = f.submit "戻る",name: "back",class:"button is-rounded"

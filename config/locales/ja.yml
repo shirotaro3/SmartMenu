@@ -256,3 +256,6 @@ ja:
         title: 件名
       category:
         name: カテゴリ名
+      inquiry:
+        name: お名前
+        message: 本文

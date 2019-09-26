@@ -9,8 +9,12 @@
                             マイページ
                     = link_to howto_shop_mypages_path do
                         %li
-                            %i.fas.fa-user
+                            %i.fas.fa-lightbulb
                             ご利用方法
+                    = link_to new_shop_inquiry_path do
+                        %li
+                            %i.fas.fa-envelope
+                            お問い合わせ
                 -else
                     = link_to new_shop_registration_path do
                         %li

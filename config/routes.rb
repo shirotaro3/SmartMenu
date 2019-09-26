@@ -28,6 +28,10 @@ Rails.application.routes.draw do
 
   # ショップ
   namespace :shop do
+    # お問い合わせ
+    resource :inquiry, only:[:new,:create] do
+      post :confirm, on: :collection
+    end
     resources :requests, only:[:index, :show, :destroy]
     resources :categories,except:[:show,:new]
     # マイページ
