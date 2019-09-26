@@ -2,11 +2,9 @@
     = current_shop.shop_name
     さんの
     = @menu.menu_name
-    のQRコードです。
+    のQRコード
 %div{style:"border-bottom:1px solid #{@menu.color}"}
-%p{style:"font-size:1em;"}
-    メニューURL:
-    = @url
+%p
 .qrcodes
     .color{style:"background-color:#{@menu.color};display:inline-block;"}
         .qrcode{style:"opacity:.8;"}

@@ -37,10 +37,11 @@
                                 = @menu.color
                         .columns.is-mobile
                             .column.is-4
-                                URL：
+                                プレビュー：
                             .column.is-8
-                                = link_to user_menu_path(@menu),target: :_blank do
-                                    = user_menu_url(@menu)
+                                = link_to user_menu_path(@menu),target: :_blank,class:"button is-rounded is-small" do
+                                    %i.fas.fa-book-open
+                                    メニューを開く
                             
                     -# アイテムグループリスト
                     -if @menu.item_groups.any?
