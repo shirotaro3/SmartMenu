@@ -13,26 +13,20 @@
                         あなたのお店に寄せられたリクエストです。
                     - if @requests.any?
                         - @requests.each do |request|
-                            .box.has-middle-margin.has-background-white-ter
+                            .request-box.has-middle-margin.has-background-white-bis
                                 .columns.is-mobile.is-vcentered
-                                    .column.is-9
-                                        .columns.is-mobile
-                                            .column.is-3.strong
-                                                件名
-                                            .column
-                                                = request.title
-                                        .columns.is-mobile
-                                            .column.is-3.strong
-                                                内容
-                                            .column
-                                                = simple_format(request.message)
                                     .column
-                                        %p.is-float-right
-                                            = link_to shop_request_path(request),method: :delete,class:'button is-rounded is-success',data:{:confirm=>'リクエストを削除してもよろしいですか？'} do
-                                                %i.fas.fa-check
+                                        .request-image
+                                            = image_tag 'user.jpg'
+                                    .column.is-9
+                                        %p.strong
+                                            = request.title
+                                        = simple_format(request.message)
                                 %p.text-small.text-right
                                     Posted at
                                     = simple_date(request.created_at)
+                                    = link_to shop_request_path(request), class:"button is-rounded is-small is-success",method: :delete do
+                                        %i.fas.fa-check
                     -else
                         .has-middle-margin.box
                             リクエストは届いていません。

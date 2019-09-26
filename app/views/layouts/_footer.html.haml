@@ -1,8 +1,7 @@
 %footer.columns.is-fluid.is-mobile
     .column.text-center.text-small
         -if params[:controller].include?('user')
-            このメニューは
+            Presented by 
             =link_to 'SmartMenu', root_path
-            で作成されています。
         -else
             © 2019 SmartMenu

@@ -94,7 +94,7 @@ gem 'rails-i18n'
 gem 'bulma-rails'
 # font-awesomeアイコン表示
 gem 'font-awesome-sass'
-# hamlit導入
+# haml使用
 gem 'haml-rails'
 # jsライブラリ
 gem 'jquery-rails'

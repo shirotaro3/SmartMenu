@@ -23,7 +23,7 @@
 
 
 
-                    -# 新着リクエスト
+                    -# リクエストがあるとき
                     -if  @requests.any?
                         = link_to shop_requests_path do
                             .box.touch.has-middle-margin
@@ -48,7 +48,7 @@
                                                         .text-small
                                                             = simple_date(request.created_at)
 
-                    -# 新着エモーション
+                    -# エモーションが全部0でないとき(3つのうちどれかひとつでもあるとき)
 
                     -unless @emotions[:happy] == 0 && @emotions[:dizzy] == 0 && @emotions[:grin] == 0
                         =link_to shop_emotions_path do
@@ -61,3 +61,7 @@
                                     = render 'shop/mypages/emotions',emotions: @emotions
                                     .chart
                                         = pie_chart @emotions
+                    
+                    -if  @emotions[:happy] == 0 && @emotions[:dizzy] == 0 && @emotions[:grin] == 0 && @requests.blank?
+                        .has-large-margin.welcome-image
+                            = image_tag 'shop.jpg'
