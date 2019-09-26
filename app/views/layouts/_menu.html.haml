@@ -24,11 +24,6 @@
                     %li
                         %i.fas.fa-home
                         トップページ
-                - if shop_signed_in?
-                    = link_to destroy_shop_session_path, method: :delete do
-                        %li
-                            %i.fas.fa-sign-out-alt
-                            ログアウト
     - if shop_signed_in?
         .columns#mypage-menu-modal
             .column.is-4.is-offset-8.menu-list

@@ -80,7 +80,8 @@ document.addEventListener("turbolinks:load", function() {
     // スクロールボタン
 	$('#back-to-top').on('click', function(){
 		$('html').animate({scrollTop: 0},300,function(){
-			$('#scroll-button').fadeOut(300);
+            // scrollTopがsafariで動作しないため追加
+            window.location.href = '#top';
 		});
     });
 
