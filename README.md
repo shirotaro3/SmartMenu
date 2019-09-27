@@ -1,6 +1,7 @@
 # SmartMenu
   
 ![作成したメニュー](https://github.com/shirotaro3/images/blob/master/smartmenu.png?raw=true)
+![QRコード](https://github.com/shirotaro3/images/blob/master/qrcode.png?raw=true)
 
 ## 説明  
   

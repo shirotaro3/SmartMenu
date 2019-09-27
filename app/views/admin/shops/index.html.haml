@@ -29,7 +29,7 @@
                                     .text-center
                                         = link_to "詳細",admin_shop_path(shop),class:"button is-small is-light"
                                         = link_to "編集",edit_admin_shop_path(shop),method: :get,class:"button is-small is-light"
-                                        = link_to "削除",admin_shop_path(shop),method: :delete,class:"button is-small is-danger"
+                                        = link_to "削除",admin_shop_path(shop),method: :delete,data:{confirm:"削除してもよろしいですか"},class:"button is-small is-danger"
             
             -if @shops.total_pages >= 2
                 .paginate.has-small-margin
