@@ -18,6 +18,24 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+ @font-face {
+    font-family: 'Noto Sans Japanese';
+    font-style: normal;
+    font-weight: normal;
+    src: font-url('NotoSansCJKjp-Regular.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Noto Sans Japanese';
+    font-style: normal;
+    font-weight: bold;
+    src: font-url('NotoSansCJKjp-Bold.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Noto Sans Japanese';
+    font-style: normal;
+    font-weight: 800;
+    src: font-url('NotoSansCJKjp-Black.otf') format('opentype');
+  }
  // 共通
  html{
     //  footerをposition:fixedを使わずに下部に配置する
@@ -26,8 +44,7 @@
  }
 
  body{
-    //  スマホに配慮したフォントファミリ
-    font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ＭＳ Ｐゴシック", sans-serif;
+    font-family: 'Noto Sans Japanese', sans-serif;
     font-size:1em;
  }
 //  footer用余白・adminではフッターがないため非適用
