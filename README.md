@@ -9,7 +9,7 @@ SmartMenuは主に個人経営の飲食店など向けのメニュー作成ア�
   
 ***デモ***  
   
-[デモサイト](http://smartmenu.tokyo)  
+[デモサイト](https://smartmenu.tokyo)  
   
 ***サンプルアカウント***  
   
@@ -78,7 +78,7 @@ PDF形式で出力され、サイズが２種類用意されています。
   
 - QR作成機能ではQRコード生成＋PDF出力を合わせ、印刷しやすいようにしました。  
   
-### 5.  Let's EncryptでSSL化 & crontabで更新を自動化  
+### 5.　Let's EncryptでSSL化 & crontabで更新を自動化  
 - certbotを利用して、letsencryptのSSL証明書を発行しました。crontabの設定をし1ヶ月ごとに自動で更新されるようにしました。  
   
 ### 6.　レスポンシブ対応  

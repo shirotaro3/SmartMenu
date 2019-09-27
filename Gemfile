@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
   gem 'listen'
 # Use ActiveStorage variant
@@ -87,7 +87,7 @@ gem 'devise-i18n-views'
 # 順序付け・並べ替え機能
 gem 'acts_as_list'
 # 検索機能
-gem 'ransack'
+# gem 'ransack'
 # rails国際化対応
 gem 'rails-i18n'
 # CSSフレームワーク
@@ -112,7 +112,5 @@ gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 # ページネーション
 gem 'kaminari', '~> 1.1.1'
-# パスワードのハッシュ化
-gem 'bcrypt'
 # slack通知
 gem 'slack-notifier'
