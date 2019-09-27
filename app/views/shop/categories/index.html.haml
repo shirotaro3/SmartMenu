@@ -9,7 +9,9 @@
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
                     %h2.text-large.has-under-line-pink.text-center
                         カテゴリ
-                    %p.text-small.text-center カテゴリの一覧です。
+                    .text-small.text-center
+                        %p カテゴリの一覧です。
+                        %p 例：ソフトドリンク、アルコール、デザートなど
                     -if @categories.any?
                         .box.has-middle-margin
                             %table.table
