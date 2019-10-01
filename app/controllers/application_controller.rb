@@ -21,15 +21,15 @@ class ApplicationController < ActionController::Base
     # redirect_toの戻り値はtrueなので、呼び出し先で and return が使える
     def correct_shop(target)
         if target.shop_id != current_shop.id
-            return redirect_to top_shop_mypages_path, :alert => 'アクセスできませんでした。'
+            redirect_to top_shop_mypages_path, :alert => 'アクセスできませんでした。'
         end
     end
 
     # adminログイン状態保持(クッキーを確認して@current_adminをセット)
     def current_admin
-        # クッキーのremember_tokenを暗号化して代入
+        # クッキーのremember_tokenをハッシュ化して代入
         remember_token = Admin.encrypt(cookies[:admin_remember_token])
-        # DBにある暗号化されたremember_tokenと照合、一致すればadmin代入
+        # ハッシュ化されたremember_tokenでfind、一致したadminを代入
         @current_admin ||= Admin.find_by(remember_token: remember_token)
     end
 

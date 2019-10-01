@@ -44,7 +44,7 @@ class Admin::SessionsController < ApplicationController
         remember_token = Admin.new_remember_token
         # 永続(期限付き)クッキーにremember_tokenを保存
         cookies.permanent[:admin_remember_token] = remember_token
-        # クラスメソッドで暗号化したremember_tokenをadminに保存
+        # クラスメソッドでハッシュ化したremember_tokenをadminに保存
         admin.update!(remember_token: Admin.encrypt(remember_token))
         @current_admin = admin
     end
