@@ -1,6 +1,8 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+
+# jpostalcodeを使用(住所自動入力)
 $(document).on "turbolinks:load", ->
   $("#shop_postal_code").jpostal({
     # 郵便番号の入力欄が１つの場合

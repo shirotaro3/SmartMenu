@@ -22,7 +22,7 @@
 //= require_tree .
 document.addEventListener("turbolinks:load", function() {
      
-    // フラッシュメッセージ　アニメーション
+    // フラッシュメッセージ アニメーション
 	$('#flash-message').fadeIn("slow", function () {
 		$(this).delay(2300).fadeOut("", function(){
             $('#error-message').fadeIn("");
@@ -85,7 +85,7 @@ document.addEventListener("turbolinks:load", function() {
 		});
     });
 
-    // input type file
+    // inputtype-fileのパス表示
     $(document).on('change', ':file', function() {
         var input = $(this),
         numFiles = input.get(0).files ? input.get(0).files.length : 1,
@@ -94,6 +94,8 @@ document.addEventListener("turbolinks:load", function() {
         input.parent().parent().next(':text').val(label);
     });
 
+
+    // inputtype-fileのプレビュー表示
     $(function(){
         //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
         $('form').on('change', 'input[type="file"]', function(e) {
