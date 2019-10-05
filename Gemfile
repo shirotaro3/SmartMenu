@@ -114,3 +114,5 @@ gem 'wicked_pdf'
 gem 'kaminari', '~> 1.1.1'
 # slack通知
 gem 'slack-notifier'
+# google アナリティクス
+gem 'google-analytics-rails'

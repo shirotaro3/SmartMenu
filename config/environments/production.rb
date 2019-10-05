@@ -93,6 +93,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  # メーラー設定
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
@@ -103,4 +104,6 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto:  true
   }
+  # googleアナリティクス トラッキングID
+  Ga.tracker = Rails.application.credentials.google_tracking_id
 end
