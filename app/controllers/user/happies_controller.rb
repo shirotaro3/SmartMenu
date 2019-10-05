@@ -1,5 +1,4 @@
 class User::HappiesController < ApplicationController
-
   before_action :set_menu
   before_action :reject_countinuous!
 

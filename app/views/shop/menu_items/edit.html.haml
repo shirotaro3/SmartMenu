@@ -1,8 +1,8 @@
--content_for(:title) {"#{@item_name}編集"}
+- content_for(:title) {"#{@item_name}編集"}
 .container
     .columns
         .column.is-3.is-hidden-mobile
-            =render 'shop/sidebar'
+            = render 'shop/sidebar'
         .column.is-8.main-content
             -# 階層リンク
             .links-nav.text-ex-small
@@ -16,7 +16,6 @@
                 >
                 = @item_name
                 編集
-            
             -# アイテム編集フォーム
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet

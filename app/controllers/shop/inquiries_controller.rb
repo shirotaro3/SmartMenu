@@ -1,5 +1,6 @@
 class Shop::InquiriesController < ApplicationController
     before_action :authenticate_shop!
+    
     def new
         @inquiry = Inquiry.new
     end

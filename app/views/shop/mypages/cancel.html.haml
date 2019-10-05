@@ -1,13 +1,12 @@
--content_for(:title) {'退会前にご確認下さい'}
+- content_for(:title) {'退会前にご確認下さい'}
 .container
     .columns
         .column.is-3.is-hidden-mobile
-            =render 'shop/sidebar'
+            = render 'shop/sidebar'
         .column.is-8.main-content.text-center
             .links-nav.text-ex-small
                 = link_to "ご登録情報",shop_mypages_path
                 >退会
-            
             %h2.text-large.has-under-line-pink
                 %i.fas.fa-exclamation-triangle
                 退会前にご確認ください。

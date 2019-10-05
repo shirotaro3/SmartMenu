@@ -6,16 +6,16 @@
 //*** MainVisual（スライド） ***
  
 .main-visual{
-    background-color:black;
-    opacity:.9;
-    color:white;
+    background-color: black;
+    opacity: .9;
+    color: white;
     height: 48em;
-    margin-top:-12px;
-    border-bottom:1px solid rgba(80,0,0,.5);
+    margin-top: -12px;
+    border-bottom: 1px solid rgba(80,0,0,.5);
 }
 .main-visual-mobile{
-    margin-top:-12px;
-    opacity:.9;
+    margin-top: -12px;
+    opacity: .9;
 }
 #theTarget{
     .image1{
@@ -28,27 +28,27 @@
         background-image: image-url('menu2.jpg');
     }
     .image1,.image2,.image3 {
-        padding:50px 3% 0 3%;
+        padding: 50px 3% 0 3%;
         .heading-text,.text{
             text-shadow: 1px 1px 3px black;
             font-family: 'Noto Sans Japanese';
-            font-weight:800;
+            font-weight: 800;
             a{
-                color:white;
+                color: white;
                 &:hover{
-                    color:pink;
+                    color: pink;
                 }
             }
         }
         .heading-text{
-            margin-top:80px;
-            font-size:3.5em;
+            margin-top: 80px;
+            font-size: 3.5em;
         }
         .text {
-            margin-top:60px;
-            font-size:1.7em;
+            margin-top: 60px;
+            font-size: 1.7em;
             a{
-                text-decoration:underline;
+                text-decoration: underline;
             }
         }
     }
@@ -56,17 +56,17 @@
 
 // ***TOP
 .top-section{
-    min-height:16em;
+    min-height: 16em;
 }
 .welcome-padding{
-    padding:0 4%;    
+    padding: 0 4%;    
 }
 .section-padding{
-    padding:0 4% 40px 4%;
+    padding: 0 4% 40px 4%;
 }
 .section-image-padding{
-    padding:40px 20%;
+    padding: 40px 20%;
 }
 .section-grey{
-    background-color:#F6F6F6;
+    background-color: #F6F6F6;
 }

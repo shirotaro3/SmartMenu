@@ -6,58 +6,12 @@
 %div{style:"border-bottom:1px solid #{@menu.color}"}
 %p
 .qrcodes
-    .color{style:"background-color:#{@menu.color};display:inline-block;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,290
-
-    = image_tag qrcode @url,290
-
-    .color{style:"background-color:#{@menu.color};display:inline-block;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,290
-
-    = image_tag qrcode @url,290
-
-    .color{style:"background-color:#{@menu.color};display:inline-block;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,290
-
-    = image_tag qrcode @url,290
+    -# 2*6=12個表示
+    - 6.times do
+        .color{style:"background-color:#{@menu.color};display:inline-block;"}
+            .qrcode{style:"opacity:.8;"}
+                = image_tag qrcode @url,290
+        = image_tag qrcode @url,290
 .qrcodes
-    .color{style:"background-color:#{@menu.color};display:inline-block;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,290
-
-    = image_tag qrcode @url,290
-
-    .color{style:"background-color:#{@menu.color};display:inline-block;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,290
-
-    = image_tag qrcode @url,290
-
-    .color{style:"background-color:#{@menu.color};display:inline-block;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,290
-
-    = image_tag qrcode @url,290
-    
-.qrcodes
-    .color{style:"background-color:#{@menu.color};display:inline-block;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,420
-    = image_tag qrcode @url,420
-
-
-.qrcodes
-    = image_tag qrcode @url,420
-    .color{style:"background-color:#{@menu.color};display:inline-block;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,420
-
-
-.qrcodes
-    .color{style:"background-color:#{@menu.color};display:inline-block;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,420
-    = image_tag qrcode @url,420
+    - 6.times do
+        = image_tag qrcode @url,420

@@ -32,7 +32,7 @@
                                 %td
                                     電話番号
                                 %td
-                                    =f.text_field :postal_code,class:"input"
+                                    = f.text_field :postal_code,class:"input"
                             %tr
                                 %td
                                     email
@@ -44,4 +44,4 @@
                                     .text-center
                                         = f.submit '更新',class:"button is-light is-large"
                 %p.text-center
-                    =link_to 'ショップ一覧',admin_shops_path
+                    = link_to 'ショップ一覧',admin_shops_path

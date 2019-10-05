@@ -1,5 +1,6 @@
 class Shop::ShopsController < ApplicationController
     before_action :authenticate_shop!
+    
     def top
         @requests = current_shop.requests
         happies = current_shop.happies

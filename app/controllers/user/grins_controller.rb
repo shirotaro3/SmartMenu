@@ -1,5 +1,4 @@
 class User::GrinsController < ApplicationController
-
   before_action :set_menu
   before_action :reject_countinuous!
 

@@ -4,7 +4,7 @@
             .links.text-left.text-small
                 = link_to "メニュートップ", user_menu_path(@menu)
                 >
-                =@item_group.category.name
+                = @item_group.category.name
             .user-main-content
                 %h1.text-large{style:"border-bottom:2px solid #{@menu.color};"}
                     = @item_group.category.name
@@ -36,11 +36,10 @@
                                                 - if menu_item.item_text.present?
                                                     %p.text-small.menu-item-text
                                                         = menu_item.item_text
-                    -else
+                    - else
                         .column
                             .menu-item-box
                                 ただいま準備中です。
-
             .user-main-content.is-inline-block.has-large-margin.emotions-box
                 %span.text-small このお店はどうですか？
                 #emotions

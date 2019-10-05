@@ -1,13 +1,12 @@
--content_for(:title) {'カテゴリ編集'}
+- content_for(:title) {'カテゴリ編集'}
 .container
     .columns
         .column.is-3.is-hidden-mobile
-            =render 'shop/sidebar'
+            = render 'shop/sidebar'
         .column.is-8.main-content
             .links-nav.text-ex-small
                 = link_to "カテゴリ",shop_categories_path
                 >編集
-
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
                     %h2.text-large.text-center.has-under-line-pink

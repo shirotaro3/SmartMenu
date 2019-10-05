@@ -1,18 +1,16 @@
--content_for(:title) {'送信内容をご確認ください'}
+- content_for(:title) {'送信内容をご確認ください'}
 .container
     .columns
         .column.is-3.is-hidden-mobile
-            =render 'shop/sidebar'
+            = render 'shop/sidebar'
         .column.is-8.main-content
-
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
                     .text-center
                         %h2.text-large.has-under-line-pink
                             送信内容をご確認ください
                         %p.text-small
-                            以下の内容でお間違いなければ送信ボタンを押してください。
-                        
+                            以下の内容でお間違いなければ送信ボタンを押してください。             
                     %table.table.has-middle-margin.is-bordered
                         %tbody
                             %tr

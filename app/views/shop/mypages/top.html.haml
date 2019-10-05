@@ -1,13 +1,11 @@
--content_for(:title) {'マイページTOP'}
+- content_for(:title) {'マイページTOP'}
 .container
     .columns
         .column.is-3.is-hidden-mobile
-            =render 'shop/sidebar'
+            = render 'shop/sidebar'
         .column.is-8.main-content
-
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
-
                     .text-center
                         %h2.text-large.has-under-line-pink
                             こんにちは！
@@ -19,9 +17,6 @@
                             メニューの作成方法・各種機能のご案内は
                             =link_to "[こちら]",howto_shop_mypages_path
                             よりご覧いただけます。
-
-
-
 
                     -# リクエストがあるとき
                     -if  @requests.any?
@@ -49,7 +44,6 @@
                                                             = simple_date(request.created_at)
 
                     -# エモーションが全部0でないとき(3つのうちどれかひとつでもあるとき)
-
                     -unless @emotions[:happy] == 0 && @emotions[:dizzy] == 0 && @emotions[:grin] == 0
                         =link_to shop_emotions_path do
                             .box.touch.has-middle-margin

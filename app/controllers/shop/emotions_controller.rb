@@ -1,5 +1,6 @@
 class Shop::EmotionsController < ApplicationController
     before_action :authenticate_shop!
+    
     def index
         # インスタンスメソッド・grin・happy・dizzyのカウントをハッシュで返す
         @emotions = current_shop.emotions

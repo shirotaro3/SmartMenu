@@ -18,24 +18,24 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-@font-face {
+@font-face{
     font-family: 'Noto Sans Japanese';
     font-style: normal;
     font-weight: normal;
-    font-display:swap;
+    font-display: swap;
     src: font-url('NotoSansJP-Regular.otf') format('opentype');
 }
-@font-face {
+@font-face{
     font-family: 'Noto Sans Japanese';
     font-style: normal;
-    font-display:swap;
+    font-display: swap;
     font-weight: bold;
     src: font-url('NotoSansJP-Bold.otf') format('opentype');
 }
-@font-face {
+@font-face{
     font-family: 'Noto Sans Japanese';
     font-style: normal;
-    font-display:swap;
+    font-display: swap;
     font-weight: 800;
     src: font-url('NotoSansJP-Black.otf') format('opentype');
 }
@@ -48,7 +48,7 @@ html{
 
 body{
     font-family: 'Noto Sans Japanese', sans-serif;
-    font-size:1em;
+    font-size: 1em;
 }
 //  footer用余白・adminではフッターがないため非適用
 .body{
@@ -57,31 +57,31 @@ body{
 
 //  画像のレスポンシブ化(縦横比を保ちながら親要素の横幅まで拡大・縮小)
 img{
-    width:100%;
+    width: 100%;
     max-width: 100%;
     height: auto;
 }
 
 .container{
-    margin-top:40px;
+    margin-top: 40px;
 }
 
-//  スマホでタップ時のハイライトカラーを消す
-a,span,div {
+//  スマホでタップ時のハイライトカラーを消す(ベンダープレフィックス)
+a,span,div{
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 //  文字の大きさなど
-.text-large {
+.text-large{
     font-size: 1.2em;
-    font-weight:bold;
+    font-weight: bold;
 }
 .text-small{
     font-size: 0.9em;
 }
 .text-ex-large{
     font-size: 1.7em;
-    font-weight:bold;
+    font-weight: bold;
 }
 .text-ex-small{
     font-size: 0.8em;
@@ -90,7 +90,7 @@ a,span,div {
     font-size: 1.1em;
 }
 .strong{
-    font-weight:bold;
+    font-weight: bold;
 }
 
 // アンダーライン系
@@ -113,68 +113,67 @@ a,span,div {
 
 // 上部余白の指定
 .has-large-margin{
-    margin-top:30px;
+    margin-top: 30px;
 }
 .has-ex-large-margin{
-    margin-top:50px;
+    margin-top: 50px;
 }
 .has-middle-margin{
-    margin-top:16px;
+    margin-top: 16px;
 }
 .has-small-margin{
-    margin-top:8px;
+    margin-top: 8px;
 }
 // 文字寄せ
 .text-right{
-    text-align:right;
+    text-align: right;
 }
 .text-center{
-    text-align:center;
+    text-align: center;
 }
 .text-left{
-    text-align:left;
+    text-align: left;
 }
-//  
 .block-center{
     margin: 0 auto;
 }
-//  主にボタンの右寄せに使用
+// 主にボタンの右寄せに使用
 .is-float-right{
-    float:right;
+    float: right;
 }
-//  tdの高さ出し
+// tdの高さ出し
 .td-padding{
-    padding-top:24px;
-    padding-bottom:24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
 }
  
 .touch{
-    transition:.3s;
+    transition: .3s;
     &:hover{
-        opacity:.6;
+        opacity: .6;
     }
 }
 
-//  テーブルクラスの横幅を100%にして、レイアウト保持のため横幅を固定
+// テーブルクラスの横幅を100%にして、レイアウト保持のため横幅を固定
 .table{
-    width:100%;
-    table-layout:fixed;
+    width: 100%;
+    table-layout: fixed;
 }
-//  文字列が長くなった時、回り込むようにする（文字ハミ出し防止）
+// 文字列が長くなった時、回り込むようにする（文字ハミ出し防止）
 .column{
     word-wrap: break-word;
 }
-//  kaminariのページネーションを囲う・inline化して中央寄せする
+// kaminariのページネーションを囲う・inline化して中央寄せする
 .paginate{
-    text-align:center;
+    text-align: center;
     *{
-        display:inline;
+        display: inline;
     }
 }
 
 // 画像プレビュー表示用
 .preview{
-    padding:0 20%;
+    padding: 0 20%;
 }
 // box bulma-cssに上書き
 .box{
@@ -186,12 +185,12 @@ a,span,div {
 // 色選択ボックス(layouts/_select-colors)
 .select-colors{
     label{
-        transition:.3s;
+        transition: .3s;
         &:hover{
-            opacity:.7;
+            opacity: .7;
         }
     }
-    //  checkedの時、隣接する.ballに色をつける(隣接セレクタ）
+    // checkedの時、隣接する.ballに色をつける(隣接セレクタ）
     input[type=radio]{
         display:none;
         &:checked + .ball{
@@ -203,171 +202,171 @@ a,span,div {
 
 // inline-blockの円（色関係で使用）
 .ball{
-    height:20px;
-    width:20px;
-    border-radius:50%;
-    content:'';
-    display:inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    content: '';
+    display: inline-block;
 }
 
 // メインカラムのpadding調整
 .main-content{
-    padding-top:30px;
-    padding-bottom:30px;
-    margin:0 10px;
-    background-color:white;
-    border-radius:30px;
-    position:relative;
-    box-shadow:2px 2px 6px rgba(0,0,0,.2);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0 10px;
+    background-color: white;
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.2);
 }
 // main-contentの上部に階層リンクを配置
 .links-nav{
-    position:absolute;
-    top:-19px;
+    position: absolute;
+    top: -19px;
 }
-//  チャートの透明度
+// チャートの透明度
 .chart{
-    opacity:.8;
+    opacity: .8;
 }
 // エモーションの顔の色（チャートと同じ色）
 .happy{
-    color:#E36141;
+    color: #E36141;
 }
 .grin{
-    color:#5C85D6;
+    color: #5C85D6;
 }
 .dizzy{
-    color:#FFAD33;
+    color: #FFAD33;
 }
 // *** フラッシュメッセージ ***
 #flash-message{
-    position:fixed;
-    top:4em;
-    left:0;
-    width:100%;
-    z-index:6;
-    display:none;
+    position: fixed;
+    top: 4em;
+    left: 0;
+    width: 100%;
+    z-index: 6;
+    display: none;
     .notice,.alert,.danger{
-        border-radius:20px;
-        padding:10px;
-        font-weight:bold;
+        border-radius: 20px;
+        padding: 10px;
+        font-weight: bold;
         box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
     }
     .notice{
         background-color: #AD8457;
-        color:white;
+        color: white;
     }
     .alert{
-        background-color:white;
-        border:1px solid red;
-        color:red;
+        background-color: white;
+        border: 1px solid red;
+        color: red;
     }
     .danger{
-        background-color:black;
-        color:red;
+        background-color: black;
+        color: red;
     }
 }
 #error-message{
-    position:fixed;
-    top:4em;
-    left:0;
-    width:100%;
-    z-index:6;
-    display:none;
+    position: fixed;
+    top: 4em;
+    left: 0;
+    width: 100%;
+    z-index: 6;
+    display: none;
 }
 .error-message{
-    padding:10px;
-    background-color:white;
-    border:1px solid red;
-    color:red;
-    font-weight:bold;
+    padding: 10px;
+    background-color: white;
+    border:1px solid  red;
+    color: red;
+    font-weight: bold;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
 }
 #error-close-btn{
-    float:right;
+    float: right;
 }
 
 // *** header ***
  
-.header {
+.header{
     background-color: #AD8457;
     color: white;
-    height:4em;
+    height: 4em;
     padding: 0 3%;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.6);
     a{
-        color:white;
+        color: white;
         &:hover{
-            color:lightpink;
-            text-decoration:underline;
+            color: lightpink;
+            text-decoration: underline;
         }
     }
     .header-btn{
-        background-color:rgba(0,0,0,0);
-        border:2px solid white;
+        background-color: rgba(0,0,0,0);
+        border: 2px solid white;
         color: white;
-        padding-top:15px;
-        padding-bottom:15px;
-        margin-top:7px;
-        transition:.3s;
-        z-index:8;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-top: 7px;
+        transition: .3s;
+        z-index: 8;
         box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
         &:hover{
-            border:2px solid white;
+            border: 2px solid white;
             color: white;
-            text-decoration:none;
-            background-color:rgba(255,255,255,.2);
+            text-decoration: none;
+            background-color: rgba(255,255,255,.2);
         }
     }
     //  ハンバーガーメニューボタン(header-btnと合わせて適用)
     .is-pushed{
-        background-color:rgba(255,255,255,.2);
+        background-color: rgba(255,255,255,.2);
         box-shadow: 0px 0px 0px rgba(0,0,0,0.3);
-        margin-top:8px;
+        margin-top: 8px;
     }
     #menu-btn1{
-        padding:15px 30px;
-        font-size:0.96em;
+        padding: 15px 30px;
+        font-size: 0.96em;
     }
      #menu-btn2{
-        padding:15px 17px;
-        font-size:0.98em;
+        padding: 15px 17px;
+        font-size: 0.98em;
     }
 }
  
-//  ヘッダーハンバーガーメニュー
+// ヘッダーハンバーガーメニュー
 // ページ全体を覆う
 #menu-overlay{
-    position:absolute;
-    width:100%;
-    height:100%;
-    top:0px;
-    z-index:7;
-    display:none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    z-index: 7;
+    display: none;
     // メニューのul,liを囲っている・それぞれ真ん中メニューと右メニュー
-     #menu-modal, #mypage-menu-modal{
-        position:absolute;
-        top:4em;
-        left:12px;
-        width:100%;
-        z-index:8;
-        display:none;
-     }
+    #menu-modal, #mypage-menu-modal{
+        position: absolute;
+        top: 4em;
+        left: 12px;
+        width: 100%;
+        z-index: 8;
+        display: none;
+    }
     .menu-list{
-        background-color:#AD8457;
-        color:white;
-        padding:0;
+        background-color: #AD8457;
+        color: white;
+        padding: 0;
         box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
         a, #how-to-link{
-            color:white;
+            color: white;
             transition: .3s;
             &:hover{
-                color:black;
-                background-color:rgba(255,255,255,.3);
+                color: black;
+                background-color: rgba(255,255,255,.3);
             }
         }
-        li {
-            padding:10px;
+        li{
+            padding: 10px;
         }
     }
 }
@@ -375,44 +374,44 @@ a,span,div {
 // ***footer***
 
 footer{
-    border-top:1px solid lightgrey;
-    height:3em;
-    color:grey;
-    font-size:0.8em;
+    border-top: 1px solid lightgrey;
+    height: 3em;
+    color: grey;
+    font-size: 0.8em;
     position: absolute;
     bottom: 0;
     left: 12px;
-    width:100%;
+    width: 100%;
 }
 //  ロゴの大きさ調整
 .logo{
     background-image: image-url('logo.png');
-    background-size:cover;
+    background-size: cover;
     background-position: center;
-    width:180px;
-    height:37px;
-    margin-top:8px;
+    width: 180px;
+    height: 37px;
+    margin-top: 8px;
 }
 
 //  新規登録・ログインページ
 .box-background{
     background-image: image-url('cafe.jpg');
-    opacity:.9;
-    background-size:cover;
-    background-position:center;
-    padding-top:10px;
-    padding-bottom:50px;
-    margin-top:-12px;
-    margin-bottom:-20px;
+    opacity: .9;
+    background-size: cover;
+    background-position: center;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    margin-top: -12px;
+    margin-bottom: -20px;
 }
 .positioning{
-    min-height:78.5vh;
+    min-height: 78.5vh;
 }
 .is-background-clear{
-    background-color:rgba(255,255,255,.9);
+    background-color: rgba(255,255,255,.9);
 }
 
 // admin
 .admin-sidebar{
-    min-height:93.2vh;
+    min-height: 93.2vh;
 }

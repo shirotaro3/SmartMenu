@@ -2,66 +2,17 @@
     = current_shop.shop_name
     さんの
     = @menu.menu_name
-    のQRコードです。印刷してお使い下さい。
+    のQRコード
 %div{style:"border-bottom:1px solid #{@menu.color}"}
-%p{style:"font-size:1em;"}
-    メニューURL:
-    = @url
+%p
 .qrcodes
-    .color{style:"background-color:#{@menu.color};display:inline-block;border-radius:60px;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,290
-
-    = image_tag qrcode @url,290
-
-    .color{style:"background-color:#{@menu.color};display:inline-block;border-radius:60px;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,290
-
+    -# 小サイズ 2*6=12個表示
+    - 6.times do
+        .color{style:"background-color:#{@menu.color};display:inline-block;"}
+            .qrcode{style:"opacity:.8;"}
+                = image_tag qrcode @url,290
+        = image_tag qrcode @url,290
 .qrcodes
-    = image_tag qrcode @url,290
-
-    .color{style:"background-color:#{@menu.color};display:inline-block;border-radius:60px;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,290
-
-    = image_tag qrcode @url,290
-.qrcodes
-    .color{style:"background-color:#{@menu.color};display:inline-block;border-radius:60px;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,290
-
-    = image_tag qrcode @url,290
-
-    .color{style:"background-color:#{@menu.color};display:inline-block;border-radius:60px;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,290
-
-.qrcodes
-    = image_tag qrcode @url,290
-
-    .color{style:"background-color:#{@menu.color};display:inline-block;border-radius:60px;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,290
-
-    = image_tag qrcode @url,290
-    
-.qrcodes
-    .color{style:"background-color:#{@menu.color};display:inline-block;border-radius:60px;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,420
-    = image_tag qrcode @url,420
-
-
-.qrcodes
-    = image_tag qrcode @url,420
-    .color{style:"background-color:#{@menu.color};display:inline-block;border-radius:60px;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,420
-
-
-.qrcodes
-    .color{style:"background-color:#{@menu.color};display:inline-block;border-radius:60px;"}
-        .qrcode{style:"opacity:.8;"}
-            = image_tag qrcode @url,420
-    = image_tag qrcode @url,420
+    -# 中サイズ 6個表示
+    - 6.times do
+        = image_tag qrcode @url,420

@@ -1,8 +1,8 @@
--content_for(:title) {'カテゴリ'}
+- content_for(:title) {'カテゴリ'}
 .container
     .columns
         .column.is-3.is-hidden-mobile
-            =render 'shop/sidebar'
+            = render 'shop/sidebar'
         .column.is-8.main-content
 
             .columns
@@ -12,7 +12,7 @@
                     .text-small.text-center
                         %p カテゴリの一覧です。
                         %p （例：ソフトドリンク、アルコール、デザートなど）
-                    -if @categories.any?
+                    - if @categories.any?
                         .box.has-middle-margin
                             %table.table
                                 %thead

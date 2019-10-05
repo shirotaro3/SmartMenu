@@ -28,7 +28,6 @@
                                 %td
                                     .text-center
                                         = link_to "詳細",admin_deleted_shop_path(deleted_shop),class:"button is-small is-white"
-            
-            -if @deleted_shops.total_pages >= 2
+            - if @deleted_shops.total_pages >= 2
                 .paginate.has-small-margin
                     = paginate @deleted_shop

@@ -1,10 +1,9 @@
--content_for(:title) {"#{@item_group.category.name}"}
+- content_for(:title) {"#{@item_group.category.name}"}
 .container
     .columns
         .column.is-3.is-hidden-mobile
-            =render 'shop/sidebar'
-        .column.is-8.main-content
-            
+            = render 'shop/sidebar'
+        .column.is-8.main-content      
             -# 階層リンク
             .links-nav.text-ex-small
                 = link_to "メニュー管理",shop_menus_path
@@ -13,7 +12,6 @@
                     = @item_group.menu.menu_name
                 >
                 = @item_group.category.name
-
             -# アイテム一覧        
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
@@ -22,10 +20,8 @@
                             = @item_group.category.name
                     %p.text-small.text-center
                         グループ内のアイテム一覧です。
-                        =link_to "[グループ画像変更]",edit_shop_item_group_path(@item_group)
-
-                    
-                    -if @menu_items.any?
+                        = link_to "[グループ画像変更]",edit_shop_item_group_path(@item_group)           
+                    - if @menu_items.any?
                         .box.has-middle-margin
                             .columns.is-mobile
                                 .column.is-2
@@ -38,7 +34,6 @@
                                 .column.is-2
                             #itemlist
                                 = render 'itemlist',menu_items: @menu_items
-        
                     -# アイテム追加フォーム
                     .box.has-middle-margin
 
@@ -47,7 +42,7 @@
                                 アイテム追加
                             %p.text-small 新しくアイテムを追加します。
                         .has-middle-margin
-                            =form_with model: @menu_item ,url: shop_item_group_menu_items_path(@item_group),local: true do |f|
+                            = form_with model: @menu_item ,url: shop_item_group_menu_items_path(@item_group),local: true do |f|
                                 = render 'layouts/error-message', model: f.object
                                 .field
                                     %span.label アイテム画像

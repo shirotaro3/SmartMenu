@@ -1,10 +1,9 @@
--content_for(:title) {'ご利用方法'}
+- content_for(:title) {'ご利用方法'}
 .container
     .columns
         .column.is-3.is-hidden-mobile
-            =render 'shop/sidebar'
+            = render 'shop/sidebar'
         .column.is-8.main-content
-
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet.text-center
                     %h2.text-ex-large SmartMenuご利用方法
@@ -31,7 +30,7 @@
                                 .step
                                     .has-under-line-blue.is-inline-block Step2
                                 .has-small-margin
-                                    =link_to "「メニュー管理」",shop_menus_path
+                                    = link_to "「メニュー管理」",shop_menus_path
                                     より、メニューを作成します。メニュー名はメニューの見出しになります。テーマカラーはメニューをお好みの色で表示する機能です。
                             %li ↓
                             %li.box.has-small-margin.has-background-light
@@ -52,8 +51,7 @@
                                 .has-small-margin.strong
                                     「メニュー管理」→「メニュー詳細」より作成したメニューをご確認いただけます。
                                     .text-small.has-middle-margin
-                                        QRコードボタンを押すと、PDF形式でQRコードが出力されます。お店に設置してご利用ください。
-                            
+                                        QRコードボタンを押すと、PDF形式でQRコードが出力されます。お店に設置してご利用ください。                 
                     .box.has-middle-margin
                         %h3.text-large.has-under-line-pink 〜その他機能の説明〜
                         %ul.has-large-margin

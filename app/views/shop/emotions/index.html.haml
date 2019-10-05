@@ -1,10 +1,9 @@
--content_for(:title) {'エモーション'}
+- content_for(:title) {'エモーション'}
 .container
     .columns
         .column.is-3.is-hidden-mobile
-            =render 'shop/sidebar'
+            = render 'shop/sidebar'
         .column.is-8.main-content
-
             .columns
                 .column.is-10-desktop.is-offset-1-desktop.is-12-tablet.is-offset-0-tablet
                     %h2.text-large.text-center.has-under-line-pink
@@ -13,10 +12,10 @@
                         お店の利用者がボタンを押した回数です。
                     .box.has-middle-margin
                         = render 'shop/mypages/emotions',emotions: @emotions
-                        -if @emotions[:happy] == 0 && @emotions[:dizzy] == 0 && @emotions[:grin] == 0
+                        - if @emotions[:happy] == 0 && @emotions[:dizzy] == 0 && @emotions[:grin] == 0
                             %p.text-center
                                 エモーションはまだついていません。
-                        -else
+                        - else
                             .chart
                                 = pie_chart @emotions
                             .has-large-margin.text-center

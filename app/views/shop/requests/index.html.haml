@@ -1,8 +1,8 @@
--content_for(:title) {'リクエスト'}
+- content_for(:title) {'リクエスト'}
 .container
     .columns
         .column.is-3.is-hidden-mobile
-            =render 'shop/sidebar'
+            = render 'shop/sidebar'
         .column.is-8.main-content
 
             .columns
@@ -27,9 +27,9 @@
                                     = simple_date(request.created_at)
                                     = link_to shop_request_path(request), class:"button is-rounded is-small is-success",method: :delete,data:{confirm:"削除してもよろしいですか？"} do
                                         %i.fas.fa-check
-                    -else
+                    - else
                         .has-middle-margin.box
                             リクエストは届いていません。
-                    -if @requests.total_pages >= 2
+                    - if @requests.total_pages >= 2
                         .paginate.has-small-margin
                             = paginate @requests

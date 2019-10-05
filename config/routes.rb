@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'pages#top'
   devise_for :shops, skip: :all
+  # devise 必要なルーティングのみ使用
   devise_scope :shop do
     get 'sign_up' => 'shops/registrations#new', as: :new_shop_registration
     post 'sign_up' => 'shops/registrations#create', as: :shop_registration

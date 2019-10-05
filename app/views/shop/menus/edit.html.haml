@@ -1,8 +1,8 @@
--content_for(:title) {"#{@menu_name}情報編集"}
+- content_for(:title) {"#{@menu_name}情報編集"}
 .container
     .columns
         .column.is-3.is-hidden-mobile
-            =render 'shop/sidebar'
+            = render 'shop/sidebar'
         .column.is-8.main-content
             -# 階層リンク
             .links-nav.text-ex-small
@@ -11,7 +11,6 @@
                 = link_to shop_menu_path(@menu) do
                     = @menu_name
                 >編集
-
             -# メニュー編集フォーム
             %h2.text-large.has-under-line-pink.text-center
                 %i.fas.fa-edit

@@ -1,5 +1,6 @@
 class Shop::MypagesController < ApplicationController
     before_action :authenticate_shop!
+    
     def top
         # リクエスト5件まで取得(モデルにてorder)
         @requests = current_shop.requests.limit(5)
@@ -51,11 +52,7 @@ class Shop::MypagesController < ApplicationController
         end
     end
 
-
-
     private
-
-
     def shop_params
         params.require(:shop).permit(:state,:city,:street,:phone_number,:shop_name,:postal_code,:email,:password,:password_confirmation,:current_password)
     end

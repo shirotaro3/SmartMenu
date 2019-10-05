@@ -1,5 +1,6 @@
 class Shop::RequestsController < ApplicationController
     before_action :authenticate_shop!
+    
     def index
         @requests = current_shop.requests.page(params[:page]).per(5)
     end

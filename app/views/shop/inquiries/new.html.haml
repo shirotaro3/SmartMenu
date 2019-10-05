@@ -1,8 +1,8 @@
--content_for(:title) {'お問い合わせ'}
+- content_for(:title) {'お問い合わせ'}
 .container
     .columns
         .column.is-3.is-hidden-mobile
-            =render 'shop/sidebar'
+            = render 'shop/sidebar'
         .column.is-8.main-content
 
             .columns
@@ -17,13 +17,13 @@
                         = form_with model: @inquiry,url: confirm_shop_inquiry_path,local: true do |f|
                             = render 'layouts/error-message',model: f.object
                             .field
-                                =f.label :name, "お名前", class:"label"
+                                = f.label :name, "お名前", class:"label"
                                 .control
-                                    =f.text_field :name,class:"input",placeholder:"お名前を入力してください（20文字以内）"
+                                    = f.text_field :name,class:"input",placeholder:"お名前を入力してください（20文字以内）"
                             .field
-                                =f.label :message, "本文" ,class:"label"
+                                = f.label :message, "本文" ,class:"label"
                                 .control
-                                    =f.text_area :message,class:"textarea",placeholder:"お問い合わせ内容を入力してください。（200文字以内）"
+                                    = f.text_area :message,class:"textarea",placeholder:"お問い合わせ内容を入力してください。（200文字以内）"
                             .field
                                 .control.text-center
                                     = f.submit "内容確認へ進む",class:"button is-rounded is-dark"

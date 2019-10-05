@@ -1,6 +1,5 @@
 class Admin::DeletedShopsController < ApplicationController
     layout 'layouts/admin'
-
     before_action :current_admin
     before_action :require_admin_sign_in!
 
