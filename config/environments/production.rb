@@ -105,5 +105,5 @@ Rails.application.configure do
     enable_starttls_auto:  true
   }
   # googleアナリティクス トラッキングID
-  Ga.tracker = Rails.application.credentials.google_tracking_id
+  GA.tracker = Rails.application.credentials.google_tracking_id
 end
