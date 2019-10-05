@@ -14,82 +14,82 @@
  *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_self
  */
- @import "bulma";
- @import 'font-awesome-sprockets';
- @import 'font-awesome';
+@import "bulma";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
- @font-face {
+@font-face {
     font-family: 'Noto Sans Japanese';
     font-style: normal;
     font-weight: normal;
     font-display:swap;
     src: font-url('NotoSansJP-Regular.otf') format('opentype');
-  }
-  @font-face {
+}
+@font-face {
     font-family: 'Noto Sans Japanese';
     font-style: normal;
     font-display:swap;
     font-weight: bold;
     src: font-url('NotoSansJP-Bold.otf') format('opentype');
-  }
-  @font-face {
+}
+@font-face {
     font-family: 'Noto Sans Japanese';
     font-style: normal;
     font-display:swap;
     font-weight: 800;
     src: font-url('NotoSansJP-Black.otf') format('opentype');
-  }
+}
  // 共通
- html{
+html{
     //  footerをposition:fixedを使わずに下部に配置する
 	min-height: 98.6vh;
     position: relative;
- }
+}
 
- body{
+body{
     font-family: 'Noto Sans Japanese', sans-serif;
     font-size:1em;
- }
+}
 //  footer用余白・adminではフッターがないため非適用
- .body{
+.body{
     margin-bottom: 3em;
- }
+}
 
 //  画像のレスポンシブ化(縦横比を保ちながら親要素の横幅まで拡大・縮小)
- img{
-     width:100%;
-     max-width: 100%;
-     height: auto;
- }
+img{
+    width:100%;
+    max-width: 100%;
+    height: auto;
+}
 
- .container{
-     margin-top:40px;
- }
+.container{
+    margin-top:40px;
+}
 
 //  スマホでタップ時のハイライトカラーを消す
- a,span,div {
+a,span,div {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
- }
+}
 
 //  文字の大きさなど
- .text-large {
+.text-large {
     font-size: 1.2em;
     font-weight:bold;
- }
- .text-small{
+}
+.text-small{
     font-size: 0.9em;
- }
- .text-ex-large{
+}
+.text-ex-large{
     font-size: 1.7em;
     font-weight:bold;
- }
- .text-ex-small{
-     font-size: 0.8em;
- }
- .text-moderate-large{
-     font-size: 1.1em;
- }
- .strong{
+}
+.text-ex-small{
+    font-size: 0.8em;
+}
+.text-moderate-large{
+    font-size: 1.1em;
+}
+.strong{
     font-weight:bold;
 }
 
@@ -125,45 +125,45 @@
     margin-top:8px;
 }
 // 文字寄せ
- .text-right{
-     text-align:right;
- }
- .text-center{
-     text-align:center;
- }
- .text-left{
-     text-align:left;
- }
+.text-right{
+    text-align:right;
+}
+.text-center{
+    text-align:center;
+}
+.text-left{
+    text-align:left;
+}
 //  
- .block-center{
-     margin: 0 auto;
- }
+.block-center{
+    margin: 0 auto;
+}
 //  主にボタンの右寄せに使用
- .is-float-right{
-     float:right;
- }
+.is-float-right{
+    float:right;
+}
 //  tdの高さ出し
- .td-padding{
-     padding-top:24px;
-     padding-bottom:24px;
- }
+.td-padding{
+    padding-top:24px;
+    padding-bottom:24px;
+}
  
- .touch{
-     transition:.3s;
-     &:hover{
-         opacity:.6;
-     }
- }
+.touch{
+    transition:.3s;
+    &:hover{
+        opacity:.6;
+    }
+}
 
 //  テーブルクラスの横幅を100%にして、レイアウト保持のため横幅を固定
- .table{
-     width:100%;
-     table-layout:fixed;
- }
+.table{
+    width:100%;
+    table-layout:fixed;
+}
 //  文字列が長くなった時、回り込むようにする（文字ハミ出し防止）
- .column{
+.column{
     word-wrap: break-word;
- }
+}
 //  kaminariのページネーションを囲う・inline化して中央寄せする
 .paginate{
     text-align:center;
@@ -184,22 +184,22 @@
 }
 
 // 色選択ボックス(layouts/_select-colors)
- .select-colors{
-     label{
+.select-colors{
+    label{
         transition:.3s;
         &:hover{
             opacity:.7;
         }
-     }
+    }
     //  checkedの時、隣接する.ballに色をつける(隣接セレクタ）
-     input[type=radio]{
-         display:none;
-         &:checked + .ball{
-             background-color:rgba(255,255,255,.3);
-             border:1px solid rgba(0,0,0,.3);
-         }
-     }
- }
+    input[type=radio]{
+        display:none;
+        &:checked + .ball{
+            background-color:rgba(255,255,255,.3);
+            border:1px solid rgba(0,0,0,.3);
+        }
+    }
+}
 
 // inline-blockの円（色関係で使用）
 .ball{
@@ -211,20 +211,20 @@
 }
 
 // メインカラムのpadding調整
- .main-content{
-     padding-top:30px;
-     padding-bottom:30px;
-     margin:0 10px;
-     background-color:white;
-     border-radius:30px;
-     position:relative;
-     box-shadow:2px 2px 6px rgba(0,0,0,.2);
- }
- // main-contentの上部に階層リンクを配置
- .links-nav{
-     position:absolute;
-     top:-19px;
- }
+.main-content{
+    padding-top:30px;
+    padding-bottom:30px;
+    margin:0 10px;
+    background-color:white;
+    border-radius:30px;
+    position:relative;
+    box-shadow:2px 2px 6px rgba(0,0,0,.2);
+}
+// main-contentの上部に階層リンクを配置
+.links-nav{
+    position:absolute;
+    top:-19px;
+}
 //  チャートの透明度
 .chart{
     opacity:.8;
@@ -239,42 +239,42 @@
 .dizzy{
     color:#FFAD33;
 }
- // *** フラッシュメッセージ ***
- #flash-message{
-     position:fixed;
-     top:4em;
-     left:0;
-     width:100%;
-     z-index:6;
-     display:none;
-     .notice,.alert,.danger{
-        border-radius:20px;
-        padding:10px;
-        font-weight:bold;
-        box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
-     }
-     .notice{
-        background-color: #AD8457;
-         color:white;
-     }
-     .alert{
-         background-color:white;
-         border:1px solid red;
-         color:red;
-     }
-     .danger{
-         background-color:black;
-         color:red;
-     }
- }
- #error-message{
+// *** フラッシュメッセージ ***
+#flash-message{
     position:fixed;
     top:4em;
     left:0;
     width:100%;
     z-index:6;
     display:none;
- }
+    .notice,.alert,.danger{
+        border-radius:20px;
+        padding:10px;
+        font-weight:bold;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+    }
+    .notice{
+        background-color: #AD8457;
+        color:white;
+    }
+    .alert{
+        background-color:white;
+        border:1px solid red;
+        color:red;
+    }
+    .danger{
+        background-color:black;
+        color:red;
+    }
+}
+#error-message{
+    position:fixed;
+    top:4em;
+    left:0;
+    width:100%;
+    z-index:6;
+    display:none;
+}
 .error-message{
     padding:10px;
     background-color:white;
@@ -283,67 +283,67 @@
     font-weight:bold;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
 }
- #error-close-btn{
-     float:right;
- }
+#error-close-btn{
+    float:right;
+}
 
- // *** header ***
+// *** header ***
  
- .header {
-     background-color: #AD8457;
-     color: white;
-     height:4em;
-     padding: 0 3%;
-     box-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-     a{
-         color:white;
-         &:hover{
-             color:lightpink;
-             text-decoration:underline;
-         }
-     }
-     .header-btn{
-         background-color:rgba(0,0,0,0);
-         border:2px solid white;
-         color: white;
-         padding-top:15px;
-         padding-bottom:15px;
-         margin-top:7px;
-         transition:.3s;
-         z-index:8;
-         box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
-         &:hover{
-             border:2px solid white;
-             color: white;
-             text-decoration:none;
-             background-color:rgba(255,255,255,.2);
-         }
-     }
+.header {
+    background-color: #AD8457;
+    color: white;
+    height:4em;
+    padding: 0 3%;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    a{
+        color:white;
+        &:hover{
+            color:lightpink;
+            text-decoration:underline;
+        }
+    }
+    .header-btn{
+        background-color:rgba(0,0,0,0);
+        border:2px solid white;
+        color: white;
+        padding-top:15px;
+        padding-bottom:15px;
+        margin-top:7px;
+        transition:.3s;
+        z-index:8;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+        &:hover{
+            border:2px solid white;
+            color: white;
+            text-decoration:none;
+            background-color:rgba(255,255,255,.2);
+        }
+    }
     //  ハンバーガーメニューボタン(header-btnと合わせて適用)
-     .is-pushed{
+    .is-pushed{
         background-color:rgba(255,255,255,.2);
         box-shadow: 0px 0px 0px rgba(0,0,0,0.3);
         margin-top:8px;
-     }
-     #menu-btn1{
-         padding:15px 30px;
-         font-size:0.96em;
-     }
+    }
+    #menu-btn1{
+        padding:15px 30px;
+        font-size:0.96em;
+    }
      #menu-btn2{
-         padding:15px 17px;
-         font-size:0.98em;
-     }
- }
+        padding:15px 17px;
+        font-size:0.98em;
+    }
+}
  
 //  ヘッダーハンバーガーメニュー
 // ページ全体を覆う
- #menu-overlay{
-     position:absolute;
-     width:100%;
-     height:100%;
-     top:0px;
-     z-index:7;
-     display:none;
+#menu-overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0px;
+    z-index:7;
+    display:none;
     // メニューのul,liを囲っている・それぞれ真ん中メニューと右メニュー
      #menu-modal, #mypage-menu-modal{
         position:absolute;
@@ -370,29 +370,29 @@
             padding:10px;
         }
     }
- }
+}
 
- // ***footer***
+// ***footer***
 
- footer{
-     border-top:1px solid lightgrey;
-     height:3em;
-     color:grey;
-     font-size:0.8em;
-     position: absolute;
-     bottom: 0;
-     left: 12px;
-     width:100%;
- }
+footer{
+    border-top:1px solid lightgrey;
+    height:3em;
+    color:grey;
+    font-size:0.8em;
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    width:100%;
+}
 //  ロゴの大きさ調整
- .logo{
-     background-image: image-url('logo.png');
-     background-size:cover;
-     background-position: center;
-     width:180px;
-     height:37px;
-     margin-top:8px;
- }
+.logo{
+    background-image: image-url('logo.png');
+    background-size:cover;
+    background-position: center;
+    width:180px;
+    height:37px;
+    margin-top:8px;
+}
 
 //  新規登録・ログインページ
 .box-background{
@@ -410,4 +410,9 @@
 }
 .is-background-clear{
     background-color:rgba(255,255,255,.9);
+}
+
+// admin
+.admin-sidebar{
+    min-height:93.2vh;
 }
