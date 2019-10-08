@@ -49,7 +49,7 @@ Rails.application.routes.draw do
     end
     # メニュー(shallow true)
     resources :menus, except: :new, shallow: true do
-      get :qrcode, on: :member
+      get :code, on: :member
       # アイテムグループ(shallow true)
       resources :item_groups,only:[:create,:destroy,:edit,:update], shallow: true do
         get :move_higher, on: :member

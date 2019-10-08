@@ -50,11 +50,11 @@ class Shop::MenusController < ApplicationController
         correct_shop(@menu) and return
     end
 
-    # QRコードの表示
+    # 2次元コードの表示
     def qrcode
         @menu = Menu.find(params[:id])
         correct_shop(@menu) and return
-        # MENUのURL QRコードヘルパーで使用
+        # MENUのURL 2次元コードヘルパーで使用
         @url = user_menu_url(@menu)
         respond_to do |format|
             format.html{render layout: 'layouts/qrcode'}

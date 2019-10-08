@@ -1,14 +1,12 @@
 # SmartMenu
   
 ![作成したメニュー](https://github.com/shirotaro3/images/blob/master/smartmenu.png?raw=true)
-![QRコード](https://github.com/shirotaro3/images/blob/master/qrcode.png?raw=true)
+![2次元コード](https://github.com/shirotaro3/images/blob/master/qrcode.png?raw=true)
 
 ## 説明  
   
 SmartMenuは主に個人経営の飲食店など向けのメニュー作成アプリです。  
-紙のメニューの代わりにQRコードを設置することで、利用者のスマートフォンから簡単にメニューを閲覧できるようになります。  
-<span style="font-size: 10px">(QRコードは(株)デンソーウェーブの登録商標です)</span>  
-
+紙のメニューの代わりに2次元コードを設置することで、利用者のスマートフォンから簡単にメニューを閲覧できるようになります。  
 ***デモ***  
   
 [デモサイト](https://smartmenu.tokyo)  
@@ -17,7 +15,7 @@ SmartMenuは主に個人経営の飲食店など向けのメニュー作成ア�
   
 Eメール：　sample@sample.com  
 パスワード： sample  
-（上のQRコードを読み込むとメニューのサンプルが開きます）
+（上の2次元コードを読み込むとメニューのサンプルが開きます）
   
 ***使い方***  
   
@@ -29,8 +27,8 @@ Eメール：　sample@sample.com
 ### メニュー作成機能  
 サイト上でメニューを作成・閲覧できます。メイン機能です。  
   
-### QRコード作成機能  
-作成したメニューを開くためのQRコードを生成できます。  
+### 2次元コード作成機能  
+作成したメニューを開くための2次元コードを生成できます。  
 PDF形式で出力されます。 
   
 ### テーマカラー変更機能  
@@ -85,7 +83,7 @@ ActionMailerを利用して、お問い合わせフォームを作りました�
 ### 4.　エモーション機能・QR出力機能  
 - エモーション機能では、ユーザー登録なしでも連続的な投稿を制御できるよう、セッションを利用しました。  
   
-- QR作成機能ではQRコード生成＋PDF出力を合わせ、印刷しやすいようにしました。  
+- 2次元コード作成機能では2次元コード生成＋PDF出力を合わせ、印刷しやすいようにしました。  
   
 ### 5.　Let's EncryptでSSL化 & cronで更新を自動化  
 - certbotを利用して、letsencryptのSSL証明書を発行しました。cronの設定をし1ヶ月ごとに自動で更新されるようにしました。  

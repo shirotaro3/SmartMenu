@@ -1,7 +1,7 @@
 module ApplicationHelper
     require 'chunky_png'
 
-    # QRコード表示
+    # 2次元コード表示
     def qrcode(text,size, options = {})
         qr = ::RQRCode::QRCode.new(text)
      return ChunkyPNG::Image.from_datastream(qr.as_png.resize(size.to_i,size.to_i).to_datastream).to_data_url

@@ -98,7 +98,7 @@ gem 'font-awesome-sass'
 gem 'haml-rails'
 # jsライブラリ
 gem 'jquery-rails'
-# QRコード生成
+# 2次元コード生成
 gem 'rqrcode'
 gem 'chunky_png'
 # グラフの描画

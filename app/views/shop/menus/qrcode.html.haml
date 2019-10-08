@@ -4,14 +4,14 @@
     = @menu.menu_name
 %div{style:"border-bottom:1px solid #{@menu.color}"}
 %p
-.qrcodes
+.codes
     -# 小サイズ 2*6=12個表示
     - 6.times do
         .color{style:"background-color:#{@menu.color};display:inline-block;"}
             .qrcode{style:"opacity:.8;"}
                 = image_tag qrcode @url,290
         = image_tag qrcode @url,290
-.qrcodes
+.codes
     -# 中サイズ 6個表示
     - 6.times do
         = image_tag qrcode @url,420
