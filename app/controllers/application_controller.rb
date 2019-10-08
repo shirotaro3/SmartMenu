@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     # adminログイン状態保持(クッキーを確認して@current_adminをセット)
     def current_admin
         # クッキーのremember_tokenをハッシュ化して代入
-        remember_token = Admin.encrypt(cookies[:admin_remember_token])
+        remember_token = Admin.encrypt(session[:admin_remember_token])
         # ハッシュ化されたremember_tokenでfind、一致したadminを代入
         @current_admin ||= Admin.find_by(remember_token: remember_token)
     end

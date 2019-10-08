@@ -40,8 +40,8 @@ class Admin::SessionsController < ApplicationController
     def sign_in(admin)
         # クラスメソッドでランダムな文字列を生成
         remember_token = Admin.new_remember_token
-        # 永続(期限付き)クッキーにremember_tokenを保存
-        cookies.permanent[:admin_remember_token] = remember_token
+        # クッキーにremember_tokenを保存
+        session[:admin_remember_token] = remember_token
         # クラスメソッドでハッシュ化したremember_tokenをadminに保存
         admin.update!(remember_token: Admin.encrypt(remember_token))
         @current_admin = admin
@@ -51,6 +51,6 @@ class Admin::SessionsController < ApplicationController
     def sign_out
         @current_admin = nil
         # クッキーを削除
-        cookies.delete(:admin_remember_token)
+        session.delete(:admin_remember_token)
     end
 end
