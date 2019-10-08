@@ -51,7 +51,7 @@ class Shop::MenusController < ApplicationController
     end
 
     # 2次元コードの表示
-    def qrcode
+    def two_d_code
         @menu = Menu.find(params[:id])
         correct_shop(@menu) and return
         # MENUのURL 2次元コードヘルパーで使用
@@ -59,7 +59,7 @@ class Shop::MenusController < ApplicationController
         respond_to do |format|
             format.html{render layout: 'layouts/qrcode'}
             format.pdf do
-                render  pdf: 'qrcode',
+                render  pdf: '2Dcode',
                         layout: 'layouts/qrcode',
                         encoding: 'utf-8'
             end

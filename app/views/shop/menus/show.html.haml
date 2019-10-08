@@ -24,7 +24,7 @@
                             .column.is-8
                                 =@menu.menu_name
                                 .is-float-right
-                                    = link_to qrcode_shop_menu_path(@menu, format: :pdf),target: :_blank, class:'button is-rounded is-small' do
+                                    = link_to two_d_code_shop_menu_path(@menu, format: :pdf),target: :_blank, class:'button is-rounded is-small' do
                                         %i.fas.fa-qrcode
                                         Code
                                     = link_to edit_shop_menu_path(@menu),class:'button is-rounded is-small' do
